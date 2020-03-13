@@ -7,6 +7,7 @@ I have made it for my personnal usage and personnaly use it every day at work an
 Here are some screen shots of the UI :
 
 Main window :
+
 ![Task bar icon](https://nabr.blob.core.windows.net/nab/main.jpg)
 
 Task bar icon : 
