@@ -79,8 +79,7 @@ namespace NeedABreak
         }
 
         /// <summary>
-        /// Vérifie que la clé n'est pas nulle avant d'effectuer une action dessus. Ferme et dispose la
-        /// clé une fois terminé.
+        /// Check that key is not null then close and dispose it
         /// </summary>
         /// <param name="key"></param>
         /// <param name="action"></param>
@@ -101,7 +100,7 @@ namespace NeedABreak
             //string s = "Software" + '\\' + "Microsoft" + '\\' + "Windows" + '\\' + "CurrentVersion" + '\\' + "Run";
             //StringBuilder sb = new StringBuilder(@"Software\Microsoft\Windows\CurrentVersion\Run");
 
-            // Si je mets des \ dans la chaine ça fait planter Fody lors de la compil :/
+            // Not possible to put \ in string because it breaks Fody during build :/
             return Registry.CurrentUser.OpenSubKey("Software/Microsoft/Windows/CurrentVersion/Run"
                 .Replace('/', '\\'), writable);
         }

@@ -26,17 +26,14 @@ using System.Runtime.InteropServices;
 using System.Timers;
 using System.Windows;
 
-//todo: ajouter un bouton "verrouiller maintenant !" en plus de "Annuler"
-//todo: ajouter une étoile sur les boutons afin de permettre à l'utilisateur de choisir sa durée favorite. Cette dernière sera sélectionnée automatiquement au démarrage de l'application
-//todo: reprendre le temps restant là où il était quand l'application redémarre (par exemple suite à redémarrage du pc)
-//todo: détection d'autres instances sur le réseau, possibilité d'ajouter en temps qu'ami et de synchroniser les verrouillages
-//todo: coche pour permettre à l'utilisateur de désactiver le balloon tip
-//todo: écran à propos avec lien vers le site de l'INRS
-//todo: balloon tip toutes les 20 minutes pour rappeler à l'utilisateur de quitter l'écran des yeux et regarder au loin (désactivable)
-//todo: paramétrage de la durée du décompte avant verrouillage
-//todo: pouvoir choisir la durée du rappel
-//todo: afficher le temps restant à la seconde près au lieu de minutes
-//todo: Afficher dans le tooltip l’heure à laquelle le pc va se verrouiller
+//todo: add a "lock now !" button on the main window
+//todo: add a star button to allow user to select his favorite time frame. The selected time frame will be automatically selected at startup.
+//todo: store time left before screen locking in cas of reboot
+//todo: detect other instances on the same network to synchronize break with friends
+//todo: checkbox to disable balloon tip
+//todo: About box with link to INRS site and license
+//todo: balloon tip to remind user about looking away from screen every 20 minutes (deactivable)
+//todo: postpone delay configuration
 namespace NeedABreak
 {
     /// <summary>
@@ -46,15 +43,14 @@ namespace NeedABreak
     {
         private static DateTime startTime;
         private static System.Threading.Mutex mutex;
-		public static int Delay = 10;      // Secondes	(peut être remplacé par une valeur faible pour faciliter le débug)
-		//public static int Delay = 60;      // Secondes
+		public static int Delay = 5400;      // Seconds	(put a low value here to facilitate debugging)
 		private Timer timer;
 
         static App()
         {
             // Uncomment to force a different language for UI testing
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
-            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en");
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
+            //System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en");
             ConfigureLog4Net();
         }
 
@@ -64,8 +60,8 @@ namespace NeedABreak
             mutex = new System.Threading.Mutex(false, "Local\\NeedABreakInstance");
             if (!mutex.WaitOne(0, false))
             {
-                App.Logger.Info("Application already running");
-                App.Current.Shutdown();
+                Logger.Info("Application already running");
+                Current.Shutdown();
                 return;
             }
             InitializeComponent();
@@ -75,7 +71,7 @@ namespace NeedABreak
                 timer = new Timer(60000);
             }
             else
-            {	// Pour faciliter le débug timer toutes les 10 secondes quand délai paramétré inférieur à 2 minutes mais ça fait péter le compte à rebours (réenclenchement chaque seconde)
+            {	// timer every 10 secondes to facilitate debug when delay is less than 2 minutes, caveat : it breaks countdown (reinit each second)
                 timer = new Timer(10000);
             }
             timer.Elapsed += Timer_Elapsed;
@@ -146,15 +142,14 @@ namespace NeedABreak
 
 		internal static void ShiftStartTime()
 		{
-			startTime += TimeSpan.FromMinutes(5);		// On décale l'heure de début de 5 minutes ce qui va décaler d'autant l'heure de verrouillage (modification Delay interdite)
+			startTime += TimeSpan.FromMinutes(5);		// 5 minutes time skew which delay lock time to 5 minutes (Delay modification is forbidden)
 		}
 
         private static void ConfigureLog4Net()
         {
-            // Chemin par défaut du fichier de logs (on peut le changer dans le .config)
+            // default log path (can be changed in .config)
             log4net.GlobalContext.Properties["LogFilePath"] = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "NeedABreak Logs", "needabreak.log");
-            // En cas de problème coll contient la liste des erreurs
-            var coll = log4net.Config.XmlConfigurator.Configure();
+            log4net.Config.XmlConfigurator.Configure();
             Logger = LogManager.GetLogger(typeof(App));
         }
     }
