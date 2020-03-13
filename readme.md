@@ -8,10 +8,13 @@ Here are some screen shots of the UI :
 Main window :
 ![Task bar icon](https://nabr.blob.core.windows.net/nab/main.jpg)
 Task bar icon : 
+
 ![Task bar icon](https://nabr.blob.core.windows.net/nab/taskbar.jpg)
 Menu : 
+
 ![Task bar icon](https://nabr.blob.core.windows.net/nab/menu.jpg)
 Settings :
+
 ![Task bar icon](https://nabr.blob.core.windows.net/nab/settings.jpg)
 
 # Get started
