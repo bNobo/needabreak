@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="fr-FR" target-language="it" original="NEEDABREAK/PROPERTIES/RESOURCES.RESX" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6915.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="NEEDABREAK/PROPERTIES/RESOURCES.RESX" datatype="resx">
+        <trans-unit id="ajuster_le_delai" translate="yes" xml:space="preserve">
+          <source>Ajuster le délai</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Regolare l'intervallo di tempo</target>
+        </trans-unit>
+        <trans-unit id="annuler" translate="yes" xml:space="preserve">
+          <source>Annuler</source>
+          <target state="needs-review-translation" state-qualifier="exact-match">Annulla</target>
+        </trans-unit>
+        <trans-unit id="executer_au_demarrage" translate="yes" xml:space="preserve">
+          <source>Exécuter au démarrage</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Esegui all'avvio</target>
+        </trans-unit>
+        <trans-unit id="explications" translate="yes" xml:space="preserve">
+          <source>Lorsqu'on travaille sur écran, il est impératif de respecter un régime de pauses qui doit être fonction de l'intensité du travail. Choisissez le délai approprié en fonction de l'intensité du travail que vous devez accomplir.</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Quando si lavora su uno schermo, è imperativo seguire un regime di pausa che deve essere basato sull'intensità del lavoro. Scegli l'intervallo di tempo appropriato in base all'intensità del lavoro che devi fare.</target>
+        </trans-unit>
+        <trans-unit id="fermer" translate="yes" xml:space="preserve">
+          <source>Fermer</source>
+          <target state="needs-review-translation" state-qualifier="exact-match">Chiudi</target>
+        </trans-unit>
+        <trans-unit id="il_est_l_heure" translate="yes" xml:space="preserve">
+          <source>Il est l'heure de bouger !</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">È ora di muoversi!</target>
+        </trans-unit>
+        <trans-unit id="Imminent_locking" translate="yes" xml:space="preserve">
+          <source>Verrouillage imminent</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Blocco imminente</target>
+        </trans-unit>
+        <trans-unit id="Less_than_a_minute_before_locking" translate="yes" xml:space="preserve">
+          <source>Moins d'une minute avant verrouillage</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Meno di un minuto prima del blocco</target>
+        </trans-unit>
+        <trans-unit id="minutes" translate="yes" xml:space="preserve">
+          <source>minutes</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">min</target>
+        </trans-unit>
+        <trans-unit id="minutes_before_locking" translate="yes" xml:space="preserve">
+          <source>{0:##} minutes avant verrouillage</source>
+          <target state="translated">{0:##} minuti prima del blocco</target>
+        </trans-unit>
+        <trans-unit id="one_minute_before_locking" translate="yes" xml:space="preserve">
+          <source>Une minute avant verrouillage</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Un minuto prima del blocco</target>
+        </trans-unit>
+        <trans-unit id="quitter" translate="yes" xml:space="preserve">
+          <source>Quitter</source>
+          <target state="needs-review-translation" state-qualifier="exact-match">Esci</target>
+        </trans-unit>
+        <trans-unit id="travail_habituel" translate="yes" xml:space="preserve">
+          <source>Travail habituel</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Lavoro abituale</target>
+        </trans-unit>
+        <trans-unit id="travail_intensif" translate="yes" xml:space="preserve">
+          <source>Travail intensif</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Lavoro intensivo</target>
+        </trans-unit>
+        <trans-unit id="travail_peu_intensif" translate="yes" xml:space="preserve">
+          <source>Travail peu intensif</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Lavoro a basso intensità</target>
+        </trans-unit>
+        <trans-unit id="travail_tres_intensif" translate="yes" xml:space="preserve">
+          <source>Travail très intensif</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Lavoro molto intenso</target>
+        </trans-unit>
+        <trans-unit id="notification_avant_verrouillage" translate="yes" xml:space="preserve">
+          <source>Notification avant verrouillage</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Notifica prima del blocco</target>
+        </trans-unit>
+        <trans-unit id="verrouillage_imminent_detail" translate="yes" xml:space="preserve">
+          <source>Le poste va se verrouiller dans moins d'une minute. Pensez à sauvegardez vos modifications !</source>
+          <target state="translated">Lo schermo si bloccherà in meno di un minuto. Ricordati di salvare le modifiche!</target>
+        </trans-unit>
+        <trans-unit id="verrouillage_imminent_title" translate="yes" xml:space="preserve">
+          <source>VERROUILLAGE IMMINENT</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">BLOCCO IMMINENTE</target>
+        </trans-unit>
+        <trans-unit id="reporter" translate="yes" xml:space="preserve">
+          <source>Reporter</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Riporta</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,161 @@
+﻿<!--NEED A BREAK is an application intended to help you take care of your health while you work on a computer. 
+ It will encourage you to regularly have a break in order to rest your back and your eyes.
+    Copyright (C) 2020  Benoît Rocco
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.-->
+<Controls:MetroWindow x:Class="NeedABreak.SettingsWindow"
+					  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+					  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+					  xmlns:local="clr-namespace:NeedABreak"
+					  xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:utils="clr-namespace:NeedABreak.Utils"
+					  mc:Ignorable="d"
+					  Title="Need a break!"
+					  Height="800"
+					  Width="800"
+					  Background="White"
+					  BorderThickness="1"
+					  BorderBrush="#00B570"
+					  WindowTitleBrush="#00B570"
+					  ResizeMode="NoResize"
+					  WindowStartupLocation="CenterScreen"
+					  TitleForeground="White"
+					  Tag="{Binding Delay, Mode=TwoWay}">
+	<Window.Resources>
+		<Style TargetType="TextBlock"
+			   BasedOn="{StaticResource {x:Type TextBlock}}">
+			<Setter Property="Foreground"
+                    Value="#005B38" />
+			<Setter Property="FontSize"
+					Value="20" />
+			<Setter Property="TextAlignment"
+					Value="Center" />
+		</Style>
+	</Window.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="18*" />
+			<RowDefinition Height="33*" />
+            <RowDefinition Height="33*" />
+			<RowDefinition Height="100" />
+		</Grid.RowDefinitions>
+		<TextBlock Text="{utils:TextResource explications}"
+				   Grid.Row="0"
+				   TextWrapping="Wrap"
+				   VerticalAlignment="Center" />
+		<Grid Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<Border Grid.Column="0"
+					BorderThickness="2"
+					BorderBrush="#00B67C"
+					Background="#A6E5D1"
+					Margin="20"
+					MouseEnter="Border_MouseEnter"
+					MouseLeave="Border_MouseLeave"
+					MouseDown="Border_MouseDown"
+					x:Name="Border45">
+				<StackPanel>
+                    <TextBlock Text="{utils:TextResource travail_tres_intensif}" />
+					<TextBlock Text="45"
+							   FontSize="96"
+							   FontWeight="Bold"
+							   Margin="0,20,0,0"/>
+					<TextBlock Text="{utils:TextResource minutes}"
+							   Margin="0,-20,0,0"/>
+				</StackPanel>
+			</Border>
+			<Border Grid.Column="1"
+					BorderThickness="2"
+					BorderBrush="#00B67C"
+					Background="#A6E5D1"
+					Margin="20"
+					MouseEnter="Border_MouseEnter"
+					MouseLeave="Border_MouseLeave"
+					MouseDown="Border_MouseDown"
+					x:Name="Border60">
+				<StackPanel>
+                    <TextBlock Text="{utils:TextResource travail_intensif}" />
+					<TextBlock Text="60"
+							   FontSize="96"
+							   FontWeight="Bold"
+							   Margin="0,20,0,0" />
+                    <TextBlock Text="{utils:TextResource minutes}"
+							   Margin="0,-20,0,0" />
+				</StackPanel>
+			</Border>			
+		</Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0"
+                    BorderThickness="2"
+                    BorderBrush="#00B67C"
+                    Background="#A6E5D1"
+                    Margin="20"
+                    MouseEnter="Border_MouseEnter"
+                    MouseLeave="Border_MouseLeave"
+                    MouseDown="Border_MouseDown"
+                    x:Name="Border90">
+                <StackPanel>
+                    <TextBlock Text="{utils:TextResource travail_habituel}" />
+                    <TextBlock Text="90"
+                               FontSize="96"
+                               FontWeight="Bold"
+                               Margin="0,20,0,0" />
+                    <TextBlock Text="{utils:TextResource minutes}"
+                               Margin="0,-20,0,0" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Column="1"
+                    BorderThickness="2"
+                    BorderBrush="#00B67C"
+                    Background="#A6E5D1"
+                    Margin="20"
+                    MouseEnter="Border_MouseEnter"
+                    MouseLeave="Border_MouseLeave"
+                    MouseDown="Border_MouseDown"
+                    x:Name="Border120">
+                <StackPanel>
+                    <TextBlock Text="{utils:TextResource travail_peu_intensif}" />
+                    <TextBlock Text="120"
+                               FontSize="96"
+                               FontWeight="Bold"
+                               Margin="0,20,0,0" />
+                    <TextBlock Text="{utils:TextResource minutes}"
+                               Margin="0,-20,0,0" />
+                </StackPanel>
+            </Border>
+        </Grid>
+
+		<Button Grid.Row="3"
+				HorizontalAlignment="Right"
+				BorderThickness="0"
+				FontSize="20"
+				Width="150"
+				Height="50"
+				Margin="0,0,20,0"
+				Click="CloseButton_Click">
+            <TextBlock Text="{utils:TextResource fermer}"
+					   Foreground="White" />
+		</Button>
+	</Grid>
+</Controls:MetroWindow>

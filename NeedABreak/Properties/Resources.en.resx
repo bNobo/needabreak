@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ajuster_le_delai" xml:space="preserve">
+    <value>Adjust the time frame</value>
+  </data>
+  <data name="annuler" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="executer_au_demarrage" xml:space="preserve">
+    <value>Run at startup</value>
+  </data>
+  <data name="explications" xml:space="preserve">
+    <value>When working on a screen, it is imperative to follow a break regime that must be based on the intensity of the work. Choose the appropriate time frame based on the intensity of the work you need to do.</value>
+  </data>
+  <data name="fermer" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="il_est_l_heure" xml:space="preserve">
+    <value>It's time to move!</value>
+  </data>
+  <data name="Imminent_locking" xml:space="preserve">
+    <value>Imminent lockdown</value>
+  </data>
+  <data name="Less_than_a_minute_before_locking" xml:space="preserve">
+    <value>Less than a minute before lockdown</value>
+  </data>
+  <data name="minutes" xml:space="preserve">
+    <value>mins</value>
+  </data>
+  <data name="minutes_before_locking" xml:space="preserve">
+    <value>{0:##} minutes before lockdown</value>
+  </data>
+  <data name="one_minute_before_locking" xml:space="preserve">
+    <value>One minute before lockdown</value>
+  </data>
+  <data name="quitter" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="travail_habituel" xml:space="preserve">
+    <value>Usual work</value>
+  </data>
+  <data name="travail_intensif" xml:space="preserve">
+    <value>Intensive work</value>
+  </data>
+  <data name="travail_peu_intensif" xml:space="preserve">
+    <value>Low-intensive work</value>
+  </data>
+  <data name="travail_tres_intensif" xml:space="preserve">
+    <value>Very intensive work</value>
+  </data>
+  <data name="notification_avant_verrouillage" xml:space="preserve">
+    <value>Notification before locking</value>
+  </data>
+  <data name="verrouillage_imminent_detail" xml:space="preserve">
+    <value>The screen will be locked in less than a minute. Remember to save your changes!</value>
+  </data>
+  <data name="verrouillage_imminent_title" xml:space="preserve">
+    <value>IMMINENT LOCKDOWN</value>
+  </data>
+  <data name="reporter" xml:space="preserve">
+    <value>Postpone</value>
+  </data>
+</root>
