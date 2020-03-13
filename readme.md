@@ -1,4 +1,4 @@
-﻿#Presentation
+#Presentation
 NEED A BREAK is an application intended to help you take care of your health while you work on a computer. 
 It will encourage you to regularly have a break in order to rest your back and your eyes.
 
