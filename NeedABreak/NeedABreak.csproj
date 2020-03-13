@@ -171,7 +171,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -207,9 +206,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="coffee cup.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="License.txt" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\right_arrow.png" />
