@@ -1,4 +1,4 @@
-#Presentation
+# Presentation
 NEED A BREAK is an application intended to help you take care of your health while you work on a computer. 
 It will encourage you to regularly have a break in order to rest your back and your eyes.
 
@@ -14,12 +14,12 @@ Menu :
 Settings :
 ![Task bar icon](https://nabr.blob.core.windows.net/nab/settings.jpg)
 
-#Get started
+# Get started
 The project is a WPF application targetting .Net Framework 4.5.2. All you need is a copy of Visual Studio or Visual Studio Code in order to build it.
 Once started, the application creates a coffee cup icon in the task bar to manifest its presence and permits user to interract with it. 
 Just click on the coffee cup to open the application menu.
 
-#Contribute
+# Contribute
 I'm sure this application could be improved in many ways and I would be happy to receive some help in doing so. 
 Most of comments are in french, sorry for that ! I will translate them soon.
 Every contribution is welcome, it includes, but is not limited to :
@@ -29,5 +29,5 @@ Every contribution is welcome, it includes, but is not limited to :
 * Fix bugs
 If you need inspiration there is a couple of todos in the main application file (but they're in french :)
 
-#License
+# License
 This project is under GNU GENERAL PUBLIC LICENSE
