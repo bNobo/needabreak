@@ -35,6 +35,7 @@ Every contribution is welcome, it includes, but is not limited to :
 * Improve translations
 * Improve design
 * Fix bugs
+
 If you need inspiration there is a couple of todos in the main application file (but they're in french :)
 
 # License
