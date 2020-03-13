@@ -37,6 +37,3 @@ Every contribution is welcome, it includes, but is not limited to :
 * Fix bugs
 
 If you need inspiration there is a couple of todos in the main application file (but they're in french :)
-
-# License
-This project is under GNU GENERAL PUBLIC LICENSE
