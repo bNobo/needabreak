@@ -39,7 +39,7 @@ namespace NeedABreak
 
         public MainWindowViewModel()
         {
-            // Initialisation à une valeur non nulle et non vide obligatoire sinon le tooltip n'apparait pas.
+            // Mandatory : non-null and non-empty initialisation, instead tooltip does not appear.
             TrayToolTipText = "'Need a break' just started";
         }
     }
