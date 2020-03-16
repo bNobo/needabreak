@@ -29,11 +29,11 @@ Just click on the coffee cup to open the application menu.
 
 # Contribute
 I'm sure this application could be improved in many ways and I would be happy to receive some help in doing so. 
-Most of comments are in french, sorry for that ! I will translate them soon.
+
 Every contribution is welcome, it includes, but is not limited to :
 * Add new functionalities
 * Improve translations
 * Improve design
 * Fix bugs
 
-If you need inspiration there is a couple of todos in the main application file (but they're in french :)
+If you need inspiration there is a couple of todos in the main application file
