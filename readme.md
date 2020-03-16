@@ -36,4 +36,4 @@ Every contribution is welcome, it includes, but is not limited to :
 * Improve design
 * Fix bugs
 
-If you need inspiration there is a couple of todos in the main application file
+If you need inspiration there is a couple of todos in the main application file.
