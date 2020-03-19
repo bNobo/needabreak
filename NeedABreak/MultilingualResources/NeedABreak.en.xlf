@@ -28,7 +28,7 @@
         </trans-unit>
         <trans-unit id="il_est_l_heure" translate="yes" xml:space="preserve">
           <source>Il est l'heure de bouger !</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">It's break time</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">It's break time!</target>
         </trans-unit>
         <trans-unit id="Imminent_locking" translate="yes" xml:space="preserve">
           <source>Verrouillage imminent</source>
