@@ -36,7 +36,7 @@
         </trans-unit>
         <trans-unit id="Less_than_a_minute_before_locking" translate="yes" xml:space="preserve">
           <source>Moins d'une minute avant verrouillage</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Less than a minute to lockdown</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Less than a minute before lockdown</target>
         </trans-unit>
         <trans-unit id="minutes" translate="yes" xml:space="preserve">
           <source>minutes</source>
