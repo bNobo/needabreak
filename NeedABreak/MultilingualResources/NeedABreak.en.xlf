@@ -8,7 +8,7 @@
       <group id="NEEDABREAK/PROPERTIES/RESOURCES.RESX" datatype="resx">
         <trans-unit id="ajuster_le_delai" translate="yes" xml:space="preserve">
           <source>Ajuster le délai</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Adjust the work hour</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Adjust the wait time before lockdown</target>
         </trans-unit>
         <trans-unit id="annuler" translate="yes" xml:space="preserve">
           <source>Annuler</source>
@@ -20,7 +20,7 @@
         </trans-unit>
         <trans-unit id="explications" translate="yes" xml:space="preserve">
           <source>Lorsqu'on travaille sur écran, il est impératif de respecter un régime de pauses qui doit être fonction de l'intensité du travail. Choisissez le délai approprié en fonction de l'intensité du travail que vous devez accomplir.</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">When working on a screen, it is important to take frequent screen breaks based on your work hours. Choose the appropriate work hours</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">When working on a screen, it is important to take frequent screen breaks based on your work hours. Choose the appropriate work duration</target>
         </trans-unit>
         <trans-unit id="fermer" translate="yes" xml:space="preserve">
           <source>Fermer</source>
@@ -28,7 +28,7 @@
         </trans-unit>
         <trans-unit id="il_est_l_heure" translate="yes" xml:space="preserve">
           <source>Il est l'heure de bouger !</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">It's break time</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">It's break time!</target>
         </trans-unit>
         <trans-unit id="Imminent_locking" translate="yes" xml:space="preserve">
           <source>Verrouillage imminent</source>
@@ -36,7 +36,7 @@
         </trans-unit>
         <trans-unit id="Less_than_a_minute_before_locking" translate="yes" xml:space="preserve">
           <source>Moins d'une minute avant verrouillage</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Less than a minute to lockdown</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Less than a minute before lockdown</target>
         </trans-unit>
         <trans-unit id="minutes" translate="yes" xml:space="preserve">
           <source>minutes</source>
@@ -64,7 +64,7 @@
         </trans-unit>
         <trans-unit id="travail_peu_intensif" translate="yes" xml:space="preserve">
           <source>Travail peu intensif</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Low intensive work</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Low-intensive work</target>
         </trans-unit>
         <trans-unit id="travail_tres_intensif" translate="yes" xml:space="preserve">
           <source>Travail très intensif</source>
