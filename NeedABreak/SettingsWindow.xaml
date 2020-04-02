@@ -34,34 +34,34 @@
 					  WindowStartupLocation="CenterScreen"
 					  TitleForeground="White"
 					  Tag="{Binding Delay, Mode=TwoWay}">
-	<Window.Resources>
-		<Style TargetType="TextBlock"
+    <Window.Resources>
+        <Style TargetType="TextBlock"
 			   BasedOn="{StaticResource {x:Type TextBlock}}">
-			<Setter Property="Foreground"
+            <Setter Property="Foreground"
                     Value="#005B38" />
-			<Setter Property="FontSize"
+            <Setter Property="FontSize"
 					Value="20" />
-			<Setter Property="TextAlignment"
+            <Setter Property="TextAlignment"
 					Value="Center" />
-		</Style>
-	</Window.Resources>
-	<Grid>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="18*" />
-			<RowDefinition Height="33*" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="18*" />
             <RowDefinition Height="33*" />
-			<RowDefinition Height="100" />
-		</Grid.RowDefinitions>
-		<TextBlock Text="{utils:TextResource explications}"
+            <RowDefinition Height="33*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="{utils:TextResource explications}"
 				   Grid.Row="0"
 				   TextWrapping="Wrap"
 				   VerticalAlignment="Center" />
-		<Grid Grid.Row="1">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition />
-				<ColumnDefinition />
-			</Grid.ColumnDefinitions>
-			<Border Grid.Column="0"
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0"
 					BorderThickness="2"
 					BorderBrush="#00B67C"
 					Background="#A6E5D1"
@@ -70,17 +70,17 @@
 					MouseLeave="Border_MouseLeave"
 					MouseDown="Border_MouseDown"
 					x:Name="Border45">
-				<StackPanel>
+                <StackPanel>
                     <TextBlock Text="{utils:TextResource travail_tres_intensif}" />
-					<TextBlock Text="45"
+                    <TextBlock Text="45"
 							   FontSize="96"
 							   FontWeight="Bold"
 							   Margin="0,20,0,0"/>
-					<TextBlock Text="{utils:TextResource minutes}"
+                    <TextBlock Text="{utils:TextResource minutes}"
 							   Margin="0,-20,0,0"/>
-				</StackPanel>
-			</Border>
-			<Border Grid.Column="1"
+                </StackPanel>
+            </Border>
+            <Border Grid.Column="1"
 					BorderThickness="2"
 					BorderBrush="#00B67C"
 					Background="#A6E5D1"
@@ -89,17 +89,17 @@
 					MouseLeave="Border_MouseLeave"
 					MouseDown="Border_MouseDown"
 					x:Name="Border60">
-				<StackPanel>
+                <StackPanel>
                     <TextBlock Text="{utils:TextResource travail_intensif}" />
-					<TextBlock Text="60"
+                    <TextBlock Text="60"
 							   FontSize="96"
 							   FontWeight="Bold"
 							   Margin="0,20,0,0" />
                     <TextBlock Text="{utils:TextResource minutes}"
 							   Margin="0,-20,0,0" />
-				</StackPanel>
-			</Border>			
-		</Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
@@ -146,7 +146,7 @@
             </Border>
         </Grid>
 
-		<Button Grid.Row="3"
+        <Button Grid.Row="3"
 				HorizontalAlignment="Right"
 				BorderThickness="0"
 				FontSize="20"
@@ -156,6 +156,16 @@
 				Click="CloseButton_Click">
             <TextBlock Text="{utils:TextResource fermer}"
 					   Foreground="White" />
-		</Button>
-	</Grid>
+        </Button>
+
+        <Button Grid.Row="3"
+				BorderThickness="0"
+				FontSize="20"
+				Height="50"
+				Margin="0,25,654,25"
+				Click="LockNow" HorizontalAlignment="Right" Width="116">
+            <TextBlock Text="Lock Now"
+					   Foreground="White" />
+        </Button>
+    </Grid>
 </Controls:MetroWindow>

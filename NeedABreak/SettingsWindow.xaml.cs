@@ -31,6 +31,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace NeedABreak
 {
     /// <summary>
@@ -163,5 +164,13 @@ namespace NeedABreak
         {
             Close();
         }
+        private void LockNow(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("rundll32.exe", "user32.dll LockWorkStation");
+
+
+
+        }
+
     }
 }
