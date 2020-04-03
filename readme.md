@@ -1,5 +1,5 @@
 ﻿# Presentation
-NEED A BREAK is an application intended to help you take care of your health while you work on a computer. 
+NEED A BREAK is an open source application intended to help you take care of your health while you work on a computer. 
 It will encourage you to regularly have a break in order to rest your back and your eyes.
 
 I have made it for my personal usage and personaly use it every day at work and it helps me to not sit for too long. So I decided to share it because maybe it could be useful to someone else.
@@ -35,7 +35,7 @@ Once started, the application creates a coffee cup icon in the task bar to manif
 Just click on the coffee cup to open the application menu.
 
 # Contribute
-I'm sure this application could be improved in many ways and I would be happy to receive some help in doing so. 
+I'm sure this application could be improved in many ways and I would be happy to receive some help in doing so. If you want to contribute to this project, go to https://github.com/bNobo/needabreak
 
 Every kind of contribution is welcome, it includes, but is not limited to :
 * Add new functionalities
