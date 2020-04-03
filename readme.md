@@ -43,5 +43,6 @@ Every kind of contribution is welcome, it includes, but is not limited to :
 * Improve design
 * Fix bugs
 * Test to find issues
+* Fix typos
 
 If you need inspiration there is a couple of todos in the main application file.
