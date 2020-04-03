@@ -23,7 +23,7 @@
 					  xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
                       xmlns:utils="clr-namespace:NeedABreak.Utils"
 					  mc:Ignorable="d"
-					  Title="Need a break!"
+					  Title="Need a break Virtual V2!"
 					  Height="800"
 					  Width="800"
 					  Background="White"
