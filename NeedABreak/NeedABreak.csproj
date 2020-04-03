@@ -21,10 +21,10 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Unc</InstallFrom>
+    <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
@@ -32,7 +32,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>\\ps10-rocco\partage\needabreak\</InstallUrl>
+    <InstallUrl>https://bnobo.github.io/needabreak/NeedABreak/publish/</InstallUrl>
+    <SupportUrl>https://bnobo.github.io/needabreak</SupportUrl>
     <ProductName>NEED A BREAK!</ProductName>
     <PublisherName>Benoît Rocco</PublisherName>
     <ApplicationRevision>0</ApplicationRevision>
