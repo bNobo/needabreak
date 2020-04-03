@@ -33,7 +33,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\ps10-rocco\partage\needabreak\</InstallUrl>
-    <ProductName>NeedABreak</ProductName>
+    <ProductName>NEED A BREAK!</ProductName>
     <PublisherName>Benoît Rocco</PublisherName>
     <ApplicationRevision>11</ApplicationRevision>
     <ApplicationVersion>7.0.0.%2a</ApplicationVersion>
