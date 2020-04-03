@@ -27,7 +27,7 @@ If you just want to install the latest version of the application, you can downl
 
 Alternatively you can download an installer from the [releases](https://github.com/bNobo/needabreak/releases) page.
 
-> Note that you will have a big red warning during installation because the installer is not digitaly signed.
+> Note that you will have a big red warning during installation because the installer is not digitally signed.
 
 # Get started
 The project is a WPF application targeting .Net Framework 4.5.2. All you need is a copy of Visual Studio Community in order to build it.
