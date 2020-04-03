@@ -27,6 +27,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using NeedABreak.Utils;
 
 namespace NeedABreak
 {
@@ -35,8 +36,7 @@ namespace NeedABreak
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        [DllImport("user32.dll")]
-        public static extern bool LockWorkStation();
+        
 
         public MainWindow()
         {
@@ -140,7 +140,7 @@ namespace NeedABreak
             }
 
             Hide();
-            LockWorkStation();
+            SessionLock.LockSession();
             _imminentLocking = false;
         }
 
@@ -186,6 +186,7 @@ namespace NeedABreak
 			settingsWindow.Show();
 			settingsWindow.Activate();
 		}
+
 
 		private void TaskbarIcon_PreviewTrayToolTipOpen(object sender, RoutedEventArgs e)
         {

@@ -30,6 +30,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NeedABreak.Utils;
 
 
 namespace NeedABreak
@@ -166,9 +167,9 @@ namespace NeedABreak
         }
         private void LockNow(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("rundll32.exe", "user32.dll LockWorkStation");
+            //System.Diagnostics.Process.Start("rundll32.exe", "user32.dll LockWorkStation");
 
-
+            SessionLock.LockSession();
 
         }
 
