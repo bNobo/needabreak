@@ -133,7 +133,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lock Now.
+        ///   Looks up a localized string similar to Verrouiller maintenant.
         /// </summary>
         internal static string lock_now {
             get {

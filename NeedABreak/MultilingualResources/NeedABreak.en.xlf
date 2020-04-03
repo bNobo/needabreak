@@ -86,6 +86,10 @@
           <source>Reporter</source>
           <target state="needs-review-translation" state-qualifier="tm-suggestion">Postpone</target>
         </trans-unit>
+        <trans-unit id="lock_now" translate="yes" xml:space="preserve">
+          <source>Verrouiller maintenant</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Lock now</target>
+        </trans-unit>
       </group>
     </body>
   </file>
