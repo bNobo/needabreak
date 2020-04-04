@@ -5,7 +5,7 @@
 - update publish version on master
 - commit and push
 - checkout gh-pages
-- rebase gh-pages onto master
+- rebase gh-pages onto master (or just cherry-pick last commit if there are no other modifications)
 - publish in "publish" local folder
 - push binaries stored in "publish" folder => now github pages is up-to-date, you can install needabreak from https://bnobo.github.io/needabreak/NeedABreak/publish/setup.exe
 - make a ZIP with all files under "publish"
