@@ -177,4 +177,7 @@
   <data name="reporter" xml:space="preserve">
     <value>Reporter</value>
   </data>
+  <data name="about" xml:space="preserve">
+    <value>À propos de NEED A BREAK!</value>
+  </data>
 </root>

@@ -72,4 +72,7 @@
   <data name="reporter" xml:space="preserve">
     <value>Riporta</value>
   </data>
+  <data name="about" xml:space="preserve">
+    <value>A proposito di NEED A BREAK!</value>
+  </data>
 </root>
