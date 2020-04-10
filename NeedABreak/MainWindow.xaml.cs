@@ -225,7 +225,17 @@ namespace NeedABreak
 			ShowSettingsWindow();
 		}
 
-		private void CloseBalloon_Click(object sender, RoutedEventArgs e)
+        private Lazy<AboutBoxWindow> aboutBoxFactory =
+            new Lazy<AboutBoxWindow>(() => new AboutBoxWindow());
+
+        private void AboutMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            AboutBoxWindow aboutBox = aboutBoxFactory.Value;
+            aboutBox.Show();
+            aboutBox.Activate();
+        }
+
+        private void CloseBalloon_Click(object sender, RoutedEventArgs e)
 		{
 			uxTaskbarIcon.CloseBalloon();
 		}
@@ -253,5 +263,5 @@ namespace NeedABreak
 			Interlocked.Exchange(ref _cancellationTokenSource, new CancellationTokenSource()).Cancel();
 			App.InitStartTime();
 		}
-	}
+    }
 }

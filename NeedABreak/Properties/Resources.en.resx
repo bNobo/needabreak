@@ -72,4 +72,22 @@
   <data name="reporter" xml:space="preserve">
     <value>Postpone</value>
   </data>
+  <data name="about" xml:space="preserve">
+    <value>About NEED A BREAK!</value>
+  </data>
+  <data name="license" xml:space="preserve">
+    <value>You can view full license</value>
+  </data>
+  <data name="undefined" xml:space="preserve">
+    <value>undefined</value>
+  </data>
+  <data name="warranty" xml:space="preserve">
+    <value>This program comes with ABSOLUTELY NO WARRANTY;</value>
+  </data>
+  <data name="contact" xml:space="preserve">
+    <value>Contact:</value>
+  </data>
+  <data name="here" xml:space="preserve">
+    <value>here</value>
+  </data>
 </root>

@@ -31,6 +31,11 @@ namespace NeedABreak.Utils
     {
         public string Name { get; set; }
 
+        public TextResourceExtension()
+        {
+            Name = "undefined";
+        }
+
         public TextResourceExtension(string name)
         {
             Name = name;

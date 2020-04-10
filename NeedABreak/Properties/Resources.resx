@@ -177,4 +177,28 @@
   <data name="reporter" xml:space="preserve">
     <value>Reporter</value>
   </data>
+  <data name="about" xml:space="preserve">
+    <value>À propos de NEED A BREAK!</value>
+  </data>
+  <data name="contact" xml:space="preserve">
+    <value>Contact :</value>
+  </data>
+  <data name="copyright" xml:space="preserve">
+    <value>NEED A BREAK!  Copyright (C) 2020  Benoît Rocco</value>
+  </data>
+  <data name="here" xml:space="preserve">
+    <value>ici</value>
+  </data>
+  <data name="inrs" xml:space="preserve">
+    <value>INRS</value>
+  </data>
+  <data name="license" xml:space="preserve">
+    <value>Vous pouvez consulter la licence complète</value>
+  </data>
+  <data name="undefined" xml:space="preserve">
+    <value>(non défini)</value>
+  </data>
+  <data name="warranty" xml:space="preserve">
+    <value>Ce programme est fourni SANS AUCUNE GARANTIE;</value>
+  </data>
 </root>

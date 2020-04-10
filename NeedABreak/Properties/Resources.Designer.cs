@@ -19,7 +19,7 @@ namespace NeedABreak.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -61,6 +61,15 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to À propos de NEED A BREAK!.
+        /// </summary>
+        internal static string about {
+            get {
+                return ResourceManager.GetString("about", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ajuster le délai.
         /// </summary>
         internal static string ajuster_le_delai {
@@ -75,6 +84,24 @@ namespace NeedABreak.Properties {
         internal static string annuler {
             get {
                 return ResourceManager.GetString("annuler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact :.
+        /// </summary>
+        internal static string contact {
+            get {
+                return ResourceManager.GetString("contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NEED A BREAK!  Copyright (C) 2020  Benoît Rocco.
+        /// </summary>
+        internal static string copyright {
+            get {
+                return ResourceManager.GetString("copyright", resourceCulture);
             }
         }
         
@@ -106,6 +133,15 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ici.
+        /// </summary>
+        internal static string here {
+            get {
+                return ResourceManager.GetString("here", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Il est l&apos;heure de bouger !.
         /// </summary>
         internal static string il_est_l_heure {
@@ -124,11 +160,29 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to INRS.
+        /// </summary>
+        internal static string inrs {
+            get {
+                return ResourceManager.GetString("inrs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Moins d&apos;une minute avant verrouillage.
         /// </summary>
         internal static string Less_than_a_minute_before_locking {
             get {
                 return ResourceManager.GetString("Less_than_a_minute_before_locking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vous pouvez consulter la licence complète.
+        /// </summary>
+        internal static string license {
+            get {
+                return ResourceManager.GetString("license", resourceCulture);
             }
         }
         
@@ -223,6 +277,15 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (non défini).
+        /// </summary>
+        internal static string undefined {
+            get {
+                return ResourceManager.GetString("undefined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Le poste va se verrouiller dans moins d&apos;une minute. Pensez à sauvegardez vos modifications !.
         /// </summary>
         internal static string verrouillage_imminent_detail {
@@ -237,6 +300,15 @@ namespace NeedABreak.Properties {
         internal static string verrouillage_imminent_title {
             get {
                 return ResourceManager.GetString("verrouillage_imminent_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ce programme est fourni SANS AUCUNE GARANTIE;.
+        /// </summary>
+        internal static string warranty {
+            get {
+                return ResourceManager.GetString("warranty", resourceCulture);
             }
         }
     }
