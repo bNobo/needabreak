@@ -90,6 +90,35 @@
           <source>À propos de NEED A BREAK!</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">A proposito di NEED A BREAK!</target>
         </trans-unit>
+        <trans-unit id="copyright" translate="no" xml:space="preserve">
+          <source>NEED A BREAK!  Copyright (C) 2020  Benoît Rocco</source>
+          <target state="final">NEED A BREAK!  Copyright (C) 2020  Benoît Rocco</target>
+        </trans-unit>
+        <trans-unit id="license" translate="yes" xml:space="preserve">
+          <source>Vous pouvez consulter la licence complète</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">È possibile visualizzare la licenza completa</target>
+        </trans-unit>
+        <trans-unit id="undefined" translate="yes" xml:space="preserve">
+          <source>(non défini)</source>
+          <target state="needs-review-translation">(non definito)</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+        </trans-unit>
+        <trans-unit id="warranty" translate="yes" xml:space="preserve">
+          <source>Ce programme est fourni SANS AUCUNE GARANTIE;</source>
+          <target state="translated">Questo programma viene fornito con ASSOLUTAMENTE NESSUNA GARANZIA;</target>
+        </trans-unit>
+        <trans-unit id="contact" translate="yes" xml:space="preserve">
+          <source>Contact :</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Contattare:</target>
+        </trans-unit>
+        <trans-unit id="here" translate="yes" xml:space="preserve">
+          <source>ici</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">qui</target>
+        </trans-unit>
+        <trans-unit id="inrs" translate="no" xml:space="preserve">
+          <source>INRS</source>
+          <target state="final">INRS</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -75,4 +75,19 @@
   <data name="about" xml:space="preserve">
     <value>A proposito di NEED A BREAK!</value>
   </data>
+  <data name="license" xml:space="preserve">
+    <value>È possibile visualizzare la licenza completa</value>
+  </data>
+  <data name="undefined" xml:space="preserve">
+    <value>(non definito)</value>
+  </data>
+  <data name="warranty" xml:space="preserve">
+    <value>Questo programma viene fornito con ASSOLUTAMENTE NESSUNA GARANZIA;</value>
+  </data>
+  <data name="contact" xml:space="preserve">
+    <value>Contattare:</value>
+  </data>
+  <data name="here" xml:space="preserve">
+    <value>qui</value>
+  </data>
 </root>

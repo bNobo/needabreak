@@ -8,7 +8,7 @@
       <group id="NEEDABREAK/PROPERTIES/RESOURCES.RESX" datatype="resx">
         <trans-unit id="ajuster_le_delai" translate="yes" xml:space="preserve">
           <source>Ajuster le délai</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Adjust the wait time before lockdown</target>
+          <target state="translated">Adjust the wait time before lockdown</target>
         </trans-unit>
         <trans-unit id="annuler" translate="yes" xml:space="preserve">
           <source>Annuler</source>
@@ -89,6 +89,34 @@
         <trans-unit id="about" translate="yes" xml:space="preserve">
           <source>À propos de NEED A BREAK!</source>
           <target state="translated">About NEED A BREAK!</target>
+        </trans-unit>
+        <trans-unit id="copyright" translate="no" xml:space="preserve">
+          <source>NEED A BREAK!  Copyright (C) 2020  Benoît Rocco</source>
+          <target state="final">NEED A BREAK!  Copyright (C) 2020  Benoît Rocco</target>
+        </trans-unit>
+        <trans-unit id="license" translate="yes" xml:space="preserve">
+          <source>Vous pouvez consulter la licence complète</source>
+          <target state="translated">You can view full license</target>
+        </trans-unit>
+        <trans-unit id="undefined" translate="yes" xml:space="preserve">
+          <source>(non défini)</source>
+          <target state="translated">(undefined)</target>
+        </trans-unit>
+        <trans-unit id="warranty" translate="yes" xml:space="preserve">
+          <source>Ce programme est fourni SANS AUCUNE GARANTIE;</source>
+          <target state="translated">This program comes with ABSOLUTELY NO WARRANTY;</target>
+        </trans-unit>
+        <trans-unit id="contact" translate="yes" xml:space="preserve">
+          <source>Contact :</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Contact:</target>
+        </trans-unit>
+        <trans-unit id="here" translate="yes" xml:space="preserve">
+          <source>ici</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">here</target>
+        </trans-unit>
+        <trans-unit id="inrs" translate="no" xml:space="preserve">
+          <source>INRS</source>
+          <target state="final">INRS</target>
         </trans-unit>
       </group>
     </body>

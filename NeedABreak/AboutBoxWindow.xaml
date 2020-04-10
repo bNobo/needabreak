@@ -29,6 +29,45 @@
                       ShowMinButton="False"
                       ShowMaxRestoreButton="False">
     <Grid>
-
+        <Grid.Resources>
+            <Style TargetType="TextBlock"
+                   BasedOn="{StaticResource {x:Type TextBlock}}">
+                <Setter Property="HorizontalAlignment"
+                        Value="Center" />
+            </Style>
+        </Grid.Resources>
+        <Image Source="coffee cup.ico"
+               Width="128"
+               Height="128"
+               VerticalAlignment="Top"
+               Margin="25"/>
+        <TextBlock Margin="0 180 0 0"
+                   Text="{utils:TextResource copyright}" />
+        <TextBlock Margin="0 210 0 0"
+                   Text="{utils:TextResource warranty}" />
+        <TextBlock Margin="0 240 0 0">
+            <utils:TextResource Name="license" /> 
+            <!--It is not possible to use utils:TextResource in NavigateUri property. It raises a runtime exception-->
+            <Hyperlink NavigateUri="https://github.com/bNobo/needabreak/blob/master/LICENSE"
+                       RequestNavigate="Hyperlink_RequestNavigate">
+                <utils:TextResource Name="here" />
+            </Hyperlink>
+        </TextBlock>
+        <TextBlock Margin="0 270 0 0"><utils:TextResource Name="contact" /> 
+            <Hyperlink NavigateUri="mailto:benoit.rocco@gmail.com"
+                       RequestNavigate="Hyperlink_RequestNavigate">benoit.rocco@gmail.com</Hyperlink>
+        </TextBlock>
+        <TextBlock VerticalAlignment="Bottom"
+                   HorizontalAlignment="Left"
+                   Margin="10">
+            <Hyperlink NavigateUri="http://www.inrs.fr/risques/travail-ecran/ce-qu-il-faut-retenir.html"
+                       RequestNavigate="Hyperlink_RequestNavigate"><utils:TextResource Name="inrs" /></Hyperlink>
+        </TextBlock>
+        <Button Margin="0 300 40 0" 
+                Content="{utils:TextResource fermer}"
+                Width="100"
+                Height="50"
+                HorizontalAlignment="Right"
+                Click="CloseButton_Click" />
     </Grid>
 </controls:MetroWindow>
