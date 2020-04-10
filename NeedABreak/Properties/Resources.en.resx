@@ -79,7 +79,7 @@
     <value>You can view full license</value>
   </data>
   <data name="undefined" xml:space="preserve">
-    <value>undefined</value>
+    <value>(undefined)</value>
   </data>
   <data name="warranty" xml:space="preserve">
     <value>This program comes with ABSOLUTELY NO WARRANTY;</value>
