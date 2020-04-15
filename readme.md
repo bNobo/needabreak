@@ -12,15 +12,15 @@ Main window :
 
 Task bar icon : 
 
-![Task bar icon](https://1adhja.db.files.1drv.com/y4mKLJb4DbXbqAjhmoOZsqaRqraC7ST-_EUWcmUVrl2655fkY4FQGI5uka72Ab296fZLimbg2AddhOtNmiw051N3bgQrdX4auk5HDEgneyg-uZg4ZsQSb4MdouBbiH_ZwtgF0VxFspcnlMTCqC6lrsbfU7U3C42Ood3M5bqTjHxwsHpuMs2Hhs04NWV4lLWsdSbEAPObWspFj-m4lxpZF2_UA?width=660&height=102&cropmode=none)
+![Task bar icon](https://1adhja.db.files.1drv.com/y4mKLJb4DbXbqAjhmoOZsqaRqraC7ST-_EUWcmUVrl2655fkY4FQGI5uka72Ab296fZLimbg2AddhOtNmiw051N3bgQrdX4auk5HDEgneyg-uZg4ZsQSb4MdouBbiH_ZwtgF0VxFspcnlMTCqC6lrsbfU7U3C42Ood3M5bqTjHxwsHpuMs2Hhs04NWV4lLWsdSbEAPObWspFj-m4lxpZF2_UA?width=330&height=51&cropmode=none)
 
 Menu : 
 
-![menu](https://1adfja.db.files.1drv.com/y4mfZljmDDaE6RnLRTFZi0Fy-cFWyrXiCGbp-0GJ_Bf8i-o8DG_mYCkR04S1NJpHtFhZLWWN-UbpgMRgnuaES54Nyz7Dk5Tq2_x90kX8d0abtO5G9W88P7eyGS-2W3ICAd_ID9aZUlGrManIwHXe99b_ou09Cv_BcI31suPWSSPB8hUsbJ9-hX5UnzO6mTlGuePtGetXzqSA2J-KA2JljbjYg?width=660&height=380&cropmode=none)
+![menu](https://1adfja.db.files.1drv.com/y4mfZljmDDaE6RnLRTFZi0Fy-cFWyrXiCGbp-0GJ_Bf8i-o8DG_mYCkR04S1NJpHtFhZLWWN-UbpgMRgnuaES54Nyz7Dk5Tq2_x90kX8d0abtO5G9W88P7eyGS-2W3ICAd_ID9aZUlGrManIwHXe99b_ou09Cv_BcI31suPWSSPB8hUsbJ9-hX5UnzO6mTlGuePtGetXzqSA2J-KA2JljbjYg?width=330&height=190&cropmode=none)
 
 Settings :
 
-![settings](https://bepppa.db.files.1drv.com/y4mDavpW3YrJG8qCeZWxuIj5zFPnyFhJw68HO1V9zGyqB2ry16c8S3lexYU5GR7-qKxyV09iClhJfHG7LegO7lGW2LkoVmvrjH8UCfHUJHQUtVXoGEHAUF7JZPCT0PFaI2CLnOICrjsul9bO3newa6ZmR4cvbmWLME9wGJW9lZGAsw3QlM_IUgcLL4KCL74BdbfBCp91jF5su_Sqm5cQ6drTg?width=656&height=660&cropmode=none)
+![settings](https://bepppa.db.files.1drv.com/y4mDavpW3YrJG8qCeZWxuIj5zFPnyFhJw68HO1V9zGyqB2ry16c8S3lexYU5GR7-qKxyV09iClhJfHG7LegO7lGW2LkoVmvrjH8UCfHUJHQUtVXoGEHAUF7JZPCT0PFaI2CLnOICrjsul9bO3newa6ZmR4cvbmWLME9wGJW9lZGAsw3QlM_IUgcLL4KCL74BdbfBCp91jF5su_Sqm5cQ6drTg?width=328&height=330&cropmode=none)
 
 # Installation
 If you just want to install the latest version of the application, you can download it [here](https://bnobo.github.io/needabreak/NeedABreak/publish/setup.exe).
