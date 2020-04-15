@@ -177,4 +177,7 @@
   <data name="reporter" xml:space="preserve">
     <value>Reporter</value>
   </data>
+  <data name="lock_now" xml:space="preserve">
+    <value>Lock Now</value>
+  </data>
 </root>

@@ -78,6 +78,10 @@
                                     HorizontalAlignment="Left"
                                     Margin="20, 5, 0, 5"
                                     Click="ReporterBalloon_Click" />
+                            <Button Content="{utils:TextResource lock_now}"
+                                    HorizontalAlignment="Center"
+                                    Margin="20, 5, 0, 5"
+                                    Click="LockBalloon_Click" />
                             <Button Content="{utils:TextResource annuler}"
                                     HorizontalAlignment="Right"
                                     Margin="0, 5, 20, 5"
