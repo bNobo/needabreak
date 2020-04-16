@@ -52,6 +52,12 @@ namespace NeedABreak
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
             //System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en");
             ConfigureLog4Net();
+
+            Logger.DebugFormat("IsFirstRun = {0}", 
+                NeedABreak.Properties.Settings.Default.IsFirstRun);
+
+            NeedABreak.Properties.Settings.Default.IsFirstRun = false;
+            NeedABreak.Properties.Settings.Default.Save();
         }
 
         public App()
