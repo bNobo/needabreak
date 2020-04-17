@@ -43,7 +43,23 @@ namespace NeedABreak
             App.Logger.Debug("MainWindow ctor start");
             InitializeComponent();
             LoadRegistryConfig();
+            ExecuteFirstRunActions();
             App.Logger.Debug("MainWindow ctor end");
+        }
+
+        private void ExecuteFirstRunActions()
+        {
+            App.Logger.DebugFormat("IsFirstRun = {0}",
+                            Properties.Settings.Default.IsFirstRun);
+
+            if (Properties.Settings.Default.IsFirstRun)
+            {
+                // Setting IsChecked to true will raise Checked event
+                LaunchOnStartupMenuItem.IsChecked = true;
+                // Update IsFirstRun so this code won't execute next time application start
+                Properties.Settings.Default.IsFirstRun = false;
+                Properties.Settings.Default.Save();
+            }            
         }
 
         private void LoadRegistryConfig()
