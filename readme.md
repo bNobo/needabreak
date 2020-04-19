@@ -10,23 +10,23 @@ I have made it for my personal usage and personaly use it every day at work and 
 
 You will be notified a minute before lockdown:
 
-<img src="https://github.com/bNobo/needabreak/blob/root/Captures/imminent_lockdown.jpg" alt="imminent lockdown" width="300" />
+<img src="https://bnobo.github.io/needabreak/Captures/imminent_lockdown.jpg" alt="imminent lockdown" width="300" />
 
 When it is time to have a break a countdown will appear. The screen will be locked when it reaches 0:
 
-<img src="https://github.com/bNobo/needabreak/blob/root/Captures/mainwindow.gif" alt="countdown" width="600" />
+<img src="https://bnobo.github.io/needabreak/Captures/mainwindow.gif" alt="countdown" width="600" />
 
 You can verify that the application is running thanks to the task bar icon: 
 
-<img src="https://github.com/bNobo/needabreak/blob/root/Captures/taskbar.jpg" alt="task bar icon" width="400" />
+<img src="https://bnobo.github.io/needabreak/Captures/taskbar.jpg" alt="task bar icon" width="400" />
 
 You can display the application menu by clicking on the coffee cup:
 
-<img src="https://github.com/bNobo/needabreak/blob/root/Captures/menu.jpg" alt="menu" width="300" />
+<img src="https://bnobo.github.io/needabreak/Captures/menu.jpg" alt="menu" width="300" />
 
 The settings window let you choose how long the application will wait before lockdown:
 
-<img src="https://github.com/bNobo/needabreak/blob/root/Captures/settings.jpg" alt="settings" width="500" />
+<img src="https://bnobo.github.io/needabreak/Captures/settings.jpg" alt="settings" width="500" />
 
 You can find this documentation on my github page: https://bnobo.github.io/needabreak/
 
