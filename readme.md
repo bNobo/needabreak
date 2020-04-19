@@ -4,23 +4,25 @@ It will encourage you to regularly have a break in order to rest your back and y
 
 I have made it for my personal usage and personaly use it every day at work and it helps me to not sit for too long. So I decided to share it because maybe it could be useful to someone else.
 
-Here are some screen shots of the UI :
+You will be notified a minute before lockdown :
 
-Main window :
+<img src="https://github.com/bNobo/needabreak/blob/master/Captures/imminent_lockdown.jpg" alt="imminent lockdown" width="300" />
 
-![main window](https://n7eq3w.db.files.1drv.com/y4mVeQmFf_53BFfBa4pk8od9UVFWAJsJsNZHmwEIlpA_Y0nzI_XuAJ9UraJoj1BPwCpA3juYors4qsTMq81GRwvtI8KV_xZ1CE6HMB88iLLbsSdQ_UNMqLzf-7ZxpNZNQWmHwaFK2CQBKBZR-ESz71r4MqXR7LV003pmGyjYyWLDRKBgHRAIdBIKhK9YAUnHZ48kbHL890A05iO4exB79t2kA?width=568&height=238&cropmode=none)
+When it is time to have a break a countdown will appear :
 
-Task bar icon : 
+<img src="https://github.com/bNobo/needabreak/blob/master/Captures/mainwindow.gif" alt="countdown" width="600" />
 
-![Task bar icon](https://1adhja.db.files.1drv.com/y4mKLJb4DbXbqAjhmoOZsqaRqraC7ST-_EUWcmUVrl2655fkY4FQGI5uka72Ab296fZLimbg2AddhOtNmiw051N3bgQrdX4auk5HDEgneyg-uZg4ZsQSb4MdouBbiH_ZwtgF0VxFspcnlMTCqC6lrsbfU7U3C42Ood3M5bqTjHxwsHpuMs2Hhs04NWV4lLWsdSbEAPObWspFj-m4lxpZF2_UA?width=330&height=51&cropmode=none)
+You can verify that the application is running thanks to the task bar icon : 
 
-Menu : 
+<img src="https://github.com/bNobo/needabreak/blob/master/Captures/taskbar.jpg" alt="task bar icon" width="400" />
 
-![menu](https://1adfja.db.files.1drv.com/y4mfZljmDDaE6RnLRTFZi0Fy-cFWyrXiCGbp-0GJ_Bf8i-o8DG_mYCkR04S1NJpHtFhZLWWN-UbpgMRgnuaES54Nyz7Dk5Tq2_x90kX8d0abtO5G9W88P7eyGS-2W3ICAd_ID9aZUlGrManIwHXe99b_ou09Cv_BcI31suPWSSPB8hUsbJ9-hX5UnzO6mTlGuePtGetXzqSA2J-KA2JljbjYg?width=330&height=190&cropmode=none)
+You can display the application menu by clicking on the coffee cup :
 
-Settings :
+<img src="https://github.com/bNobo/needabreak/blob/master/Captures/menu.jpg" alt="menu" width="300" />
 
-![settings](https://bepppa.db.files.1drv.com/y4mDavpW3YrJG8qCeZWxuIj5zFPnyFhJw68HO1V9zGyqB2ry16c8S3lexYU5GR7-qKxyV09iClhJfHG7LegO7lGW2LkoVmvrjH8UCfHUJHQUtVXoGEHAUF7JZPCT0PFaI2CLnOICrjsul9bO3newa6ZmR4cvbmWLME9wGJW9lZGAsw3QlM_IUgcLL4KCL74BdbfBCp91jF5su_Sqm5cQ6drTg?width=328&height=330&cropmode=none)
+The settings window let you choose how long the application will wait before lockdown :
+
+<img src="https://github.com/bNobo/needabreak/blob/master/Captures/settings.jpg" alt="settings" width="500" />
 
 # Installation
 If you just want to install the latest version of the application, you can download it [here](https://bnobo.github.io/needabreak/NeedABreak/publish/setup.exe).
