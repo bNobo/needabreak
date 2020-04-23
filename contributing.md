@@ -14,3 +14,5 @@ So if you need a new text resource for the UI, please add a line in resources.re
 
 > If you want to make translations yourself, you will have to install [Multilingual App Toolkit for VS2017+ extension](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308).
 
+> Please DO NOT modify resources.en.resx and resources.it.resx directly. These are generated files. Only modify resources.resx. You can add your text in english and I will make the translations.
+
