@@ -118,6 +118,10 @@
           <source>INRS</source>
           <target state="final">INRS</target>
         </trans-unit>
+        <trans-unit id="lock_now" translate="yes" xml:space="preserve">
+          <source>Verrouiller</source>
+          <target state="translated">Lock now</target>
+        </trans-unit>
       </group>
     </body>
   </file>
