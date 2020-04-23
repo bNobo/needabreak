@@ -27,6 +27,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using NeedABreak.Utils;
 
 namespace NeedABreak
 {
@@ -35,8 +36,7 @@ namespace NeedABreak
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        [DllImport("user32.dll")]
-        public static extern bool LockWorkStation();
+       
 
         public MainWindow()
         {
@@ -140,7 +140,7 @@ namespace NeedABreak
             }
 
             Hide();
-            LockWorkStation();
+            SessionLock.LockSession();
             _imminentLocking = false;
         }
 
@@ -263,5 +263,10 @@ namespace NeedABreak
 			Interlocked.Exchange(ref _cancellationTokenSource, new CancellationTokenSource()).Cancel();
 			App.InitStartTime();
 		}
+
+        private void LockButton_Click(object sender, RoutedEventArgs e)
+        {
+            SessionLock.LockSession();
+        }
     }
 }

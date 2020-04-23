@@ -168,7 +168,17 @@
                     Margin="0, 5, 20, 5">
                 <TextBlock Text="{utils:TextResource annuler}"
                            Foreground="White" />
-            </Button>            
+            </Button>
+            <Button Click="LockButton_Click"
+                BorderThickness="0"
+                FontSize="20"
+                Width="115"
+                Height="50"
+                HorizontalAlignment="Left"
+                Margin="373,15,0,49" Grid.RowSpan="2">
+                <TextBlock Text="{utils:TextResource lock_now}"
+                    Foreground="White" />
+            </Button>
         </Grid>
     </Grid>
 </controls:MetroWindow>
