@@ -170,15 +170,15 @@
                            Foreground="White" />
             </Button>
             <Button Click="LockButton_Click"
-                BorderThickness="0"
-                FontSize="20"
-                Grid.Row="2"
-                Width="150"
-                Height="50"
-                HorizontalAlignment="Center"
-                Margin="0">
+                    BorderThickness="0"
+                    FontSize="20"
+                    Grid.Row="2"
+                    Width="150"
+                    Height="50"
+                    HorizontalAlignment="Center"
+                    Margin="0">
                 <TextBlock Text="{utils:TextResource lock_now}"
-                    Foreground="White" />
+                           Foreground="White" />
             </Button>
         </Grid>
     </Grid>
