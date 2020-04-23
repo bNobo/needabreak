@@ -266,6 +266,7 @@ namespace NeedABreak
 
         private void LockButton_Click(object sender, RoutedEventArgs e)
         {
+            Interlocked.Exchange(ref _cancellationTokenSource, new CancellationTokenSource()).Cancel();
             SessionLock.LockSession();
         }
     }
