@@ -172,10 +172,11 @@
             <Button Click="LockButton_Click"
                 BorderThickness="0"
                 FontSize="20"
-                Width="115"
+                Grid.Row="2"
+                Width="150"
                 Height="50"
-                HorizontalAlignment="Left"
-                Margin="373,15,0,49" Grid.RowSpan="2">
+                HorizontalAlignment="Center"
+                Margin="0">
                 <TextBlock Text="{utils:TextResource lock_now}"
                     Foreground="White" />
             </Button>
