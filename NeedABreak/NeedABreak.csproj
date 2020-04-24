@@ -134,6 +134,7 @@
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SettingsWindowViewModel.cs" />
+    <Compile Include="Utils\SessionLock.cs" />
     <Compile Include="Utils\TextResourceExtension.cs" />
     <Page Include="AboutBoxWindow.xaml">
       <SubType>Designer</SubType>

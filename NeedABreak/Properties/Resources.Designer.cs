@@ -187,6 +187,15 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Verrouiller.
+        /// </summary>
+        internal static string lock_now {
+            get {
+                return ResourceManager.GetString("lock_now", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to minutes.
         /// </summary>
         internal static string minutes {

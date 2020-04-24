@@ -90,4 +90,7 @@
   <data name="here" xml:space="preserve">
     <value>qui</value>
   </data>
+  <data name="lock_now" xml:space="preserve">
+    <value>Blocca ora</value>
+  </data>
 </root>

@@ -100,8 +100,7 @@
         </trans-unit>
         <trans-unit id="undefined" translate="yes" xml:space="preserve">
           <source>(non défini)</source>
-          <target state="needs-review-translation">(non definito)</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">(non definito)</target>
         </trans-unit>
         <trans-unit id="warranty" translate="yes" xml:space="preserve">
           <source>Ce programme est fourni SANS AUCUNE GARANTIE;</source>
@@ -118,6 +117,10 @@
         <trans-unit id="inrs" translate="no" xml:space="preserve">
           <source>INRS</source>
           <target state="final">INRS</target>
+        </trans-unit>
+        <trans-unit id="lock_now" translate="yes" xml:space="preserve">
+          <source>Verrouiller</source>
+          <target state="translated">Blocca ora</target>
         </trans-unit>
       </group>
     </body>
