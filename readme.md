@@ -33,7 +33,7 @@ Alternatively you can download an installer from the [releases](https://github.c
 
 # Get started
 The project is a WPF application targeting .Net Framework 4.5.2. All you need is a copy of Visual Studio Community in order to build it.
-Once started, the application creates a coffee cup icon in the task bar to manifest its presence and permits user to interract with it. 
+Once started, the application creates a coffee cup icon in the task bar to manifest its presence and permits user to interact with it. 
 Just click on the coffee cup to open the application menu.
 
 # Contribute
