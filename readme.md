@@ -27,12 +27,10 @@ The settings window let you choose how long the application will wait before loc
 # Installation
 If you just want to install the latest version of the application, you can download it [here](https://bnobo.github.io/needabreak/NeedABreak/publish/setup.exe).
 
-Alternatively you can download an installer from the [releases](https://github.com/bNobo/needabreak/releases) page.
-
 > Note that you will have a big red warning from the UAC during installation because the installer is not digitally signed.
 
 # Get started
-The project is a WPF application targeting .Net Framework 4.5.2. All you need is a copy of Visual Studio Community in order to build it.
+The project is a WPF application targeting .Net Framework 4.8. All you need is a copy of Visual Studio Community in order to build it.
 Once started, the application creates a coffee cup icon in the task bar to manifest its presence and permits user to interact with it. 
 Just click on the coffee cup to open the application menu.
 
