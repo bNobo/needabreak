@@ -26,14 +26,6 @@ using System.Runtime.InteropServices;
 using System.Timers;
 using System.Windows;
 
-//todo: add a "lock now !" button on the main window
-//todo: add a star button to allow user to select his favorite time frame. The selected time frame will be automatically selected at startup.
-//todo: store time left before screen locking in cas of reboot
-//todo: detect other instances on the same network to synchronize break with friends
-//todo: checkbox to disable balloon tip
-//todo: About box with link to INRS site and license
-//todo: balloon tip to remind user about looking away from screen every 20 minutes (deactivable)
-//todo: postpone delay configuration
 namespace NeedABreak
 {
     /// <summary>
