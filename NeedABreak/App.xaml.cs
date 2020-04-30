@@ -49,13 +49,15 @@ namespace NeedABreak
         public App()
         {
             Logger.Debug("App ctor start");
+#if !DEBUG
             mutex = new System.Threading.Mutex(false, "Local\\NeedABreakInstance");
             if (!mutex.WaitOne(0, false))
             {
                 Logger.Info("Application already running");
                 Current.Shutdown();
                 return;
-            }
+            } 
+#endif
             InitializeComponent();
             InitStartTime();
             if (Delay > 120)
