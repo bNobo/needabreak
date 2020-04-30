@@ -18,16 +18,11 @@
 */
 using MahApps.Metro.Controls;
 using Microsoft.Win32;
-using PropertyChanged;
+using NeedABreak.Utils;
 using System;
-using System.Drawing;
-using System.IO;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using NeedABreak.Utils;
 
 namespace NeedABreak
 {
@@ -36,8 +31,6 @@ namespace NeedABreak
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-       
-
         public MainWindow()
         {
             App.Logger.Debug("MainWindow ctor start");
@@ -64,9 +57,9 @@ namespace NeedABreak
 
         private void LoadRegistryConfig()
         {
-            RegistryKey run = GetRunRegistryKey(false);
+            RegistryKey run = RegistryTool.GetRunRegistryKey(false);
 
-            ActOnRegistryKey(run, x =>
+            RegistryTool.ActOnRegistryKey(run, x =>
             {
                 string needABreak = (string)run.GetValue("NeedABreak");
 
@@ -82,43 +75,16 @@ namespace NeedABreak
 
         private void LaunchOnStartupMenuItem_Unchecked(object sender, RoutedEventArgs e)
         {
-            RegistryKey run = GetRunRegistryKey(true);
-            ActOnRegistryKey(run, x => x.DeleteValue("NeedABreak"));
+            RegistryKey run = RegistryTool.GetRunRegistryKey(true);
+            RegistryTool.ActOnRegistryKey(run, x => x.DeleteValue("NeedABreak"));
         }
 
         private void LaunchOnStartupMenuItem_Checked(object sender, RoutedEventArgs e)
         {
-            RegistryKey run = GetRunRegistryKey(true);
+            RegistryKey run = RegistryTool.GetRunRegistryKey(true);
 
-            ActOnRegistryKey(run,
+            RegistryTool.ActOnRegistryKey(run,
                 x => x.SetValue("NeedABreak", System.Reflection.Assembly.GetExecutingAssembly().Location));
-        }
-
-        /// <summary>
-        /// Check that key is not null then close and dispose it
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="action"></param>
-        private static void ActOnRegistryKey(RegistryKey key, Action<RegistryKey> action)
-        {
-            if (key != null)
-            {
-                action(key);
-                key.Close();
-                key.Dispose();
-            }
-        }
-
-        private static RegistryKey GetRunRegistryKey(bool writable)
-        {
-            //var run = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
-            //string s = @"Software\Microsoft\Windows\CurrentVersion\Run";
-            //string s = "Software" + '\\' + "Microsoft" + '\\' + "Windows" + '\\' + "CurrentVersion" + '\\' + "Run";
-            //StringBuilder sb = new StringBuilder(@"Software\Microsoft\Windows\CurrentVersion\Run");
-
-            // Not possible to put \ in string because it breaks Fody during build :/
-            return Registry.CurrentUser.OpenSubKey("Software/Microsoft/Windows/CurrentVersion/Run"
-                .Replace('/', '\\'), writable);
         }
 
         private CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
@@ -162,7 +128,6 @@ namespace NeedABreak
 
 		public void ShowBalloonTip()
 		{
-			//uxTaskbarIcon.ShowBalloonTip(Properties.Resources.verrouillage_imminent_title, Properties.Resources.verrouillage_imminent_detail, Hardcodet.Wpf.TaskbarNotification.BalloonIcon.Warning);
 			var template = (DataTemplate)FindResource("BalloonTipTemplate");
 			var balloon = (FrameworkElement)template.LoadContent();
 			balloon.Name = "uxBalloonTip";
