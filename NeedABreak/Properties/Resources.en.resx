@@ -105,4 +105,16 @@
   <data name="suspend_tooltip" xml:space="preserve">
     <value>Suspend the app. The countdown before locking will be paused.</value>
   </data>
+  <data name="resumed_message" xml:space="preserve">
+    <value>Countdown before lockdown resumed</value>
+  </data>
+  <data name="resumed_title" xml:space="preserve">
+    <value>App resumed</value>
+  </data>
+  <data name="suspended_message" xml:space="preserve">
+    <value>Countdown before lock paused</value>
+  </data>
+  <data name="suspended_title" xml:space="preserve">
+    <value>App suspended</value>
+  </data>
 </root>

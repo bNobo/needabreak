@@ -138,6 +138,22 @@
           <source>Suspendre l'application. Le décompte avant verrouillage sera mis en pause.</source>
           <target state="translated">Suspend the app. The countdown before locking will be paused.</target>
         </trans-unit>
+        <trans-unit id="resumed_message" translate="yes" xml:space="preserve">
+          <source>Décompte avant verrouillage repris</source>
+          <target state="translated">Countdown before lockdown resumed</target>
+        </trans-unit>
+        <trans-unit id="resumed_title" translate="yes" xml:space="preserve">
+          <source>Application reprise</source>
+          <target state="translated">App resumed</target>
+        </trans-unit>
+        <trans-unit id="suspended_message" translate="yes" xml:space="preserve">
+          <source>Décompte avant verrouillage mis en pause</source>
+          <target state="translated">Countdown before lock paused</target>
+        </trans-unit>
+        <trans-unit id="suspended_title" translate="yes" xml:space="preserve">
+          <source>Application suspendue</source>
+          <target state="translated">App suspended</target>
+        </trans-unit>
       </group>
     </body>
   </file>

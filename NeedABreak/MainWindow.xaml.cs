@@ -258,8 +258,30 @@ namespace NeedABreak
         private void SuspendResumeMenuItem_Click(object sender, RoutedEventArgs e)
         {
             var viewModel = GetViewModel();
-
             viewModel.SuspendOrResume();
+            ShowSuspendOrResumeBalloonTip(viewModel);
+        }
+
+        private void ShowSuspendOrResumeBalloonTip(MainWindowViewModel viewModel)
+        {
+            string title;
+            string message;
+
+            if (viewModel.IsSuspended)
+            {
+                title = Properties.Resources.suspended_title;
+                message = Properties.Resources.suspended_message;
+            }
+            else
+            {
+                title = Properties.Resources.resumed_title;
+                message = Properties.Resources.resumed_message;
+            }
+
+            uxTaskbarIcon.ShowBalloonTip(
+                    title,
+                    message,
+                    Hardcodet.Wpf.TaskbarNotification.BalloonIcon.None);
         }
     }
 }

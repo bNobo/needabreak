@@ -268,6 +268,24 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Décompte avant verrouillage repris.
+        /// </summary>
+        internal static string resumed_message {
+            get {
+                return ResourceManager.GetString("resumed_message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application reprise.
+        /// </summary>
+        internal static string resumed_title {
+            get {
+                return ResourceManager.GetString("resumed_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Suspendre.
         /// </summary>
         internal static string suspend {
@@ -282,6 +300,24 @@ namespace NeedABreak.Properties {
         internal static string suspend_tooltip {
             get {
                 return ResourceManager.GetString("suspend_tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Décompte avant verrouillage mis en pause.
+        /// </summary>
+        internal static string suspended_message {
+            get {
+                return ResourceManager.GetString("suspended_message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application suspendue.
+        /// </summary>
+        internal static string suspended_title {
+            get {
+                return ResourceManager.GetString("suspended_title", resourceCulture);
             }
         }
         

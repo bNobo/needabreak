@@ -207,11 +207,23 @@
   <data name="resume" xml:space="preserve">
     <value>Reprendre</value>
   </data>
+  <data name="resumed_message" xml:space="preserve">
+    <value>Décompte avant verrouillage repris</value>
+  </data>
+  <data name="resumed_title" xml:space="preserve">
+    <value>Application reprise</value>
+  </data>
   <data name="resume_tooltip" xml:space="preserve">
     <value>Reprendre le décompte. Le décompte avant verrouillage reprendra où il s'était arrêté.</value>
   </data>
   <data name="suspend" xml:space="preserve">
     <value>Suspendre</value>
+  </data>
+  <data name="suspended_message" xml:space="preserve">
+    <value>Décompte avant verrouillage mis en pause</value>
+  </data>
+  <data name="suspended_title" xml:space="preserve">
+    <value>Application suspendue</value>
   </data>
   <data name="suspend_tooltip" xml:space="preserve">
     <value>Suspendre l'application. Le décompte avant verrouillage sera mis en pause.</value>

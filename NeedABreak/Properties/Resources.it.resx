@@ -105,4 +105,16 @@
   <data name="suspend_tooltip" xml:space="preserve">
     <value>Sospendere l'app. Il conto alla rovescia prima del blocco verrà messo in pausa.</value>
   </data>
+  <data name="resumed_message" xml:space="preserve">
+    <value>Il conto alla rovescia prima del blocco è ripreso</value>
+  </data>
+  <data name="resumed_title" xml:space="preserve">
+    <value>Ripresa dell'applicazione</value>
+  </data>
+  <data name="suspended_message" xml:space="preserve">
+    <value>Conto alla rovescia prima del blocco in pausa</value>
+  </data>
+  <data name="suspended_title" xml:space="preserve">
+    <value>Applicazione sospesa</value>
+  </data>
 </root>
