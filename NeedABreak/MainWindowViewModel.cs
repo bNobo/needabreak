@@ -31,16 +31,35 @@ namespace NeedABreak
 	[AddINotifyPropertyChangedInterface]
     public class MainWindowViewModel
     {
-
         public int Seconds { get; set; }
         public int CentiSeconds { get; set; }
-
         public string TrayToolTipText { get; set; }
+        public string SuspendResumeMenuItemText { get; set; }
+        public string SuspendResumeToolTip { get; set; }
+        public bool IsSuspended { get; set; }
 
         public MainWindowViewModel()
         {
             // Mandatory : non-null and non-empty initialisation, instead tooltip does not appear.
             TrayToolTipText = "'Need a break' just started";
+            SuspendResumeMenuItemText = Properties.Resources.suspend;
+            SuspendResumeToolTip = Properties.Resources.suspend_tooltip;
+        }
+
+        public void SuspendOrResume()
+        {
+            if (IsSuspended)
+            {
+                SuspendResumeMenuItemText = Properties.Resources.suspend;
+                SuspendResumeToolTip = Properties.Resources.suspend_tooltip;
+            }
+            else
+            {
+                SuspendResumeMenuItemText = Properties.Resources.resume;
+                SuspendResumeToolTip = Properties.Resources.resume_tooltip;
+            }
+
+            IsSuspended = !IsSuspended;
         }
     }
 }

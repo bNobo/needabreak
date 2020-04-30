@@ -93,4 +93,16 @@
   <data name="lock_now" xml:space="preserve">
     <value>Lock now</value>
   </data>
+  <data name="resume" xml:space="preserve">
+    <value>Resume</value>
+  </data>
+  <data name="suspend" xml:space="preserve">
+    <value>Suspend</value>
+  </data>
+  <data name="resume_tooltip" xml:space="preserve">
+    <value>Resume counting. The countdown before locking will resume where it left off.</value>
+  </data>
+  <data name="suspend_tooltip" xml:space="preserve">
+    <value>Suspend the app. The countdown before locking will be paused.</value>
+  </data>
 </root>

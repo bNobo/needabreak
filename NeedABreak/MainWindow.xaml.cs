@@ -177,10 +177,14 @@ namespace NeedABreak
         private void UpdateToolTip(string text)
         {
             var viewModel = GetViewModel();
+#if DEBUG
+            viewModel.TrayToolTipText = $"[DEBUG] {text}";
+#else
             viewModel.TrayToolTipText = text;
+#endif
         }
 
-		private static void ShowSettingsWindow()
+        private static void ShowSettingsWindow()
 		{
 			Window settingsWindow = null;
 
@@ -284,6 +288,13 @@ namespace NeedABreak
         {
             Interlocked.Exchange(ref _cancellationTokenSource, new CancellationTokenSource()).Cancel();
             SessionLock.LockSession();
+        }
+
+        private void SuspendResumeMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var viewModel = GetViewModel();
+
+            viewModel.SuspendOrResume();
         }
     }
 }

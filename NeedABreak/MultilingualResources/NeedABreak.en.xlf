@@ -122,6 +122,22 @@
           <source>Verrouiller</source>
           <target state="translated">Lock now</target>
         </trans-unit>
+        <trans-unit id="resume" translate="yes" xml:space="preserve">
+          <source>Reprendre</source>
+          <target state="translated">Resume</target>
+        </trans-unit>
+        <trans-unit id="suspend" translate="yes" xml:space="preserve">
+          <source>Suspendre</source>
+          <target state="translated">Suspend</target>
+        </trans-unit>
+        <trans-unit id="resume_tooltip" translate="yes" xml:space="preserve">
+          <source>Reprendre le décompte. Le décompte avant verrouillage reprendra où il s'était arrêté.</source>
+          <target state="translated">Resume counting. The countdown before locking will resume where it left off.</target>
+        </trans-unit>
+        <trans-unit id="suspend_tooltip" translate="yes" xml:space="preserve">
+          <source>Suspendre l'application. Le décompte avant verrouillage sera mis en pause.</source>
+          <target state="translated">Suspend the app. The countdown before locking will be paused.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

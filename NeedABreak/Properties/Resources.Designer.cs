@@ -250,6 +250,42 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reprendre.
+        /// </summary>
+        internal static string resume {
+            get {
+                return ResourceManager.GetString("resume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reprendre le décompte. Le décompte avant verrouillage reprendra où il s&apos;était arrêté..
+        /// </summary>
+        internal static string resume_tooltip {
+            get {
+                return ResourceManager.GetString("resume_tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suspendre.
+        /// </summary>
+        internal static string suspend {
+            get {
+                return ResourceManager.GetString("suspend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suspendre l&apos;application. Le décompte avant verrouillage sera mis en pause..
+        /// </summary>
+        internal static string suspend_tooltip {
+            get {
+                return ResourceManager.GetString("suspend_tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Travail habituel.
         /// </summary>
         internal static string travail_habituel {

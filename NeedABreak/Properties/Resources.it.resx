@@ -93,4 +93,16 @@
   <data name="lock_now" xml:space="preserve">
     <value>Blocca ora</value>
   </data>
+  <data name="resume" xml:space="preserve">
+    <value>Riprendere</value>
+  </data>
+  <data name="suspend" xml:space="preserve">
+    <value>Sospendere</value>
+  </data>
+  <data name="resume_tooltip" xml:space="preserve">
+    <value>Riprendi di nuovo il conteggio. Il conto alla rovescia pre-blocco riprenderà dal punto in cui era stato interrotto.</value>
+  </data>
+  <data name="suspend_tooltip" xml:space="preserve">
+    <value>Sospendere l'app. Il conto alla rovescia prima del blocco verrà messo in pausa.</value>
+  </data>
 </root>

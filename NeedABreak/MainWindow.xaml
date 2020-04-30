@@ -106,6 +106,9 @@
                 <ContextMenu>
                     <MenuItem Header="{utils:TextResource ajuster_le_delai}"
                               Click="SettingsMenuItem_Click" />
+                    <MenuItem Header="{Binding SuspendResumeMenuItemText}"
+                              ToolTip="{Binding SuspendResumeToolTip}"
+                              Click="SuspendResumeMenuItem_Click" />
                     <Separator />
                     <MenuItem x:Name="LaunchOnStartupMenuItem"
                               IsCheckable="True"

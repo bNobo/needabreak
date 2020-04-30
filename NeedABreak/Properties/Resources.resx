@@ -204,4 +204,16 @@
   <data name="lock_now" xml:space="preserve">
     <value>Verrouiller</value>
   </data>
+  <data name="resume" xml:space="preserve">
+    <value>Reprendre</value>
+  </data>
+  <data name="resume_tooltip" xml:space="preserve">
+    <value>Reprendre le décompte. Le décompte avant verrouillage reprendra où il s'était arrêté.</value>
+  </data>
+  <data name="suspend" xml:space="preserve">
+    <value>Suspendre</value>
+  </data>
+  <data name="suspend_tooltip" xml:space="preserve">
+    <value>Suspendre l'application. Le décompte avant verrouillage sera mis en pause.</value>
+  </data>
 </root>

@@ -122,6 +122,22 @@
           <source>Verrouiller</source>
           <target state="translated">Blocca ora</target>
         </trans-unit>
+        <trans-unit id="resume" translate="yes" xml:space="preserve">
+          <source>Reprendre</source>
+          <target state="translated">Riprendere</target>
+        </trans-unit>
+        <trans-unit id="suspend" translate="yes" xml:space="preserve">
+          <source>Suspendre</source>
+          <target state="translated">Sospendere</target>
+        </trans-unit>
+        <trans-unit id="resume_tooltip" translate="yes" xml:space="preserve">
+          <source>Reprendre le décompte. Le décompte avant verrouillage reprendra où il s'était arrêté.</source>
+          <target state="translated">Riprendi di nuovo il conteggio. Il conto alla rovescia pre-blocco riprenderà dal punto in cui era stato interrotto.</target>
+        </trans-unit>
+        <trans-unit id="suspend_tooltip" translate="yes" xml:space="preserve">
+          <source>Suspendre l'application. Le décompte avant verrouillage sera mis en pause.</source>
+          <target state="translated">Sospendere l'app. Il conto alla rovescia prima del blocco verrà messo in pausa.</target>
+        </trans-unit>
       </group>
     </body>
   </file>
