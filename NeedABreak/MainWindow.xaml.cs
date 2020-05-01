@@ -23,6 +23,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace NeedABreak
 {
@@ -93,6 +94,8 @@ namespace NeedABreak
                 x => x.SetValue("NeedABreak", System.Reflection.Assembly.GetExecutingAssembly().Location));
         }
 
+        private const string CoffeeSuspendedUri = "pack://application:,,,/NeedABreak;component/coffee_suspended.ico";
+        private const string CoffeeCupUri = "pack://application:,,,/NeedABreak;component/coffee cup.ico";
         private CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         private bool _imminentLocking = false;
 
@@ -311,11 +314,13 @@ namespace NeedABreak
             {
                 viewModel.UpdateSuspendResumeMenuItemToResume();
                 ShowSuspendBalloonTip();
+                uxTaskbarIcon.IconSource = new BitmapImage(new Uri(CoffeeSuspendedUri, UriKind.Absolute));
             }
             else
             {
                 viewModel.UpdateSuspendResumeMenuItemToSuspend();
-                ShowResumeBalloonTip();                
+                ShowResumeBalloonTip();
+                uxTaskbarIcon.IconSource = new BitmapImage(new Uri(CoffeeCupUri, UriKind.Absolute));
             }
 
             viewModel.NotifyIsSuspendedChanged();
