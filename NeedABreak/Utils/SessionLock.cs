@@ -23,6 +23,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows;
+using System.ComponentModel;
 
 namespace NeedABreak.Utils
 {
@@ -36,7 +37,11 @@ namespace NeedABreak.Utils
         {
             if (!LockWorkStation())
             {
-                MessageBox.Show("Session Could not be locked!");
+                // Only cases when this function will fail are if user is not logged on or if workstation is already locked
+                // In both cases we just don't care => log and continue
+                App.Logger.Error(
+                    "Session Could not be locked!", 
+                    new Win32Exception(Marshal.GetLastWin32Error()));
             }
         }
     }
