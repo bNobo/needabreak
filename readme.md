@@ -94,7 +94,7 @@ Use of custom markup extension to handle translations in XAML files like this:
            Text="{utils:TextResource warranty}" />
 ```
 
-# Adorner
+## Adorner
 
 Use of Adorner class to surround selected tile on the settings window.
 
