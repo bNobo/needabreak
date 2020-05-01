@@ -29,14 +29,14 @@ using System.Threading.Tasks;
 namespace NeedABreak
 {
 	[AddINotifyPropertyChangedInterface]
-    public class MainWindowViewModel
+    public class MainWindowViewModel : INotifyPropertyChanged
     {
         public int Seconds { get; set; }
         public int CentiSeconds { get; set; }
         public string TrayToolTipText { get; set; }
         public string SuspendResumeMenuItemText { get; set; }
         public string SuspendResumeToolTip { get; set; }
-        public bool IsSuspended { get; set; }
+        public bool IsSuspended { get { return App.IsSuspended; } }
 
         public MainWindowViewModel()
         {
@@ -46,20 +46,23 @@ namespace NeedABreak
             SuspendResumeToolTip = Properties.Resources.suspend_tooltip;
         }
 
-        public void SuspendOrResume()
-        {
-            if (IsSuspended)
-            {
-                SuspendResumeMenuItemText = Properties.Resources.suspend;
-                SuspendResumeToolTip = Properties.Resources.suspend_tooltip;
-            }
-            else
-            {
-                SuspendResumeMenuItemText = Properties.Resources.resume;
-                SuspendResumeToolTip = Properties.Resources.resume_tooltip;
-            }
+        public event PropertyChangedEventHandler PropertyChanged;
 
-            IsSuspended = !IsSuspended;
+        internal void Resume()
+        {
+            SuspendResumeMenuItemText = Properties.Resources.suspend;
+            SuspendResumeToolTip = Properties.Resources.suspend_tooltip;
+        }
+
+        internal void Suspend()
+        {
+            SuspendResumeMenuItemText = Properties.Resources.resume;
+            SuspendResumeToolTip = Properties.Resources.resume_tooltip;
+        }
+
+        internal void NotifyIsSuspendedChanged()
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsSuspended)));
         }
     }
 }

@@ -130,6 +130,7 @@
       <DependentUpon>AboutBoxWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="BorderSelectedAdorner.cs" />
+    <Compile Include="Converters\BooleanToOppositeValueConverter.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>

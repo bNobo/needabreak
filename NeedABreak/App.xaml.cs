@@ -34,16 +34,38 @@ namespace NeedABreak
     public partial class App : Application
     {
         private static DateTime startTime;
-        private static System.Threading.Mutex mutex;
-		public static int Delay = 5400;      // Seconds	(put a low value here to facilitate debugging)
-		private Timer timer;
+#if !DEBUG
+        private static System.Threading.Mutex mutex; 
+#endif
+        public static int Delay { get; set; } = 5400;      // Seconds	(put a low value here to facilitate debugging)
+        private static Timer timer;
+        private static DateTime suspendTime;               // Time when App was suspended
+        private static bool isSuspended = false;
 
+        public static bool IsSuspended 
+        { 
+            get => isSuspended; 
+            set 
+            { 
+                isSuspended = value;
+                var mainWindowViewModel = GetMainWindow().GetViewModel();
+                mainWindowViewModel.NotifyIsSuspendedChanged();
+            } 
+        }
         static App()
         {
             // Uncomment to force a different language for UI testing
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
             //System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en");
             ConfigureLog4Net();
+        }
+
+        private static void ConfigureLog4Net()
+        {
+            // default log path (can be changed in .config)
+            log4net.GlobalContext.Properties["LogFilePath"] = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "NeedABreak Logs", "needabreak.log");
+            log4net.Config.XmlConfigurator.Configure();
+            Logger = LogManager.GetLogger(typeof(App));
         }
 
         public App()
@@ -94,14 +116,14 @@ namespace NeedABreak
                         .ConfigureAwait(false);
                 });
             }
-			else if (minutesLeft <= 1)
-			{
-				await Current.Dispatcher.InvokeAsync(() =>
-				{
-					var mainWindow = GetMainWindow();
-					mainWindow.ShowBalloonTip();
-				});
-			}
+            else if (minutesLeft <= 1)
+            {
+                await Current.Dispatcher.InvokeAsync(() =>
+                {
+                    var mainWindow = GetMainWindow();
+                    mainWindow.ShowBalloonTip();
+                });
+            }
         }
 
         public static double GetMinutesLeft()
@@ -120,11 +142,24 @@ namespace NeedABreak
         {
             if (e.Reason == Microsoft.Win32.SessionSwitchReason.SessionUnlock)
             {
+                var mainWindow = GetMainWindow();
+                mainWindow.OnSessionUnlock();
+
+                if (IsSuspended)
+                {
+                    return;
+                }
+
                 InitStartTime();
                 timer.Start();
             }
             else if (e.Reason == Microsoft.Win32.SessionSwitchReason.SessionLock)
             {
+                if (IsSuspended)
+                {
+                    return;
+                }
+
                 timer.Stop();
             }
         }
@@ -134,17 +169,24 @@ namespace NeedABreak
             startTime = DateTime.UtcNow;
         }
 
-		internal static void ShiftStartTime()
-		{
-			startTime += TimeSpan.FromMinutes(5);		// 5 minutes time skew which delay lock time to 5 minutes (Delay modification is forbidden)
-		}
-
-        private static void ConfigureLog4Net()
+        internal static void ShiftStartTime()
         {
-            // default log path (can be changed in .config)
-            log4net.GlobalContext.Properties["LogFilePath"] = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "NeedABreak Logs", "needabreak.log");
-            log4net.Config.XmlConfigurator.Configure();
-            Logger = LogManager.GetLogger(typeof(App));
+            startTime += TimeSpan.FromMinutes(5);       // 5 minutes time skew which delay lock time to 5 minutes (Delay modification is forbidden)
+        }
+
+        internal static void Suspend()
+        {
+            timer.Stop();
+            suspendTime = DateTime.UtcNow;
+            IsSuspended = true;
+        }
+
+        internal static void Resume()
+        {
+            var elapsedTime = (suspendTime - startTime).TotalMinutes;
+            startTime = DateTime.UtcNow.AddMinutes(-elapsedTime);
+            timer.Start();
+            IsSuspended = false;
         }
     }
 }
