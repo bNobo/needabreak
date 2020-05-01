@@ -1,6 +1,8 @@
-# Presentation
- 
-NEED A BREAK! is an open source application intended to help you take care of your health while you work on a computer. 
+﻿# NEED A BREAK!
+
+## Presentation
+
+NEED A BREAK! is an open source application intended to help you take care of your health while you work on a computer.
 It will encourage you to regularly have a break in order to rest your back and your eyes.
 
 I have made it for my personal usage and personaly use it every day at work and it helps me to not sit for too long. So I decided to share it because maybe it could be useful to someone else.
@@ -25,19 +27,19 @@ The settings window let you choose how long the application will wait before loc
 
 <img src="https://github.com/bNobo/needabreak/blob/master/Captures/settings.jpg" alt="settings" width="500" />
 
-# Installation
+## Installation
 
 If you just want to install the latest version of the application, you can download it [here](https://bnobo.github.io/needabreak/NeedABreak/publish/setup.exe).
 
 > Note that you will have a big red warning from the UAC during installation because the installer is not digitally signed.
 
-# Get started
+## Get started
 
 The project is a WPF application targeting .Net Framework 4.8. All you need is a copy of Visual Studio Community in order to build it.
 Once started, the application creates a coffee cup icon in the task bar to manifest its presence and permits user to interact with it. 
 Just click on the coffee cup to open the application menu.
 
-# Contribute
+## Contribute
 
 I'm sure this application could be improved in many ways and I would be happy to receive some help in doing so. If you want to contribute to this project, please go to https://github.com/bNobo/needabreak and read [contributing.md](https://github.com/bNobo/needabreak/blob/master/contributing.md) file.
 
@@ -49,9 +51,9 @@ Every kind of contribution is welcome, it includes, but is not limited to:
 * Test to find issues
 * Fix typos
 
-# Points of interest in code
+## Points of interest in code
 
-## P/Invoke
+### P/Invoke
 
 Use of P/Invoke to lock workstation:
 
@@ -61,7 +63,14 @@ Use of P/Invoke to lock workstation:
 static extern bool LockWorkStation();
 ```
 
-## System events
+Use of P/Invoke to check current user notification state in order to automatically suspend the application if a notification would not be appropriate:
+
+```csharp
+[DllImport("shell32.dll")]
+static extern int SHQueryUserNotificationStte(outUserNotificationStateuserNotificationState);
+```
+
+### System events
 
 Use of system events to detect session switch:
 
@@ -69,7 +78,7 @@ Use of system events to detect session switch:
 Microsoft.Win32.SystemEvents.SessionSwitch += SystemEvents_SessionSwitch;
 ```
 
-## Mutex
+### Mutex
 
 Use of Mutex class to prevent application from beeing launched twice:
 
@@ -83,7 +92,7 @@ if (!mutex.WaitOne(0, false))
 }
 ```
 
-## Translations
+### Translations
 
 Use of [Multilingual App Toolkit](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308) extension to handle translations. RESX files are automatically generated from translations made in XLF files.
 
@@ -94,7 +103,7 @@ Use of custom markup extension to handle translations in XAML files like this:
            Text="{utils:TextResource warranty}" />
 ```
 
-## Adorner
+### Adorner
 
 Use of Adorner class to surround selected tile on the settings window.
 
