@@ -16,36 +16,32 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace NeedABreak.Utils
 {
-    public static class RegistryTool
+    public static class QueryUserNotificationState
     {
-        /// <summary>
-        /// Check that key is not null then close and dispose it
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="action"></param>
-        public static void ActOnRegistryKey(RegistryKey key, Action<RegistryKey> action)
+        [DllImport("shell32.dll")]
+        static extern int SHQueryUserNotificationState(out UserNotificationState userNotificationState);
+
+        public static UserNotificationState GetState()
         {
-            if (key != null)
+            UserNotificationState state;
+            
+            int res = SHQueryUserNotificationState(out state);
+
+            if (res != 0)
             {
-                action(key);
-                key.Close();
-                key.Dispose();
+                App.Logger.Error($"SHQueryUserNotificationState returned an error, HRESULT = 0x{res:X8}");
             }
-        }
 
-        public static RegistryKey GetRunRegistryKey(bool writable)
-        {
-            // Not possible to put \ in string because it breaks Fody during build :/ 
-            // Using Replace to workaround the problem
-            return Registry.CurrentUser
-                .OpenSubKey("Software/Microsoft/Windows/CurrentVersion/Run"
-                .Replace('/', '\\'), writable);
+            return state;
         }
-
     }
 }

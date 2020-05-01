@@ -135,24 +135,32 @@
           <target state="translated">Riprendi di nuovo il conteggio. Il conto alla rovescia pre-blocco riprenderà dal punto in cui era stato interrotto.</target>
         </trans-unit>
         <trans-unit id="suspend_tooltip" translate="yes" xml:space="preserve">
-          <source>Suspendre l'application. Le décompte avant verrouillage sera mis en pause.</source>
-          <target state="translated">Sospendere l'app. Il conto alla rovescia prima del blocco verrà messo in pausa.</target>
+          <source>Suspendre l'application. Le décompte avant verrouillage sera suspendu.</source>
+          <target state="translated">Sospendere l'app. Il conto alla rovescia prima del blocco verrà sospeso.</target>
         </trans-unit>
         <trans-unit id="resumed_message" translate="yes" xml:space="preserve">
           <source>Décompte avant verrouillage repris</source>
           <target state="translated">Il conto alla rovescia prima del blocco è ripreso</target>
         </trans-unit>
         <trans-unit id="resumed_title" translate="yes" xml:space="preserve">
-          <source>Application reprise</source>
-          <target state="translated">Ripresa dell'applicazione</target>
+          <source>NEED A BREAK! réactivé</source>
+          <target state="translated">NEED A BREAK! riattivato</target>
         </trans-unit>
         <trans-unit id="suspended_message" translate="yes" xml:space="preserve">
-          <source>Décompte avant verrouillage mis en pause</source>
+          <source>Décompte avant verrouillage suspendu</source>
           <target state="translated">Conto alla rovescia prima del blocco in pausa</target>
         </trans-unit>
         <trans-unit id="suspended_title" translate="yes" xml:space="preserve">
-          <source>Application suspendue</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Applicazione sospesa</target>
+          <source>NEED A BREAK! suspendu</source>
+          <target state="translated">NEED A BREAK! sospeso</target>
+        </trans-unit>
+        <trans-unit id="automatic_suspension" translate="yes" xml:space="preserve">
+          <source>Suspension automatique</source>
+          <target state="translated">Sospensione automatica</target>
+        </trans-unit>
+        <trans-unit id="automatic_suspension_tooltip" translate="yes" xml:space="preserve">
+          <source>L'application se suspend automatiquement lorsqu'elle détecte qu'une application plein écran ou une présentation a démarré et se réactive automatiquement lorsque l'application plein écran ou la présentation est terminé.</source>
+          <target state="translated">L'app viene sospesa automaticamente quando rileva che un'app o una presentazione a schermo intero è stata avviata e viene riattivata automaticamente al termine dell'app o della presentazione a schermo intero.</target>
         </trans-unit>
       </group>
     </body>

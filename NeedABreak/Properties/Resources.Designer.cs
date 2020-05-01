@@ -88,6 +88,24 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Suspension automatique.
+        /// </summary>
+        internal static string automatic_suspension {
+            get {
+                return ResourceManager.GetString("automatic_suspension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to L&apos;application se suspend automatiquement lorsqu&apos;elle détecte qu&apos;une application plein écran ou une présentation a démarré et se réactive automatiquement lorsque l&apos;application plein écran ou la présentation est terminé..
+        /// </summary>
+        internal static string automatic_suspension_tooltip {
+            get {
+                return ResourceManager.GetString("automatic_suspension_tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact :.
         /// </summary>
         internal static string contact {
@@ -277,7 +295,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Application reprise.
+        ///   Looks up a localized string similar to NEED A BREAK! réactivé.
         /// </summary>
         internal static string resumed_title {
             get {
@@ -295,7 +313,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Suspendre l&apos;application. Le décompte avant verrouillage sera mis en pause..
+        ///   Looks up a localized string similar to Suspendre l&apos;application. Le décompte avant verrouillage sera suspendu..
         /// </summary>
         internal static string suspend_tooltip {
             get {
@@ -304,7 +322,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Décompte avant verrouillage mis en pause.
+        ///   Looks up a localized string similar to Décompte avant verrouillage suspendu.
         /// </summary>
         internal static string suspended_message {
             get {
@@ -313,7 +331,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Application suspendue.
+        ///   Looks up a localized string similar to NEED A BREAK! suspendu.
         /// </summary>
         internal static string suspended_title {
             get {

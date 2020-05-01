@@ -110,15 +110,18 @@
                               IsEnabled="{Binding IsSuspended, Converter={StaticResource BooleanToOppositeValueConverter}, Mode=OneWay}"
                               Click="SettingsMenuItem_Click" />
                     <MenuItem Header="{Binding SuspendResumeMenuItemText}"
-                              ToolTip="{Binding SuspendResumeToolTip}"
+                              ToolTip="{Binding SuspendResumeMenuItemToolTip}"
                               Click="SuspendResumeMenuItem_Click" />
                     <Separator />
                     <MenuItem x:Name="LaunchOnStartupMenuItem"
                               IsCheckable="True"
                               Header="{utils:TextResource executer_au_demarrage}" />
-                    <!--<MenuItem x:Name="ShowBalloonMenuItem"
+                    <MenuItem x:Name="AutomaticSuspensionMenuItem"
                               IsCheckable="True"
-                              Header="{utils:TextResource notification_avant_verrouillage}" />-->
+                              Header="{utils:TextResource automatic_suspension}"
+                              ToolTip="{utils:TextResource automatic_suspension_tooltip}"
+                              Checked="AutomaticSuspensionMenuItem_Checked"
+                              Unchecked="AutomaticSuspensionMenuItem_Unchecked" />
                     <Separator />
                     <MenuItem Click="AboutMenuItem_Click"
                               Header="{utils:TextResource about}" />

@@ -17,12 +17,14 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 using log4net;
+using NeedABreak.Utils;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
 
@@ -38,20 +40,12 @@ namespace NeedABreak
         private static System.Threading.Mutex mutex; 
 #endif
         public static int Delay { get; set; } = 5400;      // Seconds	(put a low value here to facilitate debugging)
-        private static Timer timer;
+        private static Timer timer = Delay > 120 ? new Timer(60000) : new Timer(10000);
         private static DateTime suspendTime;               // Time when App was suspended
-        private static bool isSuspended = false;
+        public static bool IsSuspended { get; set; }
 
-        public static bool IsSuspended 
-        { 
-            get => isSuspended; 
-            set 
-            { 
-                isSuspended = value;
-                var mainWindowViewModel = GetMainWindow().GetViewModel();
-                mainWindowViewModel.NotifyIsSuspendedChanged();
-            } 
-        }
+        public static SuspensionCause SuspensionCause { get; set; }
+
         static App()
         {
             // Uncomment to force a different language for UI testing
@@ -70,7 +64,6 @@ namespace NeedABreak
 
         public App()
         {
-            Logger.Debug("App ctor start");
 #if !DEBUG
             mutex = new System.Threading.Mutex(false, "Local\\NeedABreakInstance");
             if (!mutex.WaitOne(0, false))
@@ -81,15 +74,7 @@ namespace NeedABreak
             } 
 #endif
             InitializeComponent();
-            InitStartTime();
-            if (Delay > 120)
-            {
-                timer = new Timer(60000);
-            }
-            else
-            {	// timer every 10 secondes to facilitate debug when delay is less than 2 minutes, caveat : it breaks countdown (reinit each second)
-                timer = new Timer(10000);
-            }
+            InitStartTime();            
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
             Microsoft.Win32.SystemEvents.SessionSwitch += SystemEvents_SessionSwitch;
@@ -100,30 +85,76 @@ namespace NeedABreak
 
         private async void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
+            if (IsSuspended && SuspensionCause == SuspensionCause.Manual)
+            {
+                // App was manually suspended, only user can unsuspend it
+                return;
+            }
+
+            if (NeedABreak.Properties.Settings.Default.AutomaticSuspension)
+            {
+                UserNotificationState state = QueryUserNotificationState.GetState();
+
+                if (IsSuspended)
+                {
+                    // App was automatically suspended, shall we unsuspend it ?
+                    if (state == UserNotificationState.AcceptsNotifications)
+                    {
+                        Resume();
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    // App is not suspended, shall we automatically suspend it ?
+                    switch (state)
+                    {
+                        case UserNotificationState.Busy:
+                        case UserNotificationState.RunningDirect3dFullScreen:
+                        case UserNotificationState.PresentationMode:
+                            Suspend(SuspensionCause.Automatic);
+                            return;
+                    }
+                } 
+            }
+
             double minutesLeft = GetMinutesLeft();
 
             if (minutesLeft <= 0)
             {
-                if (Delay <= 0)
-                {
-                    timer.Stop();
-                }
-
-                await Current.Dispatcher.InvokeAsync(async () =>
-                {
-                    var mainWindow = GetMainWindow();
-                    await mainWindow.StartLockWorkStationAsync()
-                        .ConfigureAwait(false);
-                });
+                await TimesUp();
             }
             else if (minutesLeft <= 1)
             {
-                await Current.Dispatcher.InvokeAsync(() =>
-                {
-                    var mainWindow = GetMainWindow();
-                    mainWindow.ShowBalloonTip();
-                });
+                await TimesAlmostUp();
             }
+        }
+
+        private static async Task TimesUp()
+        {
+            if (Delay <= 0)
+            {
+                timer.Stop();
+            }
+
+            await Current.Dispatcher.InvokeAsync(async () =>
+            {
+                var mainWindow = GetMainWindow();
+                await mainWindow.StartLockWorkStationAsync()
+                    .ConfigureAwait(false);
+            });
+        }
+
+        private static async Task TimesAlmostUp()
+        {
+            await Current.Dispatcher.InvokeAsync(() =>
+            {
+                var mainWindow = GetMainWindow();
+                mainWindow.ShowBalloonTip();
+            });
         }
 
         public static double GetMinutesLeft()
@@ -145,21 +176,15 @@ namespace NeedABreak
                 var mainWindow = GetMainWindow();
                 mainWindow.OnSessionUnlock();
 
-                if (IsSuspended)
+                if (!IsSuspended)
                 {
-                    return;
+                    InitStartTime();
                 }
-
-                InitStartTime();
+                
                 timer.Start();
             }
             else if (e.Reason == Microsoft.Win32.SessionSwitchReason.SessionLock)
             {
-                if (IsSuspended)
-                {
-                    return;
-                }
-
                 timer.Stop();
             }
         }
@@ -174,19 +199,30 @@ namespace NeedABreak
             startTime += TimeSpan.FromMinutes(5);       // 5 minutes time skew which delay lock time to 5 minutes (Delay modification is forbidden)
         }
 
-        internal static void Suspend()
+        internal static void Suspend(SuspensionCause suspensionCause = SuspensionCause.Manual)
         {
-            timer.Stop();
             suspendTime = DateTime.UtcNow;
             IsSuspended = true;
+            SuspensionCause = suspensionCause;
+            NotifySuspensionStateChanged();
         }
 
         internal static void Resume()
         {
             var elapsedTime = (suspendTime - startTime).TotalMinutes;
             startTime = DateTime.UtcNow.AddMinutes(-elapsedTime);
-            timer.Start();
             IsSuspended = false;
+            SuspensionCause = SuspensionCause.Undefined;
+            NotifySuspensionStateChanged();
+        }
+
+        private static void NotifySuspensionStateChanged()
+        {
+            Current.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                var mainWindow = GetMainWindow();
+                mainWindow.NotifySuspensionStateChanged();
+            }));
         }
     }
 }

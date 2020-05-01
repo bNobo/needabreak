@@ -37,7 +37,13 @@ namespace NeedABreak
             InitializeComponent();
             LoadRegistryConfig();
             ExecuteFirstRunActions();
+            LoadUserSettings();
             App.Logger.Debug("MainWindow ctor end");
+        }
+
+        private void LoadUserSettings()
+        {
+            AutomaticSuspensionMenuItem.IsChecked = Properties.Settings.Default.AutomaticSuspension;
         }
 
         private void ExecuteFirstRunActions()
@@ -263,25 +269,19 @@ namespace NeedABreak
 
         private void SuspendResumeMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            var viewModel = GetViewModel();
-
             if (App.IsSuspended)
             {
-                viewModel.Resume();
-                ShowResumeBalloonTip();
                 App.Resume();
             }
             else
             {
-                viewModel.Suspend();
-                ShowSuspendBalloonTip();
                 App.Suspend();
             }
         }
 
         public void OnSessionUnlock()
         {
-            if (App.IsSuspended)
+            if (App.IsSuspended && App.SuspensionCause == SuspensionCause.Manual)
             {
                 ShowSuspendBalloonTip();
             }
@@ -301,6 +301,41 @@ namespace NeedABreak
                 Properties.Resources.suspended_title,
                 Properties.Resources.suspended_message,
                 Hardcodet.Wpf.TaskbarNotification.BalloonIcon.None);
+        }
+
+        public void NotifySuspensionStateChanged()
+        {
+            var viewModel = GetViewModel();
+
+            if (App.IsSuspended)
+            {
+                viewModel.UpdateSuspendResumeMenuItemToResume();
+                ShowSuspendBalloonTip();
+            }
+            else
+            {
+                viewModel.UpdateSuspendResumeMenuItemToSuspend();
+                ShowResumeBalloonTip();                
+            }
+
+            viewModel.NotifyIsSuspendedChanged();
+        }
+
+        private void AutomaticSuspensionMenuItem_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.AutomaticSuspension = true;
+            Properties.Settings.Default.Save();
+        }
+
+        private void AutomaticSuspensionMenuItem_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.AutomaticSuspension = false;
+            Properties.Settings.Default.Save();
+
+            if (App.IsSuspended && App.SuspensionCause == SuspensionCause.Automatic)
+            {
+                App.Resume(); 
+            }
         }
     }
 }

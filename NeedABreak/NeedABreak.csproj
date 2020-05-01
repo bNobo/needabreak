@@ -131,11 +131,14 @@
     </Compile>
     <Compile Include="BorderSelectedAdorner.cs" />
     <Compile Include="Converters\BooleanToOppositeValueConverter.cs" />
+    <Compile Include="Enums\SuspensionCause.cs" />
+    <Compile Include="Enums\UserNotificationState.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SettingsWindowViewModel.cs" />
+    <Compile Include="Utils\QueryUserNotificationState.cs" />
     <Compile Include="Utils\RegistryTool.cs" />
     <Compile Include="Utils\SessionLock.cs" />
     <Compile Include="Utils\TextResourceExtension.cs" />
@@ -230,6 +233,7 @@
     <XliffResource Include="MultilingualResources\NeedABreak.en.xlf" />
     <XliffResource Include="MultilingualResources\NeedABreak.it.xlf" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.1.1\build\Fody.targets" Condition="Exists('..\packages\Fody.6.1.1\build\Fody.targets')" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets" Label="MultilingualAppToolkit" Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\v$(MultilingualAppToolkitVersion)\Microsoft.Multilingual.ResxResources.targets')" />

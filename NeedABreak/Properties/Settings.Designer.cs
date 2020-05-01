@@ -34,5 +34,17 @@ namespace NeedABreak.Properties {
                 this["IsFirstRun"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AutomaticSuspension {
+            get {
+                return ((bool)(this["AutomaticSuspension"]));
+            }
+            set {
+                this["AutomaticSuspension"] = value;
+            }
+        }
     }
 }

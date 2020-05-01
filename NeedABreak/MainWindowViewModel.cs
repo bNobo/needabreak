@@ -35,7 +35,7 @@ namespace NeedABreak
         public int CentiSeconds { get; set; }
         public string TrayToolTipText { get; set; }
         public string SuspendResumeMenuItemText { get; set; }
-        public string SuspendResumeToolTip { get; set; }
+        public string SuspendResumeMenuItemToolTip { get; set; }
         public bool IsSuspended { get { return App.IsSuspended; } }
 
         public MainWindowViewModel()
@@ -43,21 +43,21 @@ namespace NeedABreak
             // Mandatory : non-null and non-empty initialisation, instead tooltip does not appear.
             TrayToolTipText = "'Need a break' just started";
             SuspendResumeMenuItemText = Properties.Resources.suspend;
-            SuspendResumeToolTip = Properties.Resources.suspend_tooltip;
+            SuspendResumeMenuItemToolTip = Properties.Resources.suspend_tooltip;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        internal void Resume()
+        internal void UpdateSuspendResumeMenuItemToSuspend()
         {
             SuspendResumeMenuItemText = Properties.Resources.suspend;
-            SuspendResumeToolTip = Properties.Resources.suspend_tooltip;
+            SuspendResumeMenuItemToolTip = Properties.Resources.suspend_tooltip;
         }
 
-        internal void Suspend()
+        internal void UpdateSuspendResumeMenuItemToResume()
         {
             SuspendResumeMenuItemText = Properties.Resources.resume;
-            SuspendResumeToolTip = Properties.Resources.resume_tooltip;
+            SuspendResumeMenuItemToolTip = Properties.Resources.resume_tooltip;
         }
 
         internal void NotifyIsSuspendedChanged()

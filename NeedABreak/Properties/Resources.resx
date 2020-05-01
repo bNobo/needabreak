@@ -211,7 +211,7 @@
     <value>Décompte avant verrouillage repris</value>
   </data>
   <data name="resumed_title" xml:space="preserve">
-    <value>Application reprise</value>
+    <value>NEED A BREAK! réactivé</value>
   </data>
   <data name="resume_tooltip" xml:space="preserve">
     <value>Reprendre le décompte. Le décompte avant verrouillage reprendra où il s'était arrêté.</value>
@@ -220,12 +220,18 @@
     <value>Suspendre</value>
   </data>
   <data name="suspended_message" xml:space="preserve">
-    <value>Décompte avant verrouillage mis en pause</value>
+    <value>Décompte avant verrouillage suspendu</value>
   </data>
   <data name="suspended_title" xml:space="preserve">
-    <value>Application suspendue</value>
+    <value>NEED A BREAK! suspendu</value>
   </data>
   <data name="suspend_tooltip" xml:space="preserve">
-    <value>Suspendre l'application. Le décompte avant verrouillage sera mis en pause.</value>
+    <value>Suspendre l'application. Le décompte avant verrouillage sera suspendu.</value>
+  </data>
+  <data name="automatic_suspension" xml:space="preserve">
+    <value>Suspension automatique</value>
+  </data>
+  <data name="automatic_suspension_tooltip" xml:space="preserve">
+    <value>L'application se suspend automatiquement lorsqu'elle détecte qu'une application plein écran ou une présentation a démarré et se réactive automatiquement lorsque l'application plein écran ou la présentation est terminé.</value>
   </data>
 </root>
