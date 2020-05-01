@@ -18,11 +18,13 @@ So if you need a new text resource for the UI, please add a line in resources.re
 
 > Please DO NOT modify resources.en.resx and resources.it.resx directly. These are generated files. Only modify resources.resx. You can add your text in english and I will make the translations.
 
-# Error at first build
+# Troubleshouting
+
+## Error at first build
 
 There is sometimes an error `A numeric comparison was attempted on "$(MsBuildMajorVersion)" that evaluates to "" instead of a number, in condition "($(MsBuildMajorVersion) < 16)"` at first build, I don't know why. You can ignore it and launch the application, the error will just disappear.
 
-# XamlParseException at startup
+## XamlParseException at startup
 
 If you modify a ViewModel, sometimes it can cause a XamlParseException at startup:
 
