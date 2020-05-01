@@ -39,7 +39,7 @@ Just click on the coffee cup to open the application menu.
 
 # Contribute
 
-I'm sure this application could be improved in many ways and I would be happy to receive some help in doing so. If you want to contribute to this project, go to https://github.com/bNobo/needabreak
+I'm sure this application could be improved in many ways and I would be happy to receive some help in doing so. If you want to contribute to this project, please go to https://github.com/bNobo/needabreak and read [contributing.md](https://github.com/bNobo/needabreak/blob/master/contributing.md) file.
 
 Every kind of contribution is welcome, it includes, but is not limited to:
 * Add new functionalities
