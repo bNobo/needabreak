@@ -153,7 +153,7 @@ namespace NeedABreak
             await Current.Dispatcher.InvokeAsync(() =>
             {
                 var mainWindow = GetMainWindow();
-                mainWindow.ShowBalloonTip();
+                mainWindow.ShowCustomBalloon();
             });
         }
 

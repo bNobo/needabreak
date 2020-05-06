@@ -135,7 +135,7 @@ namespace NeedABreak
             _imminentLocking = false;
         }
 
-        public void ShowBalloonTip()
+        public void ShowCustomBalloon()
         {
             var template = (DataTemplate)FindResource("BalloonTipTemplate");
             var balloon = (FrameworkElement)template.LoadContent();
