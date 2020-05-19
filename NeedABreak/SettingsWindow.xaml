@@ -24,17 +24,19 @@
                       xmlns:utils="clr-namespace:NeedABreak.Utils"
 					  mc:Ignorable="d"
 					  Title="Need a break!"
-					  Height="800"
-					  Width="800"
+					  Height="16cm"
+					  Width="16cm"
 					  Background="White"
 					  BorderThickness="1"
 					  BorderBrush="#00B570"
 					  WindowTitleBrush="#00B570"
-					  ResizeMode="NoResize"
+					  ResizeMode="CanResizeWithGrip"
 					  WindowStartupLocation="CenterScreen"
 					  TitleForeground="White"
+                      ResizeBorderThickness="1cm"
 					  Tag="{Binding Delay, Mode=TwoWay}">
-	<Window.Resources>
+    <!--remark : it seems that default ResizeBorderThickness is about 1mm wide which makes the selection very difficult. There is no such problem with a classic Window.-->
+    <Window.Resources>
 		<Style TargetType="TextBlock"
 			   BasedOn="{StaticResource {x:Type TextBlock}}">
 			<Setter Property="Foreground"
