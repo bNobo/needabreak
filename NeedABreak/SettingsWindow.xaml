@@ -34,36 +34,38 @@
 					  WindowStartupLocation="CenterScreen"
 					  TitleForeground="White"
                       ResizeBorderThickness="1cm"
-					  Tag="{Binding Delay, Mode=TwoWay}">
+					  Tag="{Binding Delay, Mode=TwoWay}"
+                      MinWidth="15cm"
+                      MinHeight="15cm">
     <!--remark : it seems that default ResizeBorderThickness is about 1mm wide which makes the selection very difficult. There is no such problem with a classic Window.-->
     <Window.Resources>
-		<Style TargetType="TextBlock"
+        <Style TargetType="TextBlock"
 			   BasedOn="{StaticResource {x:Type TextBlock}}">
-			<Setter Property="Foreground"
+            <Setter Property="Foreground"
                     Value="#005B38" />
-			<Setter Property="FontSize"
-					Value="20" />
-			<Setter Property="TextAlignment"
+            <Setter Property="FontSize"
+					Value="18" />
+            <Setter Property="TextAlignment"
 					Value="Center" />
-		</Style>
-	</Window.Resources>
-	<Grid>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="18*" />
-			<RowDefinition Height="33*" />
-            <RowDefinition Height="33*" />
-			<RowDefinition Height="100" />
-		</Grid.RowDefinitions>
-		<TextBlock Text="{utils:TextResource explications}"
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <TextBlock Text="{utils:TextResource explications}"
 				   Grid.Row="0"
 				   TextWrapping="Wrap"
-				   VerticalAlignment="Center" />
-		<Grid Grid.Row="1">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition />
-				<ColumnDefinition />
-			</Grid.ColumnDefinitions>
-			<Border Grid.Column="0"
+				   VerticalAlignment="Top"
+                   Margin="10,20" />
+        <Grid Margin="20,110">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0"
+                    Grid.Row="0"
 					BorderThickness="2"
 					BorderBrush="#00B67C"
 					Background="#A6E5D1"
@@ -72,17 +74,20 @@
 					MouseLeave="Border_MouseLeave"
 					MouseDown="Border_MouseDown"
 					x:Name="Border45">
-				<StackPanel>
-                    <TextBlock Text="{utils:TextResource travail_tres_intensif}" />
-					<TextBlock Text="45"
-							   FontSize="96"
+                <Grid>
+                    <TextBlock Text="{utils:TextResource travail_tres_intensif}"
+                               HorizontalAlignment="Center"/>
+                    <TextBlock Text="45"
 							   FontWeight="Bold"
-							   Margin="0,20,0,0"/>
-					<TextBlock Text="{utils:TextResource minutes}"
-							   Margin="0,-20,0,0"/>
-				</StackPanel>
-			</Border>
-			<Border Grid.Column="1"
+                               FontSize="60"
+                               VerticalAlignment="Center"/>
+                    <TextBlock Text="{utils:TextResource minutes}"
+							   Margin="0,0,0,0"
+                               VerticalAlignment="Bottom"/>
+                </Grid>
+            </Border>
+            <Border Grid.Column="1"
+                     Grid.Row="0"
 					BorderThickness="2"
 					BorderBrush="#00B67C"
 					Background="#A6E5D1"
@@ -91,24 +96,19 @@
 					MouseLeave="Border_MouseLeave"
 					MouseDown="Border_MouseDown"
 					x:Name="Border60">
-				<StackPanel>
-                    <TextBlock Text="{utils:TextResource travail_intensif}" />
-					<TextBlock Text="60"
-							   FontSize="96"
+                <Grid>
+                    <TextBlock Text="{utils:TextResource travail_intensif}"
+                               HorizontalAlignment="Center"/>
+                    <TextBlock Text="60"
+							   FontSize="60"
 							   FontWeight="Bold"
-							   Margin="0,20,0,0" />
+                               VerticalAlignment="Center"/>
                     <TextBlock Text="{utils:TextResource minutes}"
-							   Margin="0,-20,0,0" />
-				</StackPanel>
-			</Border>			
-		</Grid>
-
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
+							   VerticalAlignment="Bottom" />
+                </Grid>
+            </Border>
             <Border Grid.Column="0"
+                     Grid.Row="1"
                     BorderThickness="2"
                     BorderBrush="#00B67C"
                     Background="#A6E5D1"
@@ -117,17 +117,18 @@
                     MouseLeave="Border_MouseLeave"
                     MouseDown="Border_MouseDown"
                     x:Name="Border90">
-                <StackPanel>
+                <Grid>
                     <TextBlock Text="{utils:TextResource travail_habituel}" />
                     <TextBlock Text="90"
-                               FontSize="96"
+                               FontSize="60"
                                FontWeight="Bold"
-                               Margin="0,20,0,0" />
+                               VerticalAlignment="Center" />
                     <TextBlock Text="{utils:TextResource minutes}"
-                               Margin="0,-20,0,0" />
-                </StackPanel>
+                               VerticalAlignment="Bottom" />
+                </Grid>
             </Border>
             <Border Grid.Column="1"
+                     Grid.Row="1"
                     BorderThickness="2"
                     BorderBrush="#00B67C"
                     Background="#A6E5D1"
@@ -136,28 +137,28 @@
                     MouseLeave="Border_MouseLeave"
                     MouseDown="Border_MouseDown"
                     x:Name="Border120">
-                <StackPanel>
+                <Grid>
                     <TextBlock Text="{utils:TextResource travail_peu_intensif}" />
                     <TextBlock Text="120"
-                               FontSize="96"
+                               FontSize="60"
                                FontWeight="Bold"
-                               Margin="0,20,0,0" />
+                               VerticalAlignment="Center" />
                     <TextBlock Text="{utils:TextResource minutes}"
-                               Margin="0,-20,0,0" />
-                </StackPanel>
+                               VerticalAlignment="Bottom" />
+                </Grid>
             </Border>
         </Grid>
 
-		<Button Grid.Row="3"
-				HorizontalAlignment="Right"
+        <Button HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
 				BorderThickness="0"
 				FontSize="20"
 				Width="150"
 				Height="50"
-				Margin="0,0,20,0"
+				Margin="0,0,20,20"
 				Click="CloseButton_Click">
             <TextBlock Text="{utils:TextResource fermer}"
 					   Foreground="White" />
-		</Button>
-	</Grid>
+        </Button>
+    </Grid>
 </Controls:MetroWindow>
