@@ -20,7 +20,7 @@
         </trans-unit>
         <trans-unit id="explications" translate="yes" xml:space="preserve">
           <source>Lorsqu'on travaille sur écran, il est impératif de respecter un régime de pauses qui doit être fonction de l'intensité du travail. Choisissez le délai approprié en fonction de l'intensité du travail que vous devez accomplir.</source>
-          <target state="translated">Run at startup</target>
+          <target state="translated">When working on a screen, it is important to take frequent screen breaks based on your work hours. Choose the appropriate work duration</target>
         </trans-unit>
         <trans-unit id="fermer" translate="yes" xml:space="preserve">
           <source>Fermer</source>
