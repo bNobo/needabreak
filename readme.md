@@ -1,6 +1,8 @@
-﻿# NEED A BREAK!
+# NEED A BREAK!
 
 ## Presentation
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FbNobo%2Fneedabreak.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FbNobo%2Fneedabreak?ref=badge_shield)
+
 
 NEED A BREAK! is an open source application intended to help you take care of your health while you work on a computer.
 It will encourage you to regularly have a break in order to rest your back and your eyes.
@@ -107,3 +109,7 @@ Use of custom markup extension to handle translations in XAML files like this:
 
 Use of Adorner class to surround selected tile on the settings window.
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FbNobo%2Fneedabreak.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FbNobo%2Fneedabreak?ref=badge_large)
