@@ -27,7 +27,10 @@
                       Height="450"
                       Width="800"
                       ShowMinButton="False"
-                      ShowMaxRestoreButton="False">
+                      ShowMaxRestoreButton="False"
+                      BorderBrush="#00B570"
+					            WindowTitleBrush="#00B570"
+                      ResizeMode="NoResize">
     <Grid>
         <Grid.Resources>
             <Style TargetType="TextBlock"

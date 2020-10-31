@@ -21,7 +21,7 @@
 					  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 					  xmlns:local="clr-namespace:NeedABreak"
 					  xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
-                      xmlns:utils="clr-namespace:NeedABreak.Utils"
+            xmlns:utils="clr-namespace:NeedABreak.Utils"
 					  mc:Ignorable="d"
 					  Title="Need a break!"
 					  Height="16cm"
@@ -33,10 +33,9 @@
 					  ResizeMode="CanResizeWithGrip"
 					  WindowStartupLocation="CenterScreen"
 					  TitleForeground="White"
-                      ResizeBorderThickness="1cm"
-					  Tag="{Binding Delay, Mode=TwoWay}"
-                      MinWidth="15cm"
-                      MinHeight="15cm">
+            Tag="{Binding Delay, Mode=TwoWay}"
+            MinWidth="15cm"
+            MinHeight="15cm">
     <!--remark : it seems that default ResizeBorderThickness is about 1mm wide which makes the selection very difficult. There is no such problem with a classic Window.-->
     <Window.Resources>
         <Style TargetType="TextBlock"
