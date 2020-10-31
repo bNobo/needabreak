@@ -31,7 +31,7 @@
                        Visibility="Hidden"
                        Topmost="True"
                        ShowInTaskbar="False"
-                       TitlebarHeight="0"
+                       TitleBarHeight="0"
                        IsWindowDraggable="True"
                        Background="White"
                        BorderThickness="5"
