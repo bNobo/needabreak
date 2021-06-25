@@ -41,8 +41,12 @@ namespace NeedABreak
 #endif
         public static int Delay { get; set; } = 5400;      // Seconds	(put a low value here to facilitate debugging)
         private static Timer timer = Delay > 120 ? new Timer(60000) : new Timer(10000);
-        private static DateTime suspendTime;               // Time when App was suspended
-        public static bool IsSuspended { get; set; }
+        private static DateTime suspendTime;               // Time when App was suspended		
+#if DEBUG
+		private static Timer _debugTimer = new Timer(1000); 
+#endif
+
+		public static bool IsSuspended { get; set; }
 
         public static SuspensionCause SuspensionCause { get; set; }
 
@@ -78,10 +82,21 @@ namespace NeedABreak
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
             Microsoft.Win32.SystemEvents.SessionSwitch += SystemEvents_SessionSwitch;
-            Logger.Debug("App ctor end");
+#if DEBUG
+			_debugTimer.Elapsed += _debugTimer_Elapsed;
+			_debugTimer.Start(); 
+#endif
+			Logger.Debug("App ctor end");
         }
 
-        public static ILog Logger { get; private set; }
+#if DEBUG
+		private void _debugTimer_Elapsed(object sender, ElapsedEventArgs e)
+		{
+			System.Diagnostics.Debug.WriteLine(UserActivity.GetInactiveTime());
+		} 
+#endif
+
+		public static ILog Logger { get; private set; }
 
         private async void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
@@ -140,6 +155,8 @@ namespace NeedABreak
                 timer.Stop();
             }
 
+			await WaitForUserToBeIdleAsync();
+
             await Current.Dispatcher.InvokeAsync(async () =>
             {
                 var mainWindow = GetMainWindow();
@@ -148,7 +165,18 @@ namespace NeedABreak
             });
         }
 
-        private static async Task TimesAlmostUp()
+		/// <summary>
+		/// Wait for user to be idle in order to avoid annoying him.
+		/// </summary>
+		/// <returns></returns>
+		private static Task WaitForUserToBeIdleAsync()
+		{
+			var userActivity = new UserActivity(TimeSpan.Zero);
+
+			return userActivity.WaitForUserToBeIdleAsync();
+		}
+
+		private static async Task TimesAlmostUp()
         {
             await Current.Dispatcher.InvokeAsync(() =>
             {
