@@ -1,12 +1,17 @@
 # Process to publish a new release
 
-- update publish version on master
-- commit and push
+- create a branch to prepare new version
+- update package version
+- update readme.md
+- merge into root
 - checkout gh-pages
-- rebase gh-pages onto master (or just merge or cherry-pick last commit if there are no other modifications)
+- rebase gh-pages onto root
 - choose "Release" configuration and publish in "publish" local folder
-- push binaries stored in "publish" folder => now github pages is up-to-date, you can install needabreak from https://bnobo.github.io/needabreak/NeedABreak/publish/setup.exe
+- add binaries stored in "publish" folder 
+> use `git add -f` to force add new folder under "Application Files"
+- push gh-pages => now github pages is up-to-date, you can install needabreak from https://bnobo.github.io/needabreak/NeedABreak/publish/setup.exe
 - make a ZIP with all files under "publish"
+- push root branch on remote
 - create a new release on GitHub
 - upload ZIP in the new release
 - publish release => now you can install needabreak from the Releases page https://github.com/bNobo/needabreak/releases
