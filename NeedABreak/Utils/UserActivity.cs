@@ -19,7 +19,7 @@ namespace NeedABreak.Utils
 		{
 			if (idleTime == TimeSpan.Zero)
 			{
-				idleTime = TimeSpan.FromSeconds(2);
+				idleTime = TimeSpan.FromSeconds(3);
 			}
 
 			_idleTime = idleTime;
