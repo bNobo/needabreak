@@ -146,6 +146,7 @@
     <Compile Include="Utils\RegistryTool.cs" />
     <Compile Include="Utils\SessionLock.cs" />
     <Compile Include="Utils\TextResourceExtension.cs" />
+    <Compile Include="Utils\UserActivity.cs" />
     <Page Include="AboutBoxWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
