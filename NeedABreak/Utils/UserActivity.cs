@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace NeedABreak.Utils
 {
@@ -19,7 +20,7 @@ namespace NeedABreak.Utils
 		{
 			if (idleTime == TimeSpan.Zero)
 			{
-				idleTime = TimeSpan.FromSeconds(3);
+				idleTime = TimeSpan.FromSeconds(7);
 			}
 
 			_idleTime = idleTime;
@@ -60,7 +61,17 @@ namespace NeedABreak.Utils
 			{
 				await Task.Delay(1000);
 				inactiveTime = GetInactiveTime();
-			}			
+			}
+
+			while (AMouseButtonIsPressed())
+			{
+				await Task.Delay(1000);
+			}
+		}
+
+		public static bool AMouseButtonIsPressed()
+		{
+			return Mouse.LeftButton == MouseButtonState.Pressed || Mouse.MiddleButton == MouseButtonState.Pressed || Mouse.RightButton == MouseButtonState.Pressed;
 		}
 	}
 }

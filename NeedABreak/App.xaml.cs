@@ -39,7 +39,7 @@ namespace NeedABreak
 #if !DEBUG
         private static System.Threading.Mutex mutex; 
 #endif
-        public static int Delay { get; set; } = 5400;      // Seconds	(put a low value here to facilitate debugging)
+        public static int Delay { get; set; } = 10;      // Seconds	(put a low value here to facilitate debugging)
         private static Timer timer = Delay > 120 ? new Timer(60000) : new Timer(10000);
         private static DateTime suspendTime;               // Time when App was suspended		
 #if DEBUG
@@ -90,9 +90,13 @@ namespace NeedABreak
         }
 
 #if DEBUG
-		private void _debugTimer_Elapsed(object sender, ElapsedEventArgs e)
+		private async void _debugTimer_Elapsed(object sender, ElapsedEventArgs e)
 		{
-			System.Diagnostics.Debug.WriteLine(UserActivity.GetInactiveTime());
+			System.Diagnostics.Debug.WriteLine("inactive time = " + UserActivity.GetInactiveTime());
+			await Current.Dispatcher.InvokeAsync(() =>
+			{
+				System.Diagnostics.Debug.WriteLine("a mouse button is pressed : " + UserActivity.AMouseButtonIsPressed());
+			});
 		} 
 #endif
 
@@ -153,11 +157,11 @@ namespace NeedABreak
 			// stop timer to avoid reintrance in case user stay active for more than 60 seconds
             timer.Stop();
 
-			await WaitForUserToBeIdleAsync();
-
             await Current.Dispatcher.InvokeAsync(async () =>
             {
-                var mainWindow = GetMainWindow();
+				await WaitForUserToBeIdleAsync();
+
+				var mainWindow = GetMainWindow();
                 await mainWindow.StartLockWorkStationAsync()
                     .ConfigureAwait(false);
             });
