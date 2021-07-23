@@ -150,10 +150,8 @@ namespace NeedABreak
 
         private static async Task TimesUp()
         {
-            if (Delay <= 0)
-            {
-                timer.Stop();
-            }
+			// stop timer to avoid reintrance in case user stay active for more than 60 seconds
+            timer.Stop();
 
 			await WaitForUserToBeIdleAsync();
 
@@ -163,6 +161,8 @@ namespace NeedABreak
                 await mainWindow.StartLockWorkStationAsync()
                     .ConfigureAwait(false);
             });
+
+			timer.Start();
         }
 
 		/// <summary>
@@ -224,7 +224,7 @@ namespace NeedABreak
 
         internal static void ShiftStartTime()
         {
-            startTime += TimeSpan.FromMinutes(5);       // 5 minutes time skew which delay lock time to 5 minutes (Delay modification is forbidden)
+            startTime += TimeSpan.FromMinutes(Delay / 1080d);       // time skew proportional to Delay. For a 90 minutes delay it gives 5 minutes time skew which delay lock time to 5 minutes (Delay modification is forbidden)
         }
 
         internal static void Suspend(SuspensionCause suspensionCause = SuspensionCause.Manual)
