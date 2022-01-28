@@ -30,44 +30,44 @@ using System.Windows;
 
 namespace NeedABreak
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
-    {
-        private static DateTime startTime;
+	/// <summary>
+	/// Interaction logic for App.xaml
+	/// </summary>
+	public partial class App : Application
+	{
+		private static DateTime startTime;
 #if !DEBUG
         private static System.Threading.Mutex mutex; 
 #endif
-        public static int Delay { get; set; } = 10;      // Seconds	(put a low value here to facilitate debugging)
-        private static Timer timer = Delay > 120 ? new Timer(60000) : new Timer(10000);
-        private static DateTime suspendTime;               // Time when App was suspended		
+		public static int Delay { get; set; } = 5400;      // Seconds	(put a low value here to facilitate debugging)
+		private static Timer timer = Delay > 120 ? new Timer(60000) : new Timer(10000);
+		private static DateTime suspendTime;               // Time when App was suspended		
 #if DEBUG
-		private static Timer _debugTimer = new Timer(1000); 
+		private static Timer _debugTimer = new Timer(1000);
 #endif
 
 		public static bool IsSuspended { get; set; }
 
-        public static SuspensionCause SuspensionCause { get; set; }
+		public static SuspensionCause SuspensionCause { get; set; }
 
-        static App()
-        {
-            // Uncomment to force a different language for UI testing
-            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
-            //System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en");
-            ConfigureLog4Net();
-        }
+		static App()
+		{
+			// Uncomment to force a different language for UI testing
+			//System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
+			//System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en");
+			ConfigureLog4Net();
+		}
 
-        private static void ConfigureLog4Net()
-        {
-            // default log path (can be changed in .config)
-            log4net.GlobalContext.Properties["LogFilePath"] = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "NeedABreak Logs", "needabreak.log");
-            log4net.Config.XmlConfigurator.Configure();
-            Logger = LogManager.GetLogger(typeof(App));
-        }
+		private static void ConfigureLog4Net()
+		{
+			// default log path (can be changed in .config)
+			log4net.GlobalContext.Properties["LogFilePath"] = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "NeedABreak Logs", "needabreak.log");
+			log4net.Config.XmlConfigurator.Configure();
+			Logger = LogManager.GetLogger(typeof(App));
+		}
 
-        public App()
-        {
+		public App()
+		{
 #if !DEBUG
             mutex = new System.Threading.Mutex(false, "Local\\NeedABreakInstance");
             if (!mutex.WaitOne(0, false))
@@ -77,97 +77,102 @@ namespace NeedABreak
                 return;
             } 
 #endif
-            InitializeComponent();
-            InitStartTime();            
-            timer.Elapsed += Timer_Elapsed;
-            timer.Start();
-            Microsoft.Win32.SystemEvents.SessionSwitch += SystemEvents_SessionSwitch;
+			InitializeComponent();
+			InitStartTime();
+			timer.Elapsed += Timer_Elapsed;
+			StartTimer();
+			Microsoft.Win32.SystemEvents.SessionSwitch += SystemEvents_SessionSwitch;
 #if DEBUG
 			_debugTimer.Elapsed += _debugTimer_Elapsed;
-			_debugTimer.Start(); 
+			_debugTimer.Start();
 #endif
 			Logger.Debug("App ctor end");
-        }
+		}
 
 #if DEBUG
-		private async void _debugTimer_Elapsed(object sender, ElapsedEventArgs e)
+		private void _debugTimer_Elapsed(object sender, ElapsedEventArgs e)
 		{
 			System.Diagnostics.Debug.WriteLine("inactive time = " + UserActivity.GetInactiveTime());
-			await Current.Dispatcher.InvokeAsync(() =>
-			{
-				System.Diagnostics.Debug.WriteLine("a mouse button is pressed : " + UserActivity.AMouseButtonIsPressed());
-			});
-		} 
+		}
 #endif
 
 		public static ILog Logger { get; private set; }
 
-        private async void Timer_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            if (IsSuspended && SuspensionCause == SuspensionCause.Manual)
-            {
-                // App was manually suspended, only user can unsuspend it
-                return;
-            }
+		private async void Timer_Elapsed(object sender, ElapsedEventArgs e)
+		{
+			if (IsSuspended && SuspensionCause == SuspensionCause.Manual)
+			{
+				// App was manually suspended, only user can unsuspend it
+				return;
+			}
 
-            if (NeedABreak.Properties.Settings.Default.AutomaticSuspension)
-            {
-                UserNotificationState state = QueryUserNotificationState.GetState();
+			if (NeedABreak.Properties.Settings.Default.AutomaticSuspension)
+			{
+				UserNotificationState state = QueryUserNotificationState.GetState();
 
-                if (IsSuspended)
-                {
-                    // App was automatically suspended, shall we unsuspend it ?
-                    if (state == UserNotificationState.AcceptsNotifications)
-                    {
-                        Resume();
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
-                else
-                {
-                    // App is not suspended, shall we automatically suspend it ?
-                    switch (state)
-                    {
-                        case UserNotificationState.Busy:
-                        case UserNotificationState.RunningDirect3dFullScreen:
-                        case UserNotificationState.PresentationMode:
-                            Suspend(SuspensionCause.Automatic);
-                            return;
-                    }
-                } 
-            }
+				if (IsSuspended)
+				{
+					// App was automatically suspended, shall we unsuspend it ?
+					if (state == UserNotificationState.AcceptsNotifications)
+					{
+						Resume();
+					}
+					else
+					{
+						return;
+					}
+				}
+				else
+				{
+					// App is not suspended, shall we automatically suspend it ?
+					switch (state)
+					{
+						case UserNotificationState.Busy:
+						case UserNotificationState.RunningDirect3dFullScreen:
+						case UserNotificationState.PresentationMode:
+							Suspend(SuspensionCause.Automatic);
+							return;
+					}
+				}
+			}
 
-            double minutesLeft = GetMinutesLeft();
+			double minutesLeft = GetMinutesLeft();
 
-            if (minutesLeft <= 0)
-            {
-                await TimesUp();
-            }
-            else if (minutesLeft <= 1)
-            {
-                await TimesAlmostUp();
-            }
-        }
+			if (minutesLeft <= 0)
+			{
+				await TimesUp();
+			}
+			else if (minutesLeft <= 1)
+			{
+				await TimesAlmostUp();
+			}
+		}
 
-        private static async Task TimesUp()
-        {
+		private async Task TimesUp()
+		{
 			// stop timer to avoid reintrance in case user stay active for more than 60 seconds
-            timer.Stop();
+			StopTimer();
 
-            await Current.Dispatcher.InvokeAsync(async () =>
-            {
+			await Current.Dispatcher.Invoke(async () =>
+			{
 				await WaitForUserToBeIdleAsync();
 
 				var mainWindow = GetMainWindow();
-                await mainWindow.StartLockWorkStationAsync()
-                    .ConfigureAwait(false);
-            });
+				await mainWindow.StartLockWorkStationAsync();
+			});
 
+			StartTimer();
+		}
+
+		private void StartTimer()
+		{
 			timer.Start();
-        }
+		}
+
+		private void StopTimer()
+		{
+			timer.Stop();
+		}
 
 		/// <summary>
 		/// Wait for user to be idle in order to avoid annoying him.
@@ -175,86 +180,86 @@ namespace NeedABreak
 		/// <returns></returns>
 		private static Task WaitForUserToBeIdleAsync()
 		{
-			var userActivity = new UserActivity(TimeSpan.Zero);
+			var userActivity = new UserActivity();
 
 			return userActivity.WaitForUserToBeIdleAsync();
 		}
 
 		private static async Task TimesAlmostUp()
-        {
-            await Current.Dispatcher.InvokeAsync(() =>
-            {
-                var mainWindow = GetMainWindow();
-                mainWindow.ShowCustomBalloon();
-            });
-        }
+		{
+			await Current.Dispatcher.InvokeAsync(() =>
+			{
+				var mainWindow = GetMainWindow();
+				mainWindow.ShowCustomBalloon();
+			});
+		}
 
-        public static double GetMinutesLeft()
-        {
-            var minutesElapsed = (DateTime.UtcNow - startTime).TotalMinutes;
-            var minutesLeft = Delay / 60 - minutesElapsed;
-            return minutesLeft;
-        }
+		public static double GetMinutesLeft()
+		{
+			var minutesElapsed = (DateTime.UtcNow - startTime).TotalMinutes;
+			var minutesLeft = Delay / 60 - minutesElapsed;
+			return minutesLeft;
+		}
 
-        private static MainWindow GetMainWindow()
-        {
-            return Application.Current.MainWindow as MainWindow;
-        }
+		private static MainWindow GetMainWindow()
+		{
+			return Application.Current.MainWindow as MainWindow;
+		}
 
-        private void SystemEvents_SessionSwitch(object sender, Microsoft.Win32.SessionSwitchEventArgs e)
-        {
-            if (e.Reason == Microsoft.Win32.SessionSwitchReason.SessionUnlock)
-            {
-                var mainWindow = GetMainWindow();
-                mainWindow.OnSessionUnlock();
+		private void SystemEvents_SessionSwitch(object sender, Microsoft.Win32.SessionSwitchEventArgs e)
+		{
+			if (e.Reason == Microsoft.Win32.SessionSwitchReason.SessionUnlock)
+			{
+				var mainWindow = GetMainWindow();
+				mainWindow.OnSessionUnlock();
 
-                if (!IsSuspended)
-                {
-                    InitStartTime();
-                }
-                
-                timer.Start();
-            }
-            else if (e.Reason == Microsoft.Win32.SessionSwitchReason.SessionLock)
-            {
-                timer.Stop();
-            }
-        }
+				if (!IsSuspended)
+				{
+					InitStartTime();
+				}
 
-        internal static void InitStartTime()
-        {
-            startTime = DateTime.UtcNow;
-        }
+				StartTimer();
+			}
+			else if (e.Reason == Microsoft.Win32.SessionSwitchReason.SessionLock)
+			{
+				StopTimer();
+			}
+		}
 
-        internal static void ShiftStartTime()
-        {
-            startTime += TimeSpan.FromMinutes(Delay / 1080d);       // time skew proportional to Delay. For a 90 minutes delay it gives 5 minutes time skew which delay lock time to 5 minutes (Delay modification is forbidden)
-        }
+		internal static void InitStartTime()
+		{
+			startTime = DateTime.UtcNow;
+		}
 
-        internal static void Suspend(SuspensionCause suspensionCause = SuspensionCause.Manual)
-        {
-            suspendTime = DateTime.UtcNow;
-            IsSuspended = true;
-            SuspensionCause = suspensionCause;
-            NotifySuspensionStateChanged();
-        }
+		internal static void ShiftStartTime()
+		{
+			startTime += TimeSpan.FromMinutes(Delay / 1080d);       // time skew proportional to Delay. For a 90 minutes delay it gives 5 minutes time skew which delay lock time to 5 minutes (Delay modification is forbidden)
+		}
 
-        internal static void Resume()
-        {
-            var elapsedTime = (suspendTime - startTime).TotalMinutes;
-            startTime = DateTime.UtcNow.AddMinutes(-elapsedTime);
-            IsSuspended = false;
-            SuspensionCause = SuspensionCause.Undefined;
-            NotifySuspensionStateChanged();
-        }
+		internal static void Suspend(SuspensionCause suspensionCause = SuspensionCause.Manual)
+		{
+			suspendTime = DateTime.UtcNow;
+			IsSuspended = true;
+			SuspensionCause = suspensionCause;
+			NotifySuspensionStateChanged();
+		}
 
-        private static void NotifySuspensionStateChanged()
-        {
-            Current.Dispatcher.BeginInvoke(new Action(() =>
-            {
-                var mainWindow = GetMainWindow();
-                mainWindow.NotifySuspensionStateChanged();
-            }));
-        }
-    }
+		internal static void Resume()
+		{
+			var elapsedTime = (suspendTime - startTime).TotalMinutes;
+			startTime = DateTime.UtcNow.AddMinutes(-elapsedTime);
+			IsSuspended = false;
+			SuspensionCause = SuspensionCause.Undefined;
+			NotifySuspensionStateChanged();
+		}
+
+		private static void NotifySuspensionStateChanged()
+		{
+			Current.Dispatcher.BeginInvoke(new Action(() =>
+			{
+				var mainWindow = GetMainWindow();
+				mainWindow.NotifySuspensionStateChanged();
+			}));
+		}
+	}
 }
