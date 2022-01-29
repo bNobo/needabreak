@@ -101,7 +101,7 @@ namespace NeedABreak
 
         public async Task StartLockWorkStationAsync()
         {
-            _imminentLocking = true;
+			_imminentLocking = true;
             var viewModel = GetViewModel();
             Show();
             var token = _cancellationTokenSource.Token;

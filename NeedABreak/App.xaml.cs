@@ -43,10 +43,10 @@ namespace NeedABreak
         private static Timer timer = Delay > 120 ? new Timer(60000) : new Timer(10000);
         private static DateTime suspendTime;               // Time when App was suspended		
 #if DEBUG
-		private static Timer _debugTimer = new Timer(1000); 
+        private static Timer _debugTimer = new Timer(1000);
 #endif
 
-		public static bool IsSuspended { get; set; }
+        public static bool IsSuspended { get; set; }
 
         public static SuspensionCause SuspensionCause { get; set; }
 
@@ -78,25 +78,25 @@ namespace NeedABreak
             } 
 #endif
             InitializeComponent();
-            InitStartTime();            
+            InitStartTime();
             timer.Elapsed += Timer_Elapsed;
-            timer.Start();
+            StartTimer();
             Microsoft.Win32.SystemEvents.SessionSwitch += SystemEvents_SessionSwitch;
 #if DEBUG
-			_debugTimer.Elapsed += _debugTimer_Elapsed;
-			_debugTimer.Start(); 
+            _debugTimer.Elapsed += _debugTimer_Elapsed;
+            _debugTimer.Start();
 #endif
-			Logger.Debug("App ctor end");
+            Logger.Debug("App ctor end");
         }
 
 #if DEBUG
-		private void _debugTimer_Elapsed(object sender, ElapsedEventArgs e)
-		{
-			System.Diagnostics.Debug.WriteLine(UserActivity.GetInactiveTime());
-		} 
+        private void _debugTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("inactive time = " + UserActivity.GetInactiveTime());
+        }
 #endif
 
-		public static ILog Logger { get; private set; }
+        public static ILog Logger { get; private set; }
 
         private async void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
@@ -133,7 +133,7 @@ namespace NeedABreak
                             Suspend(SuspensionCause.Automatic);
                             return;
                     }
-                } 
+                }
             }
 
             double minutesLeft = GetMinutesLeft();
@@ -148,35 +148,44 @@ namespace NeedABreak
             }
         }
 
-        private static async Task TimesUp()
+        private async Task TimesUp()
         {
-            if (Delay <= 0)
-            {
-                timer.Stop();
-            }
+            // stop timer to avoid reintrance in case user stay active for more than 60 seconds
+            StopTimer();
 
-			await WaitForUserToBeIdleAsync();
-
-            await Current.Dispatcher.InvokeAsync(async () =>
+            await Current.Dispatcher.Invoke(async () =>
             {
+                await WaitForUserToBeIdleAsync();
+
                 var mainWindow = GetMainWindow();
-                await mainWindow.StartLockWorkStationAsync()
-                    .ConfigureAwait(false);
+                await mainWindow.StartLockWorkStationAsync();
             });
+
+            StartTimer();
         }
 
-		/// <summary>
-		/// Wait for user to be idle in order to avoid annoying him.
-		/// </summary>
-		/// <returns></returns>
-		private static Task WaitForUserToBeIdleAsync()
-		{
-			var userActivity = new UserActivity(TimeSpan.Zero);
+        private void StartTimer()
+        {
+            timer.Start();
+        }
 
-			return userActivity.WaitForUserToBeIdleAsync();
-		}
+        private void StopTimer()
+        {
+            timer.Stop();
+        }
 
-		private static async Task TimesAlmostUp()
+        /// <summary>
+        /// Wait for user to be idle in order to avoid annoying him.
+        /// </summary>
+        /// <returns></returns>
+        private static Task WaitForUserToBeIdleAsync()
+        {
+            var userActivity = new UserActivity();
+
+            return userActivity.WaitForUserToBeIdleAsync();
+        }
+
+        private static async Task TimesAlmostUp()
         {
             await Current.Dispatcher.InvokeAsync(() =>
             {
@@ -208,12 +217,12 @@ namespace NeedABreak
                 {
                     InitStartTime();
                 }
-                
-                timer.Start();
+
+                StartTimer();
             }
             else if (e.Reason == Microsoft.Win32.SessionSwitchReason.SessionLock)
             {
-                timer.Stop();
+                StopTimer();
             }
         }
 
@@ -224,7 +233,7 @@ namespace NeedABreak
 
         internal static void ShiftStartTime()
         {
-            startTime += TimeSpan.FromMinutes(5);       // 5 minutes time skew which delay lock time to 5 minutes (Delay modification is forbidden)
+            startTime += TimeSpan.FromMinutes(Delay / 1080d);       // time skew proportional to Delay. For a 90 minutes delay it gives 5 minutes time skew which delay lock time to 5 minutes (Delay modification is forbidden)
         }
 
         internal static void Suspend(SuspensionCause suspensionCause = SuspensionCause.Manual)
