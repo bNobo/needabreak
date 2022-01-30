@@ -75,7 +75,7 @@ static extern int SHQueryUserNotificationStte(outUserNotificationStateuserNotifi
 Use of P/Invoke to ensure user is idle before poping-up the countdown window:
 
 ```csharp
-DllImport("user32.dll")]
+[DllImport("user32.dll")]
 static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
 
 [DllImport("user32.dll")]		
