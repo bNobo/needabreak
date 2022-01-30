@@ -35,13 +35,13 @@ namespace NeedABreak
     /// </summary>
     public partial class App : Application
     {
-        private static DateTime startTime;
+        private static DateTime _startTime;
 #if !DEBUG
         private static System.Threading.Mutex mutex; 
 #endif
         public static int Delay { get; set; } = 5400;      // Seconds	(put a low value here to facilitate debugging)
-        private static Timer timer = Delay > 120 ? new Timer(60000) : new Timer(10000);
-        private static DateTime suspendTime;               // Time when App was suspended		
+        private static Timer _timer = Delay > 120 ? new Timer(60000) : new Timer(10000);
+        private static DateTime _suspendTime;               // Time when App was suspended		
 #if DEBUG
         private static Timer _debugTimer = new Timer(1000);
 #endif
@@ -49,6 +49,9 @@ namespace NeedABreak
         public static bool IsSuspended { get; set; }
 
         public static SuspensionCause SuspensionCause { get; set; }
+
+		// hack: Timer to workaround an issue on Windows 11 (PreviewOpenTooltip event not raised) : https://github.com/hardcodet/wpf-notifyicon/issues/65
+		private static Timer _updateToolTipTimer;
 
         static App()
         {
@@ -79,18 +82,33 @@ namespace NeedABreak
 #endif
             InitializeComponent();
             InitStartTime();
-            timer.Elapsed += Timer_Elapsed;
-            StartTimer();
-            Microsoft.Win32.SystemEvents.SessionSwitch += SystemEvents_SessionSwitch;
+            _timer.Elapsed += Timer_Elapsed;
 #if DEBUG
             _debugTimer.Elapsed += _debugTimer_Elapsed;
-            _debugTimer.Start();
+			_debugTimer.Start();
 #endif
+			_updateToolTipTimer = new Timer();
+			_updateToolTipTimer.Interval = 1000;
+			_updateToolTipTimer.Elapsed += UpdateToolTipTimer_Elapsed;
+			_updateToolTipTimer.Start();
+
+			StartTimer();
+            Microsoft.Win32.SystemEvents.SessionSwitch += SystemEvents_SessionSwitch;
+
             Logger.Debug("App ctor end");
         }
 
+		private async void UpdateToolTipTimer_Elapsed(object sender, ElapsedEventArgs e)
+		{
+			await Current.Dispatcher.InvokeAsync(() =>
+			{
+				var mainWindow = GetMainWindow();
+				mainWindow.UpdateToolTip();
+			});
+		}
+
 #if DEBUG
-        private void _debugTimer_Elapsed(object sender, ElapsedEventArgs e)
+		private void _debugTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("inactive time = " + UserActivity.GetInactiveTime());
         }
@@ -100,7 +118,7 @@ namespace NeedABreak
 
         private async void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            if (IsSuspended && SuspensionCause == SuspensionCause.Manual)
+			if (IsSuspended && SuspensionCause == SuspensionCause.Manual)
             {
                 // App was manually suspended, only user can unsuspend it
                 return;
@@ -166,13 +184,13 @@ namespace NeedABreak
 
         private void StartTimer()
         {
-            timer.Start();
-        }
+            _timer.Start();			
+		}
 
         private void StopTimer()
         {
-            timer.Stop();
-        }
+            _timer.Stop();
+		}
 
         /// <summary>
         /// Wait for user to be idle in order to avoid annoying him.
@@ -196,7 +214,7 @@ namespace NeedABreak
 
         public static double GetMinutesLeft()
         {
-            var minutesElapsed = (DateTime.UtcNow - startTime).TotalMinutes;
+            var minutesElapsed = (DateTime.UtcNow - _startTime).TotalMinutes;
             var minutesLeft = Delay / 60 - minutesElapsed;
             return minutesLeft;
         }
@@ -219,26 +237,28 @@ namespace NeedABreak
                 }
 
                 StartTimer();
+				_updateToolTipTimer.Start();
             }
             else if (e.Reason == Microsoft.Win32.SessionSwitchReason.SessionLock)
             {
                 StopTimer();
+				_updateToolTipTimer.Stop();
             }
         }
 
         internal static void InitStartTime()
         {
-            startTime = DateTime.UtcNow;
+            _startTime = DateTime.UtcNow;
         }
 
         internal static void ShiftStartTime()
         {
-            startTime += TimeSpan.FromMinutes(Delay / 1080d);       // time skew proportional to Delay. For a 90 minutes delay it gives 5 minutes time skew which delay lock time to 5 minutes (Delay modification is forbidden)
+            _startTime += TimeSpan.FromMinutes(Delay / 1080d);       // time skew proportional to Delay. For a 90 minutes delay it gives 5 minutes time skew which delay lock time to 5 minutes (Delay modification is forbidden)
         }
 
         internal static void Suspend(SuspensionCause suspensionCause = SuspensionCause.Manual)
         {
-            suspendTime = DateTime.UtcNow;
+            _suspendTime = DateTime.UtcNow;
             IsSuspended = true;
             SuspensionCause = suspensionCause;
             NotifySuspensionStateChanged();
@@ -246,8 +266,8 @@ namespace NeedABreak
 
         internal static void Resume()
         {
-            var elapsedTime = (suspendTime - startTime).TotalMinutes;
-            startTime = DateTime.UtcNow.AddMinutes(-elapsedTime);
+            var elapsedTime = (_suspendTime - _startTime).TotalMinutes;
+            _startTime = DateTime.UtcNow.AddMinutes(-elapsedTime);
             IsSuspended = false;
             SuspensionCause = SuspensionCause.Undefined;
             NotifySuspensionStateChanged();
