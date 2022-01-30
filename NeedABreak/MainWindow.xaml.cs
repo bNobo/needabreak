@@ -101,7 +101,7 @@ namespace NeedABreak
 
         public async Task StartLockWorkStationAsync()
         {
-			_imminentLocking = true;
+            _imminentLocking = true;
             var viewModel = GetViewModel();
             Show();
             var token = _cancellationTokenSource.Token;
@@ -182,6 +182,11 @@ namespace NeedABreak
         }
 
         private void TaskbarIcon_PreviewTrayToolTipOpen(object sender, RoutedEventArgs e)
+        {
+            UpdateToolTip();
+        }
+
+        public void UpdateToolTip()
         {
             if (App.IsSuspended)
             {
