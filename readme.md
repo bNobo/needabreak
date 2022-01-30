@@ -31,7 +31,7 @@ The settings window let you choose how long the application will wait before loc
 
 ## Installation
 
-If you just want to install the latest version of the application, you can download it [here](https://bnobo.github.io/needabreak/NeedABreak/publish/setup.exe).
+If you just want to install and enjoy the latest version of the application, you can download the setup [here](https://bnobo.github.io/needabreak/NeedABreak/publish/setup.exe) or from my github page: https://bnobo.github.io/needabreak/
 
 > Note that you will have a big red warning from the UAC during installation because the installer is not digitally signed.
 
