@@ -50,8 +50,8 @@ namespace NeedABreak
 
         public static SuspensionCause SuspensionCause { get; set; }
 
-		// hack: Timer to workaround an issue on Windows 11 (PreviewOpenTooltip event not raised) : https://github.com/hardcodet/wpf-notifyicon/issues/65
-		private static Timer _updateToolTipTimer;
+        // hack: Timer to workaround an issue on Windows 11 (PreviewOpenTooltip event not raised) : https://github.com/hardcodet/wpf-notifyicon/issues/65
+        private static Timer _updateToolTipTimer;
 
         static App()
         {
@@ -85,30 +85,30 @@ namespace NeedABreak
             _timer.Elapsed += Timer_Elapsed;
 #if DEBUG
             _debugTimer.Elapsed += _debugTimer_Elapsed;
-			_debugTimer.Start();
+            _debugTimer.Start();
 #endif
-			_updateToolTipTimer = new Timer();
-			_updateToolTipTimer.Interval = 1000;
-			_updateToolTipTimer.Elapsed += UpdateToolTipTimer_Elapsed;
-			_updateToolTipTimer.Start();
+            _updateToolTipTimer = new Timer();
+            _updateToolTipTimer.Interval = 1000;
+            _updateToolTipTimer.Elapsed += UpdateToolTipTimer_Elapsed;
+            _updateToolTipTimer.Start();
 
-			StartTimer();
+            StartTimer();
             Microsoft.Win32.SystemEvents.SessionSwitch += SystemEvents_SessionSwitch;
 
             Logger.Debug("App ctor end");
         }
 
-		private async void UpdateToolTipTimer_Elapsed(object sender, ElapsedEventArgs e)
-		{
-			await Current.Dispatcher.InvokeAsync(() =>
-			{
-				var mainWindow = GetMainWindow();
-				mainWindow.UpdateToolTip();
-			});
-		}
+        private async void UpdateToolTipTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            await Current.Dispatcher.InvokeAsync(() =>
+            {
+                var mainWindow = GetMainWindow();
+                mainWindow.UpdateToolTip();
+            });
+        }
 
 #if DEBUG
-		private void _debugTimer_Elapsed(object sender, ElapsedEventArgs e)
+        private void _debugTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("inactive time = " + UserActivity.GetInactiveTime());
         }
@@ -118,7 +118,7 @@ namespace NeedABreak
 
         private async void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-			if (IsSuspended && SuspensionCause == SuspensionCause.Manual)
+            if (IsSuspended && SuspensionCause == SuspensionCause.Manual)
             {
                 // App was manually suspended, only user can unsuspend it
                 return;
@@ -185,12 +185,12 @@ namespace NeedABreak
         private void StartTimer()
         {
             _timer.Start();			
-		}
+        }
 
         private void StopTimer()
         {
             _timer.Stop();
-		}
+        }
 
         /// <summary>
         /// Wait for user to be idle in order to avoid annoying him.
@@ -237,12 +237,12 @@ namespace NeedABreak
                 }
 
                 StartTimer();
-				_updateToolTipTimer.Start();
+                _updateToolTipTimer.Start();
             }
             else if (e.Reason == Microsoft.Win32.SessionSwitchReason.SessionLock)
             {
                 StopTimer();
-				_updateToolTipTimer.Stop();
+                _updateToolTipTimer.Stop();
             }
         }
 

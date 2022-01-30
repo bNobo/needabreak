@@ -101,7 +101,7 @@ namespace NeedABreak
 
         public async Task StartLockWorkStationAsync()
         {
-			_imminentLocking = true;
+            _imminentLocking = true;
             var viewModel = GetViewModel();
             Show();
             var token = _cancellationTokenSource.Token;
@@ -182,45 +182,45 @@ namespace NeedABreak
         }
 
         private void TaskbarIcon_PreviewTrayToolTipOpen(object sender, RoutedEventArgs e)
-		{
-			UpdateToolTip();
-		}
+        {
+            UpdateToolTip();
+        }
 
-		public void UpdateToolTip()
-		{
-			if (App.IsSuspended)
-			{
-				UpdateToolTip(Properties.Resources.suspended_title);
-				return;
-			}
+        public void UpdateToolTip()
+        {
+            if (App.IsSuspended)
+            {
+                UpdateToolTip(Properties.Resources.suspended_title);
+                return;
+            }
 
-			if (_imminentLocking)
-			{
-				UpdateToolTip(Properties.Resources.Imminent_locking);
-				return;
-			}
+            if (_imminentLocking)
+            {
+                UpdateToolTip(Properties.Resources.Imminent_locking);
+                return;
+            }
 
-			var minutesLeft = App.GetMinutesLeft();
+            var minutesLeft = App.GetMinutesLeft();
 
-			if (minutesLeft <= 1)
-			{
-				UpdateToolTip(Properties.Resources.Less_than_a_minute_before_locking);
-				return;
-			}
+            if (minutesLeft <= 1)
+            {
+                UpdateToolTip(Properties.Resources.Less_than_a_minute_before_locking);
+                return;
+            }
 
-			minutesLeft = Math.Round(minutesLeft);
+            minutesLeft = Math.Round(minutesLeft);
 
-			if (minutesLeft == 1)
-			{
-				UpdateToolTip(Properties.Resources.one_minute_before_locking);
-			}
-			else
-			{
-				UpdateToolTip(string.Format(Properties.Resources.minutes_before_locking, minutesLeft));
-			}
-		}
+            if (minutesLeft == 1)
+            {
+                UpdateToolTip(Properties.Resources.one_minute_before_locking);
+            }
+            else
+            {
+                UpdateToolTip(string.Format(Properties.Resources.minutes_before_locking, minutesLeft));
+            }
+        }
 
-		private void CloseMenuItem_Click(object sender, RoutedEventArgs e)
+        private void CloseMenuItem_Click(object sender, RoutedEventArgs e)
         {
             App.Current.Shutdown();
         }
