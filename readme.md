@@ -4,7 +4,7 @@
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FbNobo%2Fneedabreak.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FbNobo%2Fneedabreak?ref=badge_shield)
 
 NEED A BREAK! is an open source application intended to help you take care of your health while you work on a computer.
-It will encourage you to regularly have a break in order to avoid health issues like musculoskeletal disorders, head aches or eye strain.
+It will encourage you to regularly have a break in order to avoid health issues like musculoskeletal disorders, headaches or eye strain.
 
 I have made it for my personal usage and personaly use it every day at work and it helps me to not sit for too long. So I decided to share it because maybe it could be useful to someone else.
 
