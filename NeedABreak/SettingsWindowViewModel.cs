@@ -30,8 +30,16 @@ namespace NeedABreak
 	[DoNotNotify]
 	public class SettingsWindowViewModel : INotifyPropertyChanged
     {
-        public int Delay { get { return App.Delay / 60; } set { App.Delay = value * 60;
-                OnPropertyChanged(); } }
+        public int Delay 
+		{ 
+			get { return App.Delay / 60; } 
+			set { 
+				App.Delay = value * 60;
+				Properties.Settings.Default.Delay = App.Delay;
+				Properties.Settings.Default.Save();
+				OnPropertyChanged(); 
+			} 
+		}
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -40,7 +48,7 @@ namespace NeedABreak
             if (null != PropertyChanged)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            }			
         }
 
         public SettingsWindowViewModel()
