@@ -39,7 +39,7 @@ namespace NeedABreak
 #if !DEBUG
         private static System.Threading.Mutex mutex; 
 #endif
-        public static int Delay { get; set; } = 5400;      // Seconds	(put a low value here to facilitate debugging)
+        public static int Delay { get; set; } = NeedABreak.Properties.Settings.Default.Delay;      // Seconds	(put a low value here to facilitate debugging)
         private static Timer _timer = Delay > 120 ? new Timer(60000) : new Timer(10000);
         private static DateTime _suspendTime;               // Time when App was suspended		
 #if DEBUG
