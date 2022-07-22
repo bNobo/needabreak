@@ -266,8 +266,6 @@ namespace NeedABreak
 
         internal static void Resume()
         {
-            var elapsedTime = (_suspendTime - _startTime).TotalMinutes;
-            _startTime = DateTime.UtcNow.AddMinutes(-elapsedTime);
             IsSuspended = false;
             SuspensionCause = SuspensionCause.Undefined;
             NotifySuspensionStateChanged();
