@@ -97,30 +97,30 @@
     <value>Resume</value>
   </data>
   <data name="suspend" xml:space="preserve">
-    <value>Suspend</value>
+    <value>Do not disturb</value>
   </data>
   <data name="resume_tooltip" xml:space="preserve">
-    <value>Resume counting. The countdown before locking will resume where it left off.</value>
+    <value>Disable "Do not disturb" mode.</value>
   </data>
   <data name="suspend_tooltip" xml:space="preserve">
-    <value>Suspend the app. The countdown before locking will be suspended.</value>
+    <value>Enable "Do not disturb" mode.</value>
   </data>
   <data name="resumed_message" xml:space="preserve">
-    <value>Countdown before lockdown resumed</value>
+    <value>"Do not disturb" mode disabled.</value>
   </data>
   <data name="resumed_title" xml:space="preserve">
-    <value>NEED A BREAK! resumed</value>
+    <value>Reactivated</value>
   </data>
   <data name="suspended_message" xml:space="preserve">
-    <value>Countdown before lock suspended</value>
+    <value>"Do not disturb" mode enabled</value>
   </data>
   <data name="suspended_title" xml:space="preserve">
-    <value>NEED A BREAK! suspended</value>
+    <value>NEED A BREAK! (do not disturb)</value>
   </data>
   <data name="automatic_suspension" xml:space="preserve">
-    <value>Automatic suspension</value>
+    <value>Automatically determine when "Do not disturb" mode should be activated</value>
   </data>
   <data name="automatic_suspension_tooltip" xml:space="preserve">
-    <value>The app automatically suspends when it detects that a full-screen app or presentation has started and automatically reactivates when the full-screen app or presentation is complete.</value>
+    <value>The app automatically enable "Do not disturb" mode when it detects that a full-screen app or presentation has started and automatically reactivates when the full-screen app or presentation is complete.</value>
   </data>
 </root>

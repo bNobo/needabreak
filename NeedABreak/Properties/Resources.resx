@@ -208,30 +208,30 @@
     <value>Reprendre</value>
   </data>
   <data name="resumed_message" xml:space="preserve">
-    <value>Décompte avant verrouillage repris</value>
+    <value>Mode "Ne pas déranger" désactivé</value>
   </data>
   <data name="resumed_title" xml:space="preserve">
-    <value>NEED A BREAK! réactivé</value>
+    <value>Réactivation</value>
   </data>
   <data name="resume_tooltip" xml:space="preserve">
-    <value>Reprendre le décompte. Le décompte avant verrouillage reprendra où il s'était arrêté.</value>
+    <value>Désactiver le mode "Ne pas déranger"</value>
   </data>
   <data name="suspend" xml:space="preserve">
-    <value>Suspendre</value>
+    <value>Ne pas déranger</value>
   </data>
   <data name="suspended_message" xml:space="preserve">
-    <value>Décompte avant verrouillage suspendu</value>
+    <value>Mode "Ne pas déranger" activé</value>
   </data>
   <data name="suspended_title" xml:space="preserve">
-    <value>NEED A BREAK! suspendu</value>
+    <value>NEED A BREAK! (Ne pas déranger)</value>
   </data>
   <data name="suspend_tooltip" xml:space="preserve">
-    <value>Suspendre l'application. Le décompte avant verrouillage sera suspendu.</value>
+    <value>Activer le mode "Ne pas déranger".</value>
   </data>
   <data name="automatic_suspension" xml:space="preserve">
-    <value>Suspension automatique</value>
+    <value>Activer automatiquement le mode "Ne pas déranger"</value>
   </data>
   <data name="automatic_suspension_tooltip" xml:space="preserve">
-    <value>L'application se suspend automatiquement lorsqu'elle détecte qu'une application plein écran ou une présentation a démarré et se réactive automatiquement lorsque l'application plein écran ou la présentation est terminé.</value>
+    <value>L'application se met automatiquement en mode "Ne pas déranger" lorsqu'elle détecte qu'une application plein écran ou une présentation a démarré et se réactive automatiquement lorsque l'application plein écran ou la présentation est terminé.</value>
   </data>
 </root>

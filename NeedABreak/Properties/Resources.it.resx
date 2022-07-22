@@ -97,30 +97,30 @@
     <value>Riprendere</value>
   </data>
   <data name="suspend" xml:space="preserve">
-    <value>Sospendere</value>
+    <value>non disturbare</value>
   </data>
   <data name="resume_tooltip" xml:space="preserve">
-    <value>Riprendi di nuovo il conteggio. Il conto alla rovescia pre-blocco riprenderà dal punto in cui era stato interrotto.</value>
+    <value>Disattivare la modalità "Non disturbare".</value>
   </data>
   <data name="suspend_tooltip" xml:space="preserve">
-    <value>Sospendere l'app. Il conto alla rovescia prima del blocco verrà sospeso.</value>
+    <value>Attivare la modalità "Non disturbare".</value>
   </data>
   <data name="resumed_message" xml:space="preserve">
-    <value>Il conto alla rovescia prima del blocco è ripreso</value>
+    <value>Modalità "Non disturbare" disattivata</value>
   </data>
   <data name="resumed_title" xml:space="preserve">
-    <value>NEED A BREAK! riattivato</value>
+    <value>Riattivazione</value>
   </data>
   <data name="suspended_message" xml:space="preserve">
-    <value>Conto alla rovescia prima del blocco in pausa</value>
+    <value>Modalità "Non disturbare" attivata</value>
   </data>
   <data name="suspended_title" xml:space="preserve">
-    <value>NEED A BREAK! sospeso</value>
+    <value>Non disturbare</value>
   </data>
   <data name="automatic_suspension" xml:space="preserve">
-    <value>Sospensione automatica</value>
+    <value>Attiva automaticamente la modalità "Non disturbare".</value>
   </data>
   <data name="automatic_suspension_tooltip" xml:space="preserve">
-    <value>L'app viene sospesa automaticamente quando rileva che un'app o una presentazione a schermo intero è stata avviata e viene riattivata automaticamente al termine dell'app o della presentazione a schermo intero.</value>
+    <value>L'applicazione passa automaticamente alla modalità "Non disturbare" quando rileva che è stata avviata un'applicazione o una presentazione a schermo intero e si riattiva automaticamente quando l'applicazione o la presentazione a schermo intero è terminata.</value>
   </data>
 </root>

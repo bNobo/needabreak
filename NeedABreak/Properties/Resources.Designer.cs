@@ -19,7 +19,7 @@ namespace NeedABreak.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -88,7 +88,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Suspension automatique.
+        ///   Looks up a localized string similar to Activer automatiquement le mode &quot;Ne pas déranger&quot;.
         /// </summary>
         internal static string automatic_suspension {
             get {
@@ -97,7 +97,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to L&apos;application se suspend automatiquement lorsqu&apos;elle détecte qu&apos;une application plein écran ou une présentation a démarré et se réactive automatiquement lorsque l&apos;application plein écran ou la présentation est terminé..
+        ///   Looks up a localized string similar to L&apos;application se met automatiquement en mode &quot;Ne pas déranger&quot; lorsqu&apos;elle détecte qu&apos;une application plein écran ou une présentation a démarré et se réactive automatiquement lorsque l&apos;application plein écran ou la présentation est terminé..
         /// </summary>
         internal static string automatic_suspension_tooltip {
             get {
@@ -277,7 +277,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reprendre le décompte. Le décompte avant verrouillage reprendra où il s&apos;était arrêté..
+        ///   Looks up a localized string similar to Désactiver le mode &quot;Ne pas déranger&quot;.
         /// </summary>
         internal static string resume_tooltip {
             get {
@@ -286,7 +286,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Décompte avant verrouillage repris.
+        ///   Looks up a localized string similar to Mode &quot;Ne pas déranger&quot; désactivé.
         /// </summary>
         internal static string resumed_message {
             get {
@@ -295,7 +295,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NEED A BREAK! réactivé.
+        ///   Looks up a localized string similar to Réactivation.
         /// </summary>
         internal static string resumed_title {
             get {
@@ -304,7 +304,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Suspendre.
+        ///   Looks up a localized string similar to Ne pas déranger.
         /// </summary>
         internal static string suspend {
             get {
@@ -313,7 +313,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Suspendre l&apos;application. Le décompte avant verrouillage sera suspendu..
+        ///   Looks up a localized string similar to Activer le mode &quot;Ne pas déranger&quot;..
         /// </summary>
         internal static string suspend_tooltip {
             get {
@@ -322,7 +322,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Décompte avant verrouillage suspendu.
+        ///   Looks up a localized string similar to Mode &quot;Ne pas déranger&quot; activé.
         /// </summary>
         internal static string suspended_message {
             get {
@@ -331,7 +331,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NEED A BREAK! suspendu.
+        ///   Looks up a localized string similar to NEED A BREAK! (Ne pas déranger).
         /// </summary>
         internal static string suspended_title {
             get {
