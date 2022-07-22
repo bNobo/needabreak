@@ -127,40 +127,40 @@
           <target state="translated">Resume</target>
         </trans-unit>
         <trans-unit id="suspend" translate="yes" xml:space="preserve">
-          <source>Suspendre</source>
-          <target state="translated">Suspend</target>
+          <source>Ne pas déranger</source>
+          <target state="translated">Do not disturb</target>
         </trans-unit>
         <trans-unit id="resume_tooltip" translate="yes" xml:space="preserve">
-          <source>Reprendre le décompte. Le décompte avant verrouillage reprendra où il s'était arrêté.</source>
-          <target state="translated">Resume counting. The countdown before locking will resume where it left off.</target>
+          <source>Désactiver le mode "Ne pas déranger"</source>
+          <target state="translated">Disable "Do not disturb" mode.</target>
         </trans-unit>
         <trans-unit id="suspend_tooltip" translate="yes" xml:space="preserve">
-          <source>Suspendre l'application. Le décompte avant verrouillage sera suspendu.</source>
-          <target state="translated">Suspend the app. The countdown before locking will be suspended.</target>
+          <source>Activer le mode "Ne pas déranger".</source>
+          <target state="translated">Enable "Do not disturb" mode.</target>
         </trans-unit>
         <trans-unit id="resumed_message" translate="yes" xml:space="preserve">
-          <source>Décompte avant verrouillage repris</source>
-          <target state="translated">Countdown before lockdown resumed</target>
+          <source>Mode "Ne pas déranger" désactivé</source>
+          <target state="translated">"Do not disturb" mode disabled.</target>
         </trans-unit>
         <trans-unit id="resumed_title" translate="yes" xml:space="preserve">
-          <source>NEED A BREAK! réactivé</source>
-          <target state="translated">NEED A BREAK! resumed</target>
+          <source>Réactivation</source>
+          <target state="translated">Reactivated</target>
         </trans-unit>
         <trans-unit id="suspended_message" translate="yes" xml:space="preserve">
-          <source>Décompte avant verrouillage suspendu</source>
-          <target state="translated">Countdown before lock suspended</target>
+          <source>Mode "Ne pas déranger" activé</source>
+          <target state="translated">"Do not disturb" mode enabled</target>
         </trans-unit>
         <trans-unit id="suspended_title" translate="yes" xml:space="preserve">
-          <source>NEED A BREAK! suspendu</source>
-          <target state="translated">NEED A BREAK! suspended</target>
+          <source>NEED A BREAK! (Ne pas déranger)</source>
+          <target state="translated">NEED A BREAK! (do not disturb)</target>
         </trans-unit>
         <trans-unit id="automatic_suspension" translate="yes" xml:space="preserve">
-          <source>Suspension automatique</source>
-          <target state="translated">Automatic suspension</target>
+          <source>Activer automatiquement le mode "Ne pas déranger"</source>
+          <target state="translated">Automatically determine when "Do not disturb" mode should be activated</target>
         </trans-unit>
         <trans-unit id="automatic_suspension_tooltip" translate="yes" xml:space="preserve">
-          <source>L'application se suspend automatiquement lorsqu'elle détecte qu'une application plein écran ou une présentation a démarré et se réactive automatiquement lorsque l'application plein écran ou la présentation est terminé.</source>
-          <target state="translated">The app automatically suspends when it detects that a full-screen app or presentation has started and automatically reactivates when the full-screen app or presentation is complete.</target>
+          <source>L'application se met automatiquement en mode "Ne pas déranger" lorsqu'elle détecte qu'une application plein écran ou une présentation a démarré et se réactive automatiquement lorsque l'application plein écran ou la présentation est terminé.</source>
+          <target state="translated">The app automatically enable "Do not disturb" mode when it detects that a full-screen app or presentation has started and automatically reactivates when the full-screen app or presentation is complete.</target>
         </trans-unit>
       </group>
     </body>

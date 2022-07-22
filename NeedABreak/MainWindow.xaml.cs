@@ -306,7 +306,7 @@ namespace NeedABreak
         private void ShowSuspendBalloonTip()
         {
             uxTaskbarIcon.ShowBalloonTip(
-                Properties.Resources.suspended_title,
+                Properties.Resources.suspend,
                 Properties.Resources.suspended_message,
                 Hardcodet.Wpf.TaskbarNotification.BalloonIcon.None);
         }
