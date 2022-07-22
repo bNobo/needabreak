@@ -46,6 +46,9 @@ namespace NeedABreak
         private static Timer _debugTimer = new Timer(1000);
 #endif
 
+        /// <summary>
+        /// Vrai quand l'application est en mode "ne pas déranger"
+        /// </summary>
         public static bool IsSuspended { get; set; }
 
         public static SuspensionCause SuspensionCause { get; set; }
