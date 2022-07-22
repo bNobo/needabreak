@@ -21,6 +21,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -43,6 +44,8 @@ namespace NeedABreak
         {
             InitializeComponent();
             Closing += AboutBoxWindow_Closing;
+
+            Version.Text = $"v{Assembly.GetEntryAssembly().GetName().Version}";
         }
 
         private void AboutBoxWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
