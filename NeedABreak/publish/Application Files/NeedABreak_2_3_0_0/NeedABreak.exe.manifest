@@ -4,7 +4,7 @@
   <description asmv2:iconFile="coffee cup.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="NeedABreak" version="2.3.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="NeedABreak" version="2.3.1.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="NeedABreak.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -115,38 +115,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NeedABreak.exe" size="398848">
-      <assemblyIdentity name="NeedABreak" version="2.3.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NeedABreak.exe" size="398336">
+      <assemblyIdentity name="NeedABreak" version="2.3.1.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>deZ/JpTzDyij0SewkklriRTzN1NU4hsUYGjmsD5/cnI=</dsig:DigestValue>
+        <dsig:DigestValue>9YYi0VyaMF6EopADp8NV9VObuMo0XKL5shd/Ru0F9j4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="en\NeedABreak.resources.dll" size="6144">
-      <assemblyIdentity name="NeedABreak.resources" version="2.3.0.0" language="en" processorArchitecture="msil" />
+      <assemblyIdentity name="NeedABreak.resources" version="2.3.1.0" language="en" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Zphsjz+dpZEt4Oa4q4kDztav27j56x68kk93WAIaQHs=</dsig:DigestValue>
+        <dsig:DigestValue>4j55fbbd/QBg8wisz6gzUNTDCKpptKxVDVS44iltBl0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="it\NeedABreak.resources.dll" size="6656">
-      <assemblyIdentity name="NeedABreak.resources" version="2.3.0.0" language="it" processorArchitecture="msil" />
+      <assemblyIdentity name="NeedABreak.resources" version="2.3.1.0" language="it" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>io2N6grOoomsta0dTFipiRACrh2O4v2WpBIIwR+omsc=</dsig:DigestValue>
+        <dsig:DigestValue>2l7GAnHzECisVByIQEZGRyT1cV7lDFDQZ+ZeFpcwcwQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
