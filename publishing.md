@@ -1,7 +1,7 @@
 # Process to publish a new release
 
 - create a branch to prepare new version
-- update package version
+- update package, assembly and file version
 - update readme.md
 - merge into root
 - checkout gh-pages
