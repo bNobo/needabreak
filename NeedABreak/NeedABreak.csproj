@@ -36,10 +36,11 @@
     <InstallUrl>https://bnobo.github.io/needabreak/NeedABreak/publish/</InstallUrl>
     <SupportUrl>https://bnobo.github.io/needabreak</SupportUrl>
     <ProductName>NEED A BREAK!</ProductName>
-    <PublisherName>Benoît Rocco</PublisherName>
+    <PublisherName>Benoit Rocco</PublisherName>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>2.3.0.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
