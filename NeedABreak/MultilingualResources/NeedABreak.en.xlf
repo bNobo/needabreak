@@ -91,8 +91,8 @@
           <target state="translated">About NEED A BREAK!</target>
         </trans-unit>
         <trans-unit id="copyright" translate="no" xml:space="preserve">
-          <source>NEED A BREAK!  Copyright (C) 2020  Benoît Rocco</source>
-          <target state="final">NEED A BREAK!  Copyright (C) 2020  Benoît Rocco</target>
+          <source>NEED A BREAK!  Copyright (C) 2020  Benoit Rocco</source>
+          <target state="final">NEED A BREAK!  Copyright (C) 2020  Benoit Rocco</target>
         </trans-unit>
         <trans-unit id="license" translate="yes" xml:space="preserve">
           <source>Vous pouvez consulter la licence complète</source>
