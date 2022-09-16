@@ -115,7 +115,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NEED A BREAK!  Copyright (C) 2020  Benoît Rocco.
+        ///   Looks up a localized string similar to NEED A BREAK!  Copyright (C) 2020  Benoit Rocco.
         /// </summary>
         internal static string copyright {
             get {
