@@ -347,5 +347,10 @@ namespace NeedABreak
                 App.Resume(); 
             }
         }
+
+        private async void StartLockWorkStation_Click(object sender, RoutedEventArgs e)
+        {
+            await StartLockWorkStationAsync();
+        }
     }
 }

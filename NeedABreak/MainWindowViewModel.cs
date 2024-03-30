@@ -31,6 +31,17 @@ namespace NeedABreak
         public string SuspendResumeMenuItemText { get; set; }
         public string SuspendResumeMenuItemToolTip { get; set; }
         public bool IsSuspended { get { return App.IsSuspended; } }
+        public bool IsDebug
+        {
+            get
+            {
+#if DEBUG
+                return true;
+#else
+                return false;
+#endif
+            }
+        }
 
         public MainWindowViewModel()
         {

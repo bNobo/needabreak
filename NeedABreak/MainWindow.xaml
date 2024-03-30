@@ -96,6 +96,7 @@
             </controls:ClipBorder>
         </DataTemplate>
         <converters:BooleanToOppositeValueConverter x:Key="BooleanToOppositeValueConverter" />
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </Window.Resources>
     <Grid>
         <tb:TaskbarIcon x:Name="uxTaskbarIcon"
@@ -127,6 +128,10 @@
                               Header="{utils:TextResource about}" />
                     <MenuItem Click="CloseMenuItem_Click"
                               Header="{utils:TextResource quitter}" />
+                    <Separator Visibility="{Binding IsDebug, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
+                    <MenuItem Click="StartLockWorkStation_Click"
+                              Header="Start lock workstation"
+                              Visibility="{Binding IsDebug, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>
