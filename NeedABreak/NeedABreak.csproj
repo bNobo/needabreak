@@ -33,6 +33,7 @@
     <Platforms>AnyCPU;x64;x86</Platforms>
     <AssemblyVersion>3.0.3.0</AssemblyVersion>
     <FileVersion>3.0.3.0</FileVersion>
+    <RuntimeIdentifiers>win-x86;win-x64</RuntimeIdentifiers>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <UseVSHostingProcess>false</UseVSHostingProcess>
