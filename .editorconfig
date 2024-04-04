@@ -1,0 +1,132 @@
+file_header_template = "NEED A BREAK is an application intended to help you take care of your health while you work on a computer. 
+ It will encourage you to regularly have a break in order to rest your back and your eyes.
+    Copyright (C) 2020  Benoît Rocco
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>."
+
+# top-most EditorConfig file
+
+root = true
+
+#Core editorconfig formatting - indentation
+
+[*.xaml]
+indent_size = 4
+
+[*.cs]
+indent_style = tab
+
+#Naming style
+
+#Private const naming convention
+dotnet_naming_rule.private_consts_name.symbols = private_consts
+dotnet_naming_rule.private_consts_name.style = private_const_style
+dotnet_naming_rule.private_consts_name.severity = suggestion
+
+dotnet_naming_symbols.private_consts.applicable_kinds = field
+dotnet_naming_symbols.private_consts.required_modifiers = const
+dotnet_naming_symbols.private_consts.applicable_accessibilities = private
+
+dotnet_naming_style.private_const_style.capitalization = all_upper
+
+#Public const naming convention
+dotnet_naming_rule.public_consts_name.symbols = public_consts
+dotnet_naming_rule.public_consts_name.style = public_fields_style
+dotnet_naming_rule.public_consts_name.severity = warning
+
+dotnet_naming_symbols.public_consts.applicable_kinds = field
+dotnet_naming_symbols.public_consts.required_modifiers = const
+dotnet_naming_symbols.public_consts.applicable_accessibilities = public
+
+dotnet_naming_style.public_const_style.capitalization = pascal_case
+
+#Private fields naming convention
+dotnet_naming_rule.prefix_fields_with_.symbols = private_fields
+dotnet_naming_rule.prefix_fields_with_.style = starts_with_
+dotnet_naming_rule.prefix_fields_with_.severity = warning
+
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+
+dotnet_naming_style.starts_with_.required_prefix = _
+dotnet_naming_style.starts_with_.capitalization = camel_case
+
+#Public fields naming convention
+dotnet_naming_rule.public_fields_name.symbols = public_fields
+dotnet_naming_rule.public_fields_name.style = public_fields_style
+dotnet_naming_rule.public_fields_name.severity = warning
+
+dotnet_naming_symbols.public_fields.applicable_kinds = field
+dotnet_naming_symbols.public_fields.applicable_accessibilities = public
+
+dotnet_naming_style.public_fields_style.capitalization = pascal_case
+
+#Method naming convention
+dotnet_naming_rule.methods_name.symbols = all_methods_except_private
+dotnet_naming_rule.methods_name.style = public_fields_style
+dotnet_naming_rule.methods_name.severity = warning
+
+dotnet_naming_symbols.all_methods_except_private.applicable_kinds = method
+dotnet_naming_symbols.all_methods_except_private.applicable_accessibilities = public,internal,protected,protected_internal
+
+dotnet_naming_style.method_style.capitalization = pascal_case
+
+#Parameter naming convention
+dotnet_naming_rule.parameters_name.symbols = all_parameters
+dotnet_naming_rule.parameters_name.style = parameter_style
+dotnet_naming_rule.parameters_name.severity = warning
+
+dotnet_naming_symbols.all_parameters.applicable_kinds = parameter
+
+dotnet_naming_style.parameter_style.capitalization = camel_case
+
+#Property naming convention
+dotnet_naming_rule.properties_name.symbols = all_properties
+dotnet_naming_rule.properties_name.style = public_fields_style
+dotnet_naming_rule.properties_name.severity = warning
+
+dotnet_naming_symbols.all_properties.applicable_kinds = property
+
+dotnet_naming_style.property_style.capitalization = pascal_case
+csharp_indent_labels = one_less_than_current
+csharp_using_directive_placement = outside_namespace:silent
+csharp_prefer_simple_using_statement = true:suggestion
+csharp_prefer_braces = true:silent
+csharp_style_namespace_declarations = block_scoped:silent
+csharp_style_prefer_method_group_conversion = true:silent
+csharp_style_expression_bodied_methods = false:silent
+csharp_style_expression_bodied_constructors = false:silent
+csharp_style_expression_bodied_operators = false:silent
+csharp_style_expression_bodied_properties = true:silent
+csharp_style_expression_bodied_indexers = true:silent
+csharp_style_expression_bodied_accessors = true:silent
+csharp_style_expression_bodied_lambdas = true:silent
+csharp_style_expression_bodied_local_functions = false:silent
+
+
+[*.{cs,vb}]
+dotnet_style_operator_placement_when_wrapping = beginning_of_line
+tab_width = 4
+indent_size = 4
+end_of_line = crlf
+dotnet_style_coalesce_expression = true:suggestion
+dotnet_style_null_propagation = true:suggestion
+dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
+dotnet_style_prefer_auto_properties = true:silent
+dotnet_style_object_initializer = true:suggestion
+dotnet_style_collection_initializer = true:suggestion
+dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
+dotnet_style_prefer_conditional_expression_over_assignment = true:silent
+dotnet_style_prefer_conditional_expression_over_return = true:silent
+indent_style = space
