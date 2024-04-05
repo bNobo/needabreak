@@ -177,6 +177,24 @@
   <data name="notification_avant_verrouillage" xml:space="preserve">
     <value>Notification avant verrouillage</value>
   </data>
+  <data name="n_hours" xml:space="preserve">
+    <value>{0:%h} heures</value>
+  </data>
+  <data name="n_hours_n_minutes" xml:space="preserve">
+    <value>{0:%h} heures, {0:%m} minutes</value>
+  </data>
+  <data name="n_minutes" xml:space="preserve">
+    <value>{0:%m} minutes</value>
+  </data>
+  <data name="one_hour" xml:space="preserve">
+    <value>1 heure</value>
+  </data>
+  <data name="one_hour_n_minutes" xml:space="preserve">
+    <value>1 heure, {0:%m} minutes</value>
+  </data>
+  <data name="one_minute" xml:space="preserve">
+    <value>1 minute</value>
+  </data>
   <data name="one_minute_before_locking" xml:space="preserve">
     <value>Une minute avant verrouillage</value>
   </data>
