@@ -36,7 +36,7 @@ namespace NeedABreak
     /// </summary>
     public partial class App : Application
     {
-        private static DateTime _startTime;
+        private static DateTime _startCountdown;
 #if !DEBUG
         private static System.Threading.Mutex mutex; 
 #endif
@@ -59,6 +59,7 @@ namespace NeedABreak
         // store dayStart to enable reset of today's screen time in the event of the user not shutting down its computer every day
         private static DateTime _dayStart;
         private static TimeSpan _cumulativeScreenTime;
+        private static DateTime _startShowingScreen;
 
         public static ILog Logger { get; private set; }
 
@@ -69,6 +70,7 @@ namespace NeedABreak
             //System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en");
             ConfigureLog4Net();
             _dayStart = DateTime.Today;
+            _startShowingScreen = DateTime.Now;
         }
 
         private static void ConfigureLog4Net()
@@ -91,7 +93,7 @@ namespace NeedABreak
             } 
 #endif
             InitializeComponent();
-            InitStartTime();
+            InitCountdown();
             _timer.Elapsed += Timer_Elapsed;
 #if DEBUG
             _debugTimer.Elapsed += _debugTimer_Elapsed;
@@ -222,7 +224,7 @@ namespace NeedABreak
 
         public static double GetMinutesLeft()
         {
-            var minutesElapsed = (DateTime.Now - _startTime).TotalMinutes;
+            var minutesElapsed = (DateTime.Now - _startCountdown).TotalMinutes;
             var minutesLeft = Delay / 60 - minutesElapsed;
             return minutesLeft;
         }
@@ -246,29 +248,30 @@ namespace NeedABreak
 
                 if (!IsSuspended)
                 {
-                    InitStartTime();
+                    InitCountdown();
                 }
 
                 StartTimer();
                 _updateToolTipTimer.Start();
+                _startShowingScreen = DateTime.Now;
             }
             else if (e.Reason == Microsoft.Win32.SessionSwitchReason.SessionLock)
             {
                 Logger.Debug("SessionLock");
                 StopTimer();
                 _updateToolTipTimer.Stop();
-                _cumulativeScreenTime += DateTime.Now - _startTime;
+                _cumulativeScreenTime += DateTime.Now - _startShowingScreen;
             }
         }
 
-        internal static void InitStartTime()
+        internal static void InitCountdown()
         {
-            _startTime = DateTime.Now;
+            _startCountdown = DateTime.Now;
         }
 
-        internal static void ShiftStartTime()
+        internal static void ShiftCountdown()
         {
-            _startTime += TimeSpan.FromMinutes(Delay / 1080d);       // time skew proportional to Delay. For a 90 minutes delay it gives 5 minutes time skew which delay lock time to 5 minutes (Delay modification is forbidden)
+            _startCountdown += TimeSpan.FromMinutes(Delay / 1080d);       // time skew proportional to Delay. For a 90 minutes delay it gives 5 minutes time skew which delay lock time to 5 minutes (Delay modification is forbidden)
         }
 
         internal static void Suspend(SuspensionCause suspensionCause = SuspensionCause.Manual)
@@ -301,9 +304,10 @@ namespace NeedABreak
                 // day changed, reset today's screen time
                 _dayStart = DateTime.Today;
                 _cumulativeScreenTime = TimeSpan.Zero;
+                _startShowingScreen = DateTime.Now;
             }
 
-            return _cumulativeScreenTime + (DateTime.Now - _startTime);
+            return _cumulativeScreenTime + (DateTime.Now - _startShowingScreen);
         }
     }
 }

@@ -252,25 +252,25 @@ namespace NeedABreak
         private void ReporterBalloon_Click(object sender, RoutedEventArgs e)
         {
             uxTaskbarIcon.CloseBalloon();
-            App.ShiftStartTime();
+            App.ShiftCountdown();
         }
 
         private void AnnulerBalloon_Click(object sender, RoutedEventArgs e)
         {
             uxTaskbarIcon.CloseBalloon();
-            App.InitStartTime();    // annulation, le compte à rebours repart de zéro
+            App.InitCountdown();    // annulation, le compte à rebours repart de zéro
         }
 
         private void ReporterButton_Click(object sender, RoutedEventArgs e)
         {
             Interlocked.Exchange(ref _cancellationTokenSource, new CancellationTokenSource()).Cancel();
-            App.ShiftStartTime();
+            App.ShiftCountdown();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             Interlocked.Exchange(ref _cancellationTokenSource, new CancellationTokenSource()).Cancel();
-            App.InitStartTime();
+            App.InitCountdown();
         }
 
         private void LockButton_Click(object sender, RoutedEventArgs e)
