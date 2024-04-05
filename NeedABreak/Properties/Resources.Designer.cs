@@ -340,6 +340,15 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Temps d&apos;écran aujourd&apos;hui : {0}.
+        /// </summary>
+        internal static string today_screen_time {
+            get {
+                return ResourceManager.GetString("today_screen_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Travail habituel.
         /// </summary>
         internal static string travail_habituel {

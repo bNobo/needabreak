@@ -41,7 +41,6 @@ namespace NeedABreak
 #endif
         public static int Delay { get; set; } = NeedABreak.Properties.Settings.Default.Delay;      // Seconds	(put a low value here to facilitate debugging)
         private static Timer _timer = Delay > 120 ? new Timer(60000) : new Timer(10000);
-        private static DateTime _suspendTime;               // Time when App was suspended		
 #if DEBUG
         private static Timer _debugTimer = new Timer(1000);
 #endif
@@ -55,6 +54,12 @@ namespace NeedABreak
 
         // hack: Timer to workaround an issue on Windows 11 (PreviewOpenTooltip event not raised) : https://github.com/hardcodet/wpf-notifyicon/issues/65
         private static Timer _updateToolTipTimer;
+
+        // store dayStart to enable reset of today's screen time in the event of the user not shutting down its computer every day
+        private static DateTime _dayStart;
+        private static TimeSpan _cumulativeScreenTime;
+
+        public static ILog Logger { get; private set; }
 
         static App()
         {
@@ -96,6 +101,7 @@ namespace NeedABreak
             _updateToolTipTimer.Start();
 
             StartTimer();
+            _dayStart = DateTime.Today;
             Microsoft.Win32.SystemEvents.SessionSwitch += SystemEvents_SessionSwitch;
 
             Logger.Debug("App ctor end");
@@ -116,8 +122,6 @@ namespace NeedABreak
             System.Diagnostics.Debug.WriteLine("inactive time = " + UserActivity.GetInactiveTime());
         }
 #endif
-
-        public static ILog Logger { get; private set; }
 
         private async void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
@@ -187,7 +191,7 @@ namespace NeedABreak
 
         private void StartTimer()
         {
-            _timer.Start();			
+            _timer.Start();
         }
 
         private void StopTimer()
@@ -217,7 +221,7 @@ namespace NeedABreak
 
         public static double GetMinutesLeft()
         {
-            var minutesElapsed = (DateTime.UtcNow - _startTime).TotalMinutes;
+            var minutesElapsed = (DateTime.Now - _startTime).TotalMinutes;
             var minutesLeft = Delay / 60 - minutesElapsed;
             return minutesLeft;
         }
@@ -246,12 +250,13 @@ namespace NeedABreak
             {
                 StopTimer();
                 _updateToolTipTimer.Stop();
+                _cumulativeScreenTime += DateTime.Now - _startTime;
             }
         }
 
         internal static void InitStartTime()
         {
-            _startTime = DateTime.UtcNow;
+            _startTime = DateTime.Now;
         }
 
         internal static void ShiftStartTime()
@@ -261,7 +266,6 @@ namespace NeedABreak
 
         internal static void Suspend(SuspensionCause suspensionCause = SuspensionCause.Manual)
         {
-            _suspendTime = DateTime.UtcNow;
             IsSuspended = true;
             SuspensionCause = suspensionCause;
             NotifySuspensionStateChanged();
@@ -281,6 +285,18 @@ namespace NeedABreak
                 var mainWindow = GetMainWindow();
                 mainWindow.NotifySuspensionStateChanged();
             }));
+        }
+
+        public static TimeSpan GetTodayScreenTime()
+        {
+            if (_dayStart != DateTime.Today)
+            {
+                // day changed, reset today's screen time
+                _dayStart = DateTime.Today;
+                _cumulativeScreenTime = TimeSpan.Zero;
+            }
+
+            return _cumulativeScreenTime + (DateTime.Now - _startTime);
         }
     }
 }

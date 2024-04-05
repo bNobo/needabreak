@@ -18,6 +18,7 @@
 */
 using MahApps.Metro.Controls;
 using Microsoft.Win32;
+using NeedABreak.Extensions;
 using NeedABreak.Utils;
 using System;
 using System.Threading;
@@ -148,14 +149,10 @@ namespace NeedABreak
             return DataContext as MainWindowViewModel;
         }
 
-        private void UpdateToolTip(string text)
+        private void SetToolTipText(string text)
         {
             var viewModel = GetViewModel();
-#if DEBUG
-            viewModel.TrayToolTipText = $"[DEBUG] {text}";
-#else
             viewModel.TrayToolTipText = text;
-#endif
         }
 
         private static void ShowSettingsWindow()
@@ -188,36 +185,43 @@ namespace NeedABreak
 
         public void UpdateToolTip()
         {
+            string tooltipTitle;
+
             if (App.IsSuspended)
             {
-                UpdateToolTip(Properties.Resources.suspended_title);
-                return;
+                tooltipTitle = Properties.Resources.suspended_title;
             }
-
-            if (_imminentLocking)
+            else if (_imminentLocking)
             {
-                UpdateToolTip(Properties.Resources.Imminent_locking);
-                return;
-            }
-
-            var minutesLeft = App.GetMinutesLeft();
-
-            if (minutesLeft <= 1)
-            {
-                UpdateToolTip(Properties.Resources.Less_than_a_minute_before_locking);
-                return;
-            }
-
-            minutesLeft = Math.Round(minutesLeft);
-
-            if (minutesLeft == 1)
-            {
-                UpdateToolTip(Properties.Resources.one_minute_before_locking);
+                tooltipTitle = Properties.Resources.Imminent_locking;
             }
             else
             {
-                UpdateToolTip(string.Format(Properties.Resources.minutes_before_locking, minutesLeft));
+                var minutesLeft = App.GetMinutesLeft();
+
+                if (minutesLeft <= 1)
+                {
+                    tooltipTitle = Properties.Resources.Less_than_a_minute_before_locking;
+                }
+                else
+                {
+                    minutesLeft = Math.Round(minutesLeft);
+
+                    if (minutesLeft == 1)
+                    {
+                        tooltipTitle = Properties.Resources.one_minute_before_locking;
+                    }
+                    else
+                    {
+                        tooltipTitle = string.Format(Properties.Resources.minutes_before_locking, minutesLeft);
+                    }
+                }
             }
+
+            TimeSpan todayScreenTime = App.GetTodayScreenTime();
+            string humanFriendlyTime = todayScreenTime.ToHumanFriendlyString();
+            string todayScreenTimeText = string.Format(Properties.Resources.today_screen_time, humanFriendlyTime);
+            SetToolTipText($"{tooltipTitle}\r\n-\r\n{todayScreenTimeText}");
         }
 
         private void CloseMenuItem_Click(object sender, RoutedEventArgs e)
