@@ -240,4 +240,7 @@
   <data name="one_hour_n_minutes" xml:space="preserve">
     <value>1 hour, {0:%m} minutes</value>
   </data>
+  <data name="today_screen_time" xml:space="preserve">
+    <value>Today's screen time: {0}</value>
+  </data>
 </root>

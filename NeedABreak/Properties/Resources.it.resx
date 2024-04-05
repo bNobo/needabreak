@@ -246,4 +246,7 @@
   <data name="one_minute" xml:space="preserve">
     <value>1 minuto</value>
   </data>
+  <data name="today_screen_time" xml:space="preserve">
+    <value>Tempo di schermo oggi: {0}</value>
+  </data>
 </root>
