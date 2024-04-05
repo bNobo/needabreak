@@ -102,7 +102,7 @@
         <tb:TaskbarIcon x:Name="uxTaskbarIcon"
                         ToolTipText="{Binding TrayToolTipText}"
                         IconSource="coffee cup.ico"
-                        PreviewTrayToolTipOpen="TaskbarIcon_PreviewTrayToolTipOpen"
+                        PreviewTrayToolTipOpen="TaskbarIcon_PreviewTrayToolTipOpen"                        
                         MenuActivation="LeftOrRightClick"
                         TrayMouseDoubleClick="SettingsMenuItem_Click">
             <tb:TaskbarIcon.ContextMenu>

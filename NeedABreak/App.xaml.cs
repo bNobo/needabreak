@@ -27,6 +27,7 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace NeedABreak
 {
@@ -35,13 +36,12 @@ namespace NeedABreak
     /// </summary>
     public partial class App : Application
     {
-        private static DateTime _startTime;
+        private static DateTime _startCountdown;
 #if !DEBUG
         private static System.Threading.Mutex mutex; 
 #endif
         public static int Delay { get; set; } = NeedABreak.Properties.Settings.Default.Delay;      // Seconds	(put a low value here to facilitate debugging)
         private static Timer _timer = Delay > 120 ? new Timer(60000) : new Timer(10000);
-        private static DateTime _suspendTime;               // Time when App was suspended		
 #if DEBUG
         private static Timer _debugTimer = new Timer(1000);
 #endif
@@ -56,12 +56,21 @@ namespace NeedABreak
         // hack: Timer to workaround an issue on Windows 11 (PreviewOpenTooltip event not raised) : https://github.com/hardcodet/wpf-notifyicon/issues/65
         private static Timer _updateToolTipTimer;
 
+        // store dayStart to enable reset of today's screen time in the event of the user not shutting down its computer every day
+        private static DateTime _dayStart;
+        private static TimeSpan _cumulativeScreenTime;
+        private static DateTime _startShowingScreen;
+
+        public static ILog Logger { get; private set; }
+
         static App()
         {
             // Uncomment to force a different language for UI testing
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
             //System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en");
             ConfigureLog4Net();
+            _dayStart = DateTime.Today;
+            _startShowingScreen = DateTime.Now;
         }
 
         private static void ConfigureLog4Net()
@@ -84,7 +93,7 @@ namespace NeedABreak
             } 
 #endif
             InitializeComponent();
-            InitStartTime();
+            InitCountdown();
             _timer.Elapsed += Timer_Elapsed;
 #if DEBUG
             _debugTimer.Elapsed += _debugTimer_Elapsed;
@@ -116,8 +125,6 @@ namespace NeedABreak
             System.Diagnostics.Debug.WriteLine("inactive time = " + UserActivity.GetInactiveTime());
         }
 #endif
-
-        public static ILog Logger { get; private set; }
 
         private async void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
@@ -185,12 +192,12 @@ namespace NeedABreak
             StartTimer();
         }
 
-        private void StartTimer()
+        private static void StartTimer()
         {
-            _timer.Start();			
+            _timer.Start();
         }
 
-        private void StopTimer()
+        private static void StopTimer()
         {
             _timer.Stop();
         }
@@ -217,51 +224,58 @@ namespace NeedABreak
 
         public static double GetMinutesLeft()
         {
-            var minutesElapsed = (DateTime.UtcNow - _startTime).TotalMinutes;
+            var minutesElapsed = (DateTime.Now - _startCountdown).TotalMinutes;
             var minutesLeft = Delay / 60 - minutesElapsed;
             return minutesLeft;
         }
 
         private static MainWindow GetMainWindow()
         {
-            return Application.Current.MainWindow as MainWindow;
+            return Current.MainWindow as MainWindow;
         }
 
-        private void SystemEvents_SessionSwitch(object sender, Microsoft.Win32.SessionSwitchEventArgs e)
+        private static void SystemEvents_SessionSwitch(object sender, Microsoft.Win32.SessionSwitchEventArgs e)
         {
             if (e.Reason == Microsoft.Win32.SessionSwitchReason.SessionUnlock)
             {
-                var mainWindow = GetMainWindow();
-                mainWindow.OnSessionUnlock();
+                Logger.Debug("SessionUnlock");
+                
+                Current.Dispatcher.BeginInvoke(() =>
+                {
+                    var mainWindow = GetMainWindow();
+                    mainWindow.OnSessionUnlock();
+                });
 
                 if (!IsSuspended)
                 {
-                    InitStartTime();
+                    InitCountdown();
                 }
 
                 StartTimer();
                 _updateToolTipTimer.Start();
+                _startShowingScreen = DateTime.Now;
             }
             else if (e.Reason == Microsoft.Win32.SessionSwitchReason.SessionLock)
             {
+                Logger.Debug("SessionLock");
                 StopTimer();
                 _updateToolTipTimer.Stop();
+                _cumulativeScreenTime += DateTime.Now - _startShowingScreen;
             }
         }
 
-        internal static void InitStartTime()
+        internal static void InitCountdown()
         {
-            _startTime = DateTime.UtcNow;
+            _startCountdown = DateTime.Now;
         }
 
-        internal static void ShiftStartTime()
+        internal static void ShiftCountdown()
         {
-            _startTime += TimeSpan.FromMinutes(Delay / 1080d);       // time skew proportional to Delay. For a 90 minutes delay it gives 5 minutes time skew which delay lock time to 5 minutes (Delay modification is forbidden)
+            _startCountdown += TimeSpan.FromMinutes(Delay / 1080d);       // time skew proportional to Delay. For a 90 minutes delay it gives 5 minutes time skew which delay lock time to 5 minutes (Delay modification is forbidden)
         }
 
         internal static void Suspend(SuspensionCause suspensionCause = SuspensionCause.Manual)
         {
-            _suspendTime = DateTime.UtcNow;
             IsSuspended = true;
             SuspensionCause = suspensionCause;
             NotifySuspensionStateChanged();
@@ -281,6 +295,19 @@ namespace NeedABreak
                 var mainWindow = GetMainWindow();
                 mainWindow.NotifySuspensionStateChanged();
             }));
+        }
+
+        public static TimeSpan GetTodayScreenTime()
+        {
+            if (_dayStart != DateTime.Today)
+            {
+                // day changed, reset today's screen time
+                _dayStart = DateTime.Today;
+                _cumulativeScreenTime = TimeSpan.Zero;
+                _startShowingScreen = DateTime.Now;
+            }
+
+            return _cumulativeScreenTime + (DateTime.Now - _startShowingScreen);
         }
     }
 }

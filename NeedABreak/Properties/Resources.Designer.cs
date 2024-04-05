@@ -232,11 +232,65 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0:%h} heures.
+        /// </summary>
+        internal static string n_hours {
+            get {
+                return ResourceManager.GetString("n_hours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0:%h} heures, {0:%m} minutes.
+        /// </summary>
+        internal static string n_hours_n_minutes {
+            get {
+                return ResourceManager.GetString("n_hours_n_minutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0:%m} minutes.
+        /// </summary>
+        internal static string n_minutes {
+            get {
+                return ResourceManager.GetString("n_minutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Notification avant verrouillage.
         /// </summary>
         internal static string notification_avant_verrouillage {
             get {
                 return ResourceManager.GetString("notification_avant_verrouillage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1 heure.
+        /// </summary>
+        internal static string one_hour {
+            get {
+                return ResourceManager.GetString("one_hour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1 heure, {0:%m} minutes.
+        /// </summary>
+        internal static string one_hour_n_minutes {
+            get {
+                return ResourceManager.GetString("one_hour_n_minutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1 minute.
+        /// </summary>
+        internal static string one_minute {
+            get {
+                return ResourceManager.GetString("one_minute", resourceCulture);
             }
         }
         
@@ -336,6 +390,15 @@ namespace NeedABreak.Properties {
         internal static string suspended_title {
             get {
                 return ResourceManager.GetString("suspended_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Temps d&apos;écran aujourd&apos;hui : {0}.
+        /// </summary>
+        internal static string today_screen_time {
+            get {
+                return ResourceManager.GetString("today_screen_time", resourceCulture);
             }
         }
         
