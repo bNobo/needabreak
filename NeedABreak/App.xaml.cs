@@ -27,6 +27,7 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace NeedABreak
 {
@@ -67,6 +68,7 @@ namespace NeedABreak
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
             //System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en");
             ConfigureLog4Net();
+            _dayStart = DateTime.Today;
         }
 
         private static void ConfigureLog4Net()
@@ -101,7 +103,6 @@ namespace NeedABreak
             _updateToolTipTimer.Start();
 
             StartTimer();
-            _dayStart = DateTime.Today;
             Microsoft.Win32.SystemEvents.SessionSwitch += SystemEvents_SessionSwitch;
 
             Logger.Debug("App ctor end");
@@ -189,12 +190,12 @@ namespace NeedABreak
             StartTimer();
         }
 
-        private void StartTimer()
+        private static void StartTimer()
         {
             _timer.Start();
         }
 
-        private void StopTimer()
+        private static void StopTimer()
         {
             _timer.Stop();
         }
@@ -228,15 +229,20 @@ namespace NeedABreak
 
         private static MainWindow GetMainWindow()
         {
-            return Application.Current.MainWindow as MainWindow;
+            return Current.MainWindow as MainWindow;
         }
 
-        private void SystemEvents_SessionSwitch(object sender, Microsoft.Win32.SessionSwitchEventArgs e)
+        private static void SystemEvents_SessionSwitch(object sender, Microsoft.Win32.SessionSwitchEventArgs e)
         {
             if (e.Reason == Microsoft.Win32.SessionSwitchReason.SessionUnlock)
             {
-                var mainWindow = GetMainWindow();
-                mainWindow.OnSessionUnlock();
+                Logger.Debug("SessionUnlock");
+                
+                Current.Dispatcher.BeginInvoke(() =>
+                {
+                    var mainWindow = GetMainWindow();
+                    mainWindow.OnSessionUnlock();
+                });
 
                 if (!IsSuspended)
                 {
@@ -248,6 +254,7 @@ namespace NeedABreak
             }
             else if (e.Reason == Microsoft.Win32.SessionSwitchReason.SessionLock)
             {
+                Logger.Debug("SessionLock");
                 StopTimer();
                 _updateToolTipTimer.Stop();
                 _cumulativeScreenTime += DateTime.Now - _startTime;

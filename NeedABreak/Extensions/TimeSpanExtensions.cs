@@ -10,7 +10,7 @@ namespace NeedABreak.Extensions
     {
         public static string ToHumanFriendlyString(this TimeSpan value)
         {
-            string res = value.ToString();
+            string res;
 
             if (value < TimeSpan.FromMinutes(1))
             {
