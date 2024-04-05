@@ -16,7 +16,7 @@ When it is time to have a break a countdown will appear. The screen will be lock
 
 <img src="Captures/mainwindow.gif" alt="countdown" width="600" />
 
-You can verify that the application is running thanks to the task bar icon: 
+You can check that the application is running thanks to the task bar icon. Hover the mouse over the icon and you'll see useful information like time remaining before lockdown and today's screen time:
 
 <img src="Captures/taskbar.jpg" alt="task bar icon" width="400" />
 
