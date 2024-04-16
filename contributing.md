@@ -18,7 +18,7 @@ So if you need a new text resource for the UI, please add a line in resources.re
 >
 > Please DO NOT modify resources.en.resx and resources.it.resx directly. These are generated files. Only modify resources.resx. You can add your text in english and I will make the translations.
 
-## Troubleshouting
+## Troubleshooting
 
 ### Error at first build
 
