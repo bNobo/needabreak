@@ -32,7 +32,7 @@ You can find this documentation on my github page: https://bnobo.github.io/needa
 
 ## Installation
 
-You can install the latest version from the [Microsoft Store)(https://www.microsoft.com/store/productId/9NCXSKHB9318)
+You can install the latest version from the [Microsoft Store](https://www.microsoft.com/store/productId/9NCXSKHB9318)
 
 If you prefer, you can download the version you want to install from the [Releases page](https://github.com/bNobo/needabreak/releases)
 
