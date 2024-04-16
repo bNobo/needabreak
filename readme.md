@@ -20,7 +20,7 @@ You can check that the application is running thanks to the task bar icon. Hover
 
 <img src="Captures/taskbar.jpg" alt="task bar icon" width="400" />
 
-You can display the application menu by clicking on the coffee cup:
+You can display the application menu by clicking on the coffee cup icon in the taskbar:
 
 <img src="Captures/menu.jpg" alt="menu" width="300" />
 
@@ -32,19 +32,21 @@ You can find this documentation on my github page: https://bnobo.github.io/needa
 
 ## Installation
 
-If you just want to install and enjoy the latest version of the application, you can download the setup from [here](https://bnobo.github.io/needabreak/NeedABreak/publish/setup.exe).
+You can install the latest version from the Microsoft Store : https://www.microsoft.com/store/productId/9NCXSKHB9318
 
-> Note that you will have a big red warning from the UAC during installation because the installer is not digitally signed.
+If you prefer, you can download the version you want to install from the [Releases page](https://github.com/bNobo/needabreak/releases)
+
+> Starting with version 3.x you'll need Windows 10 minimum. If you have an older system, you should download a previous version from the Releases page. The latest version before 3.x was 2.3. Please note that previous versions won't benefit from new functionnalities and security updates. You should upgrade your system to benefit from the latest version.
 
 ## Get started
 
-The project is a WPF application targeting .Net Framework 4.8. All you need is a copy of Visual Studio Community in order to build it.
+The project is a WPF application targeting .Net 8. All you need is a copy of Visual Studio Community in order to build it.
 Once started, the application creates a coffee cup icon in the task bar to manifest its presence and permits user to interact with it. 
 Just click on the coffee cup to open the application menu.
 
 ## Contribute
 
-I'm sure this application could be improved in many ways and I would be happy to receive some help in doing so. If you want to contribute to this project, please go to https://github.com/bNobo/needabreak and read [contributing.md](https://github.com/bNobo/needabreak/blob/root/contributing.md) file.
+I'm sure this application could be improved in many ways and I would be happy to receive some help in doing so. If you want to contribute to this project, please read [contributing.md](contributing.md) file.
 
 Every kind of contribution is welcome, it includes, but is not limited to:
 * Add new functionalities
@@ -107,6 +109,8 @@ if (!mutex.WaitOne(0, false))
 
 ### Translations
 
+> Multilingual editor seems to not work anymore. Resx have to be edited directly to workaround the issue.
+
 Use of [Multilingual App Toolkit](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308) extension to handle translations. RESX files are automatically generated from translations made in XLF files.
 
 Use of custom markup extension to handle translations in XAML files like this:
@@ -119,8 +123,6 @@ Use of custom markup extension to handle translations in XAML files like this:
 ### Adorner
 
 Use of Adorner class to surround selected tile on the settings window.
-
-
 
 ## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FbNobo%2Fneedabreak.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FbNobo%2Fneedabreak?ref=badge_large)
