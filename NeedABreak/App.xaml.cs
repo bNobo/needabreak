@@ -70,7 +70,19 @@ namespace NeedABreak
             //System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en");
             ConfigureLog4Net();
             _dayStart = DateTime.Today;
+            _startShowingScreen = NeedABreak.Properties.Settings.Default.StartShowingScreen;
+
+            if (_startShowingScreen.Date != _dayStart)
+            {
+                ResetStartShowingScreen();
+            }
+        }
+
+        private static void ResetStartShowingScreen()
+        {
             _startShowingScreen = DateTime.Now;
+            NeedABreak.Properties.Settings.Default.StartShowingScreen = _startShowingScreen;
+            NeedABreak.Properties.Settings.Default.Save();
         }
 
         private static void ConfigureLog4Net()
@@ -253,7 +265,7 @@ namespace NeedABreak
 
                 StartTimer();
                 _updateToolTipTimer.Start();
-                _startShowingScreen = DateTime.Now;
+                ResetStartShowingScreen();
             }
             else if (e.Reason == Microsoft.Win32.SessionSwitchReason.SessionLock)
             {
@@ -266,12 +278,21 @@ namespace NeedABreak
 
         internal static void InitCountdown()
         {
-            _startCountdown = DateTime.Now;
+            _startCountdown = NeedABreak.Properties.Settings.Default.StartCountdown;
+
+            if (_startCountdown.Date != _dayStart)
+            {
+                _startCountdown = DateTime.Now;
+                NeedABreak.Properties.Settings.Default.StartCountdown = _startCountdown;
+                NeedABreak.Properties.Settings.Default.Save();
+            }
         }
 
         internal static void ShiftCountdown()
         {
             _startCountdown += TimeSpan.FromMinutes(Delay / 1080d);       // time skew proportional to Delay. For a 90 minutes delay it gives 5 minutes time skew which delay lock time to 5 minutes (Delay modification is forbidden)
+            NeedABreak.Properties.Settings.Default.StartCountdown = _startCountdown;
+            NeedABreak.Properties.Settings.Default.Save();
         }
 
         internal static void Suspend(SuspensionCause suspensionCause = SuspensionCause.Manual)
@@ -304,7 +325,7 @@ namespace NeedABreak
                 // day changed, reset today's screen time
                 _dayStart = DateTime.Today;
                 _cumulativeScreenTime = TimeSpan.Zero;
-                _startShowingScreen = DateTime.Now;
+                ResetStartShowingScreen();
             }
 
             return _cumulativeScreenTime + (DateTime.Now - _startShowingScreen);
