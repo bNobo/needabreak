@@ -69,6 +69,16 @@ namespace NeedABreak
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
             //System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en");
             ConfigureLog4Net();
+
+#if DEBUG
+            Logger.Debug($"User settings path = {ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.PerUserRoamingAndLocal).FilePath}"); 
+#endif
+
+            if (NeedABreak.Properties.Settings.Default.DayStart == DateTime.Today)
+            {
+                _cumulativeScreenTime = NeedABreak.Properties.Settings.Default.TodayScreenTime;
+            }
+            
             _dayStart = DateTime.Today;
             _startShowingScreen = DateTime.Now;
         }
@@ -107,7 +117,17 @@ namespace NeedABreak
             StartTimer();
             Microsoft.Win32.SystemEvents.SessionSwitch += SystemEvents_SessionSwitch;
 
+            Exit += App_Exit;
+
             Logger.Debug("App ctor end");
+        }
+
+        private void App_Exit(object sender, ExitEventArgs e)
+        {
+            // Store today screen time to restore it when app is launched
+            NeedABreak.Properties.Settings.Default.TodayScreenTime = GetTodayScreenTime();
+            NeedABreak.Properties.Settings.Default.DayStart = _dayStart;
+            NeedABreak.Properties.Settings.Default.Save();
         }
 
         private async void UpdateToolTipTimer_Elapsed(object sender, ElapsedEventArgs e)
