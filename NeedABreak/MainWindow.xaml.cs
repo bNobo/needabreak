@@ -25,6 +25,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using Windows.ApplicationModel;
 
 namespace NeedABreak
 {
@@ -37,7 +38,6 @@ namespace NeedABreak
         {
             App.Logger.Debug("MainWindow ctor start");
             InitializeComponent();
-            LoadRegistryConfig();
             ExecuteFirstRunActions();
             LoadUserSettings();
             App.Logger.Debug("MainWindow ctor end");
@@ -63,36 +63,48 @@ namespace NeedABreak
             }
         }
 
-        private void LoadRegistryConfig()
+        private async Task CheckStartupState()
         {
-            RegistryKey run = RegistryTool.GetRunRegistryKey(false);
+            StartupTask startupTask = await StartupTask.GetAsync("NeedABreak.StartupTask");
 
-            RegistryTool.ActOnRegistryKey(run, x =>
-            {
-                string needABreak = (string)run.GetValue("NeedABreak");
-
-                if (needABreak != null)
-                {
-                    LaunchOnStartupMenuItem.IsChecked = true;
-                }
-            });
-
+            LaunchOnStartupMenuItem.IsChecked = startupTask.State == StartupTaskState.Enabled;
             LaunchOnStartupMenuItem.Checked += LaunchOnStartupMenuItem_Checked;
             LaunchOnStartupMenuItem.Unchecked += LaunchOnStartupMenuItem_Unchecked;
         }
 
-        private void LaunchOnStartupMenuItem_Unchecked(object sender, RoutedEventArgs e)
+        private async void LaunchOnStartupMenuItem_Unchecked(object sender, RoutedEventArgs e)
         {
-            RegistryKey run = RegistryTool.GetRunRegistryKey(true);
-            RegistryTool.ActOnRegistryKey(run, x => x.DeleteValue("NeedABreak"));
+            StartupTask startupTask = await StartupTask.GetAsync("NeedABreak.StartupTask");
+            startupTask.Disable();
         }
 
-        private void LaunchOnStartupMenuItem_Checked(object sender, RoutedEventArgs e)
-        {
-            RegistryKey run = RegistryTool.GetRunRegistryKey(true);
-
-            RegistryTool.ActOnRegistryKey(run,
-                x => x.SetValue("NeedABreak", System.Reflection.Assembly.GetExecutingAssembly().Location));
+        private async void LaunchOnStartupMenuItem_Checked(object sender, RoutedEventArgs e)
+        {        
+            StartupTask startupTask = await StartupTask.GetAsync("NeedABreak.StartupTask");
+            var requestResultText = startupTask.State.ToString();
+            switch (startupTask.State)
+            {
+                case StartupTaskState.Disabled:
+                    // Task is disabled but can be enabled.
+                    StartupTaskState newState = await startupTask.RequestEnableAsync();
+                    requestResultText = newState.ToString();
+                    App.Logger.Debug($"Request to enable startup, result = {newState}");
+                    break;
+                case StartupTaskState.DisabledByUser:
+                    // Task is disabled and user must enable it manually.
+                    string message = "I know you don't want this app to run " +
+                        "as soon as you sign in, but if you change your mind, " +
+                        "you can enable this in the Startup tab in Task Manager.";
+                    MessageBox.Show(this, message, "NEED A BREAK!");
+                    break;
+                case StartupTaskState.DisabledByPolicy:
+                    App.Logger.Debug(
+                        "Startup disabled by group policy, or not supported on this device");
+                    break;
+                case StartupTaskState.Enabled:
+                    App.Logger.Debug("Startup is enabled.");
+                    break;
+            }
         }
 
         private const string CoffeeSuspendedUri = "pack://application:,,,/NeedABreak;component/coffee_suspended.ico";
@@ -355,6 +367,11 @@ namespace NeedABreak
         private async void StartLockWorkStation_Click(object sender, RoutedEventArgs e)
         {
             await StartLockWorkStationAsync();
+        }
+
+        private async void ContextMenu_Initialized(object sender, EventArgs e)
+        {
+            await CheckStartupState();
         }
     }
 }

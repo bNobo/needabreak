@@ -45,7 +45,7 @@
         <!-- Desktop Bridge-->
         <desktop:Extension
           Category="windows.startupTask"
-          Executable="NeedABreak.exe"
+          Executable="NeedABreak\NeedABreak.exe"
           EntryPoint="Windows.FullTrustApplication">
           <desktop:StartupTask
               TaskId="NeedABreak.StartupTask"
