@@ -17,6 +17,7 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 using log4net;
+using NeedABreak.Properties;
 using NeedABreak.Utils;
 using System;
 using System.Collections.Generic;
@@ -40,7 +41,7 @@ namespace NeedABreak
 #if !DEBUG
         private static System.Threading.Mutex mutex; 
 #endif
-        public static int Delay { get; set; } = NeedABreak.Properties.Settings.Default.Delay;      // Seconds	(put a low value here to facilitate debugging)
+        public static int Delay { get; set; } = Settings.Delay;
         private static Timer _timer = Delay > 120 ? new Timer(60000) : new Timer(10000);
 #if DEBUG
         private static Timer _debugTimer = new Timer(1000);
@@ -63,6 +64,8 @@ namespace NeedABreak
 
         public static ILog Logger { get; private set; }
 
+        private static Settings Settings => Settings.Default;
+
         static App()
         {
             // Uncomment to force a different language for UI testing
@@ -71,16 +74,35 @@ namespace NeedABreak
             ConfigureLog4Net();
 
 #if DEBUG
-            Logger.Debug($"User settings path = {ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.PerUserRoamingAndLocal).FilePath}"); 
+            Logger.Debug($"User settings path = {ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.PerUserRoamingAndLocal).FilePath}");
 #endif
+            TimeSpan interruptionDuration = DateTime.Now - Settings.ExitTime;
 
-            if (NeedABreak.Properties.Settings.Default.DayStart == DateTime.Today)
+            if (Settings.DayStart == DateTime.Today)
             {
-                _cumulativeScreenTime = NeedABreak.Properties.Settings.Default.TodayScreenTime;
+                _cumulativeScreenTime = Settings.TodayScreenTime;
+
+                if (interruptionDuration.TotalMinutes < 5)
+                {
+                    // If the interruption was less than 5 minutes it is considered screen time (no break)
+                    _cumulativeScreenTime += interruptionDuration;
+                }
             }
             
             _dayStart = DateTime.Today;
             _startShowingScreen = DateTime.Now;
+
+            if (interruptionDuration.TotalMinutes < 5)
+            {
+                // Restore countdown when interruption was less than five minutes
+                _startCountdown = Settings.StartCountDown;
+            }
+            else
+            {
+                // Countdown starts now
+                _startCountdown = DateTime.Now;
+            }
+
         }
 
         private static void ConfigureLog4Net()
@@ -103,7 +125,7 @@ namespace NeedABreak
             } 
 #endif
             InitializeComponent();
-            InitCountdown();
+
             _timer.Elapsed += Timer_Elapsed;
 #if DEBUG
             _debugTimer.Elapsed += _debugTimer_Elapsed;
@@ -125,9 +147,11 @@ namespace NeedABreak
         private void App_Exit(object sender, ExitEventArgs e)
         {
             // Store today screen time to restore it when app is launched
-            NeedABreak.Properties.Settings.Default.TodayScreenTime = GetTodayScreenTime();
-            NeedABreak.Properties.Settings.Default.DayStart = _dayStart;
-            NeedABreak.Properties.Settings.Default.Save();
+            Settings.TodayScreenTime = GetTodayScreenTime();
+            Settings.DayStart = _dayStart;
+            Settings.ExitTime = DateTime.Now;
+            Settings.StartCountDown = _startCountdown;
+            Settings.Save();
         }
 
         private async void UpdateToolTipTimer_Elapsed(object sender, ElapsedEventArgs e)
@@ -154,7 +178,7 @@ namespace NeedABreak
                 return;
             }
 
-            if (NeedABreak.Properties.Settings.Default.AutomaticSuspension)
+            if (Settings.AutomaticSuspension)
             {
                 UserNotificationState state = QueryUserNotificationState.GetState();
 
@@ -268,7 +292,7 @@ namespace NeedABreak
 
                 if (!IsSuspended)
                 {
-                    InitCountdown();
+                    ResetCountdown();
                 }
 
                 StartTimer();
@@ -284,7 +308,7 @@ namespace NeedABreak
             }
         }
 
-        internal static void InitCountdown()
+        internal static void ResetCountdown()
         {
             _startCountdown = DateTime.Now;
         }

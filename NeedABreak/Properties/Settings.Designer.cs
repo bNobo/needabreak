@@ -81,5 +81,27 @@ namespace NeedABreak.Properties {
                 this["DayStart"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime ExitTime {
+            get {
+                return ((global::System.DateTime)(this["ExitTime"]));
+            }
+            set {
+                this["ExitTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime StartCountDown {
+            get {
+                return ((global::System.DateTime)(this["StartCountDown"]));
+            }
+            set {
+                this["StartCountDown"] = value;
+            }
+        }
     }
 }

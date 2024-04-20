@@ -258,7 +258,7 @@ namespace NeedABreak
         private void AnnulerBalloon_Click(object sender, RoutedEventArgs e)
         {
             uxTaskbarIcon.CloseBalloon();
-            App.InitCountdown();    // annulation, le compte à rebours repart de zéro
+            App.ResetCountdown();    // annulation, le compte à rebours repart de zéro
         }
 
         private void ReporterButton_Click(object sender, RoutedEventArgs e)
@@ -270,7 +270,7 @@ namespace NeedABreak
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             Interlocked.Exchange(ref _cancellationTokenSource, new CancellationTokenSource()).Cancel();
-            App.InitCountdown();
+            App.ResetCountdown();
         }
 
         private void LockButton_Click(object sender, RoutedEventArgs e)
