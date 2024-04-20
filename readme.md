@@ -10,23 +10,23 @@ I have made it for my personal usage and personaly use it every day at work and 
 
 You will be notified a minute before lockdown:
 
-<img src="Captures/imminent_lockdown.jpg" alt="imminent lockdown" width="300" />
+<img src="Captures/en/imminent_lockdown.jpg" alt="imminent lockdown" width="300" />
 
 When it is time to have a break a countdown will appear. The screen will be locked when it reaches 0:
 
-<img src="Captures/mainwindow.gif" alt="countdown" width="600" />
+<img src="Captures/en/mainwindow.gif" alt="countdown" width="600" />
 
 You can check that the application is running thanks to the task bar icon. Hover the mouse over the icon and you'll see useful information like time remaining before lockdown and today's screen time:
 
-<img src="Captures/taskbar.jpg" alt="task bar icon" width="400" />
+<img src="Captures/en/taskbar.jpg" alt="task bar icon" width="400" />
 
 You can display the application menu by clicking on the coffee cup icon in the taskbar:
 
-<img src="Captures/menu.jpg" alt="menu" width="300" />
+<img src="Captures/en/menu.jpg" alt="menu" width="300" />
 
 The settings window let you choose how long the application will wait before lockdown:
 
-<img src="Captures/settings.jpg" alt="settings" width="500" />
+<img src="Captures/en/settings.jpg" alt="settings" width="500" />
 
 You can find this documentation on my github page: https://bnobo.github.io/needabreak/
 
@@ -55,6 +55,20 @@ Every kind of contribution is welcome, it includes, but is not limited to:
 * Fix bugs
 * Test to find issues
 * Fix typos
+
+## Locate log file and user settings
+
+The log file of the application can be found in `%TEMP%\NeedABreak Logs` folder. 
+
+Sometimes it is usefull to vary user settings values during debug. In order to easily locate the user settings file of the application, its path is logged when the app starts in debug mode. Open the log file and search for `User settings path`. You should see a line similar to:
+
+```
+2024-04-20 08:41:39,206 [1] DEBUG - NeedABreak.App User settings path = C:\Users\your_name\AppData\Local\NeedABreak\NeedABreak_Url_zfnovop1ow4emdxnmewxhry05gwrornw\3.0.3.0\user.config
+```
+
+Open the `user.config` file and change settings values as needed. 
+
+> Be careful while editing this XML file. If you break it, the application won't start anymore. You should make a backup copy before editing it. In case you accidentally broke it, just delete the `user.config` file and restart the application. The file will be restored with default values.
 
 ## Points of interest in code
 
