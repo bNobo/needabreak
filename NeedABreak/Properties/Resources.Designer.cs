@@ -133,6 +133,24 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exécuter au démarrage (contrôlé par l&apos;administrateur).
+        /// </summary>
+        internal static string executer_au_demarrage_admin_disabled {
+            get {
+                return ResourceManager.GetString("executer_au_demarrage_admin_disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exécuter au démarrage (désactivé par l&apos;utilisateur).
+        /// </summary>
+        internal static string executer_au_demarrage_user_disabled {
+            get {
+                return ResourceManager.GetString("executer_au_demarrage_user_disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lorsqu&apos;on travaille sur écran, il est impératif de respecter un régime de pauses qui doit être fonction de l&apos;intensité du travail. Choisissez le délai approprié en fonction de l&apos;intensité du travail que vous devez accomplir..
         /// </summary>
         internal static string explications {

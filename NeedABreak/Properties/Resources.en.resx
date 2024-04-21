@@ -243,4 +243,10 @@
   <data name="today_screen_time" xml:space="preserve">
     <value>Today's screen time: {0}</value>
   </data>
+  <data name="executer_au_demarrage_admin_disabled" xml:space="preserve">
+    <value>Run at startup (controlled by administrator)</value>
+  </data>
+  <data name="executer_au_demarrage_user_disabled" xml:space="preserve">
+    <value>Run at startup (disabled by user)</value>
+  </data>
 </root>
