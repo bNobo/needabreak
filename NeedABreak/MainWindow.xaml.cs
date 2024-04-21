@@ -79,6 +79,7 @@ namespace NeedABreak
                     App.Logger.Error("Startup task is enabled by group policy.");
                     break;
                 default:
+                    App.Logger.Error($"Unknown state {startupTaskState}");
                     break;
             }
         }
@@ -102,6 +103,7 @@ namespace NeedABreak
                     App.Logger.Debug("Startup Task disabled.");
                     break;
                 default:
+                    App.Logger.Error($"Unknown state {startupTask.State}");
                     break;
             }
         }
@@ -125,6 +127,9 @@ namespace NeedABreak
                     break;
                 case StartupTaskState.Enabled:
                     App.Logger.Debug("Startup Task is already enabled.");
+                    break;
+                default:
+                    App.Logger.Error($"Unknown state {startupTask.State}");
                     break;
             }
         }
