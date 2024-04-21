@@ -10,7 +10,7 @@
   <Identity
     Name="4467bNobo.NEEDABREAK"
     Publisher="CN=1B1E808E-4CEE-4CCF-A0BA-C633235E9947"
-    Version="3.0.5.0" />
+    Version="3.0.7.0" />
 
   <Properties>
     <DisplayName>NEED A BREAK!</DisplayName>
@@ -45,11 +45,11 @@
         <!-- Desktop Bridge-->
         <desktop:Extension
           Category="windows.startupTask"
-          Executable="NeedABreak.exe"
+          Executable="NeedABreak\NeedABreak.exe"
           EntryPoint="Windows.FullTrustApplication">
           <desktop:StartupTask
               TaskId="NeedABreak.StartupTask"
-              Enabled="false"
+              Enabled="true"
               DisplayName="NEED A BREAK!" />
         </desktop:Extension>
       </Extensions>

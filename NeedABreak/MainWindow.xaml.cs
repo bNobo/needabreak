@@ -40,7 +40,6 @@ namespace NeedABreak
             InitializeComponent();
             LaunchOnStartupMenuItem.Checked += LaunchOnStartupMenuItem_Checked;
             LaunchOnStartupMenuItem.Unchecked += LaunchOnStartupMenuItem_Unchecked;
-            ExecuteFirstRunActions();
             LoadUserSettings();
             App.Logger.Debug("MainWindow ctor end");
         }
@@ -48,21 +47,6 @@ namespace NeedABreak
         private void LoadUserSettings()
         {
             AutomaticSuspensionMenuItem.IsChecked = Properties.Settings.Default.AutomaticSuspension;
-        }
-
-        private void ExecuteFirstRunActions()
-        {
-            App.Logger.DebugFormat("IsFirstRun = {0}",
-                            Properties.Settings.Default.IsFirstRun);
-
-            if (Properties.Settings.Default.IsFirstRun)
-            {
-                // Setting IsChecked to true will raise Checked event
-                LaunchOnStartupMenuItem.IsChecked = true;
-                // Update IsFirstRun so this code won't execute next time application start
-                Properties.Settings.Default.IsFirstRun = false;
-                Properties.Settings.Default.Save();
-            }
         }
 
         private void CheckStartupState(StartupTaskState startupTaskState)
