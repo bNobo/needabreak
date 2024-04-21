@@ -25,6 +25,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using Windows.ApplicationModel;
 
 namespace NeedABreak
 {
@@ -37,8 +38,8 @@ namespace NeedABreak
         {
             App.Logger.Debug("MainWindow ctor start");
             InitializeComponent();
-            LoadRegistryConfig();
-            ExecuteFirstRunActions();
+            LaunchOnStartupMenuItem.Checked += LaunchOnStartupMenuItem_Checked;
+            LaunchOnStartupMenuItem.Unchecked += LaunchOnStartupMenuItem_Unchecked;
             LoadUserSettings();
             App.Logger.Debug("MainWindow ctor end");
         }
@@ -48,51 +49,89 @@ namespace NeedABreak
             AutomaticSuspensionMenuItem.IsChecked = Properties.Settings.Default.AutomaticSuspension;
         }
 
-        private void ExecuteFirstRunActions()
+        private void CheckStartupState(StartupTaskState startupTaskState)
         {
-            App.Logger.DebugFormat("IsFirstRun = {0}",
-                            Properties.Settings.Default.IsFirstRun);
-
-            if (Properties.Settings.Default.IsFirstRun)
+            switch (startupTaskState)
             {
-                // Setting IsChecked to true will raise Checked event
-                LaunchOnStartupMenuItem.IsChecked = true;
-                // Update IsFirstRun so this code won't execute next time application start
-                Properties.Settings.Default.IsFirstRun = false;
-                Properties.Settings.Default.Save();
+                case StartupTaskState.Disabled:
+                    LaunchOnStartupMenuItem.IsChecked = false;
+                    break;
+                case StartupTaskState.DisabledByUser:
+                    // Task is disabled and user must enable it manually.
+                    LaunchOnStartupMenuItem.IsChecked = false;
+                    LaunchOnStartupMenuItem.IsEnabled = false;
+                    LaunchOnStartupMenuItem.Header = Properties.Resources.executer_au_demarrage_user_disabled;
+                    App.Logger.Error("Startup task is disabled and user must enable it manually.");
+                    break;
+                case StartupTaskState.Enabled:
+                    LaunchOnStartupMenuItem.IsChecked = true;
+                    break;
+                case StartupTaskState.DisabledByPolicy:
+                    LaunchOnStartupMenuItem.IsChecked = false;
+                    LaunchOnStartupMenuItem.IsEnabled = false;
+                    LaunchOnStartupMenuItem.Header = Properties.Resources.executer_au_demarrage_admin_disabled;
+                    App.Logger.Error("Startup task is disabled by group policy.");
+                    break;
+                case StartupTaskState.EnabledByPolicy:
+                    LaunchOnStartupMenuItem.IsChecked = true;
+                    LaunchOnStartupMenuItem.IsEnabled = false;
+                    LaunchOnStartupMenuItem.Header = Properties.Resources.executer_au_demarrage_admin_disabled;
+                    App.Logger.Error("Startup task is enabled by group policy.");
+                    break;
+                default:
+                    App.Logger.Error($"Unknown state {startupTaskState}");
+                    break;
             }
         }
 
-        private void LoadRegistryConfig()
+        private async void LaunchOnStartupMenuItem_Unchecked(object sender, RoutedEventArgs e)
         {
-            RegistryKey run = RegistryTool.GetRunRegistryKey(false);
+            StartupTask startupTask = await StartupTask.GetAsync("NeedABreak.StartupTask");
 
-            RegistryTool.ActOnRegistryKey(run, x =>
+            switch (startupTask.State)
             {
-                string needABreak = (string)run.GetValue("NeedABreak");
-
-                if (needABreak != null)
-                {
-                    LaunchOnStartupMenuItem.IsChecked = true;
-                }
-            });
-
-            LaunchOnStartupMenuItem.Checked += LaunchOnStartupMenuItem_Checked;
-            LaunchOnStartupMenuItem.Unchecked += LaunchOnStartupMenuItem_Unchecked;
+                case StartupTaskState.Disabled:
+                    App.Logger.Debug("Startup Task is already disabled.");
+                    break;
+                case StartupTaskState.DisabledByUser:
+                case StartupTaskState.DisabledByPolicy:
+                case StartupTaskState.EnabledByPolicy:
+                    CheckStartupState(startupTask.State);
+                    break;
+                case StartupTaskState.Enabled:
+                    startupTask.Disable();
+                    App.Logger.Debug("Startup Task disabled.");
+                    break;
+                default:
+                    App.Logger.Error($"Unknown state {startupTask.State}");
+                    break;
+            }
         }
 
-        private void LaunchOnStartupMenuItem_Unchecked(object sender, RoutedEventArgs e)
-        {
-            RegistryKey run = RegistryTool.GetRunRegistryKey(true);
-            RegistryTool.ActOnRegistryKey(run, x => x.DeleteValue("NeedABreak"));
-        }
-
-        private void LaunchOnStartupMenuItem_Checked(object sender, RoutedEventArgs e)
-        {
-            RegistryKey run = RegistryTool.GetRunRegistryKey(true);
-
-            RegistryTool.ActOnRegistryKey(run,
-                x => x.SetValue("NeedABreak", System.Reflection.Assembly.GetExecutingAssembly().Location));
+        private async void LaunchOnStartupMenuItem_Checked(object sender, RoutedEventArgs e)
+        {        
+            StartupTask startupTask = await StartupTask.GetAsync("NeedABreak.StartupTask");
+            
+            switch (startupTask.State)
+            {
+                case StartupTaskState.Disabled:
+                    // Task is disabled but can be enabled.
+                    StartupTaskState newState = await startupTask.RequestEnableAsync();
+                    CheckStartupState(newState);
+                    App.Logger.Debug($"startupTask.RequestEnableAsync State = {newState}");
+                    break;
+                case StartupTaskState.DisabledByUser:
+                case StartupTaskState.DisabledByPolicy:
+                case StartupTaskState.EnabledByPolicy:
+                    CheckStartupState(startupTask.State);
+                    break;
+                case StartupTaskState.Enabled:
+                    App.Logger.Debug("Startup Task is already enabled.");
+                    break;
+                default:
+                    App.Logger.Error($"Unknown state {startupTask.State}");
+                    break;
+            }
         }
 
         private const string CoffeeSuspendedUri = "pack://application:,,,/NeedABreak;component/coffee_suspended.ico";
@@ -355,6 +394,12 @@ namespace NeedABreak
         private async void StartLockWorkStation_Click(object sender, RoutedEventArgs e)
         {
             await StartLockWorkStationAsync();
+        }
+
+        private async void ContextMenu_Initialized(object sender, EventArgs e)
+        {
+            StartupTask startupTask = await StartupTask.GetAsync("NeedABreak.StartupTask");
+            CheckStartupState(startupTask.State);
         }
     }
 }

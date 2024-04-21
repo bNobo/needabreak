@@ -106,7 +106,7 @@
                         MenuActivation="LeftOrRightClick"
                         TrayMouseDoubleClick="SettingsMenuItem_Click">
             <tb:TaskbarIcon.ContextMenu>
-                <ContextMenu>
+                <ContextMenu Initialized="ContextMenu_Initialized">
                     <MenuItem Header="{utils:TextResource ajuster_le_delai}"
                               IsEnabled="{Binding IsSuspended, Converter={StaticResource BooleanToOppositeValueConverter}, Mode=OneWay}"
                               Click="SettingsMenuItem_Click" />

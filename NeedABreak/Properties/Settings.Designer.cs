@@ -26,18 +26,6 @@ namespace NeedABreak.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool IsFirstRun {
-            get {
-                return ((bool)(this["IsFirstRun"]));
-            }
-            set {
-                this["IsFirstRun"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool AutomaticSuspension {
             get {
                 return ((bool)(this["AutomaticSuspension"]));

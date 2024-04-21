@@ -249,4 +249,10 @@
   <data name="today_screen_time" xml:space="preserve">
     <value>Tempo di schermo oggi: {0}</value>
   </data>
+  <data name="executer_au_demarrage_admin_disabled" xml:space="preserve">
+    <value>Esegui all'avvio (controllato dall'amministratore)</value>
+  </data>
+  <data name="executer_au_demarrage_user_disabled" xml:space="preserve">
+    <value>Esegui all'avvio (disabilitato dall'utente)</value>
+  </data>
 </root>
