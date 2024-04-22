@@ -63,7 +63,7 @@
         <TextBlock VerticalAlignment="Bottom"
                    HorizontalAlignment="Left"
                    Margin="10">
-            <Hyperlink NavigateUri="http://www.inrs.fr/risques/travail-ecran/ce-qu-il-faut-retenir.html"
+            <Hyperlink NavigateUri="https://www.inrs.fr/risques/travail-ecran/ce-qu-il-faut-retenir.html"
                        RequestNavigate="Hyperlink_RequestNavigate"><utils:TextResource Name="inrs" /></Hyperlink>
         </TextBlock>
         <TextBlock x:Name="Version"

@@ -165,6 +165,9 @@
   <data name="inrs" xml:space="preserve">
     <value>INRS</value>
   </data>
+  <data name="inrs_url" xml:space="preserve">
+    <value>https://www.inrs.fr/risques/travail-ecran/ce-qu-il-faut-retenir.html</value>
+  </data>
   <data name="Less_than_a_minute_before_locking" xml:space="preserve">
     <value>Moins d'une minute avant verrouillage</value>
   </data>
