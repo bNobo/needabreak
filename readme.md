@@ -40,7 +40,7 @@ If you prefer, you can download the version you want to install from the [Releas
 
 ## Get started
 
-The project is a WPF application targeting .Net 8. All you need is a copy of Visual Studio Community in order to build it.
+The project is a WPF application targeting .NET 8. All you need is a copy of Visual Studio Community in order to build it.
 Once started, the application creates a coffee cup icon in the task bar to manifest its presence and permits user to interact with it. 
 Just click on the coffee cup to open the application menu.
 
@@ -58,7 +58,7 @@ Every kind of contribution is welcome, it includes, but is not limited to:
 
 ## Locate log file and user settings
 
-The log file of the application can be found in `%TEMP%\NeedABreak Logs` folder. 
+The log file of the application can be found under `%TEMP%\NeedABreak Logs` folder. 
 
 Sometimes it is usefull to vary user settings values during debug. In order to easily locate the user settings file of the application, its path is logged when the app starts in debug mode. Open the log file and search for `User settings path`. You should see a line similar to:
 
@@ -123,10 +123,6 @@ if (!mutex.WaitOne(0, false))
 
 ### Translations
 
-> Multilingual editor seems to not work anymore. Resx have to be edited directly to workaround the issue.
-
-Use of [Multilingual App Toolkit](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308) extension to handle translations. RESX files are automatically generated from translations made in XLF files.
-
 Use of custom markup extension to handle translations in XAML files like this:
 
 ```XAML
@@ -137,6 +133,48 @@ Use of custom markup extension to handle translations in XAML files like this:
 ### Adorner
 
 Use of Adorner class to surround selected tile on the settings window.
+
+### Startup Task
+
+Use of `StartupTask` class in order to run the application at Windows Startup.
+
+The manifest has to be manually edited to add the startup task extension:
+
+```xml
+[...]
+xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+[...]
+<Applications>
+    <Application Id="App"
+        [...]
+        <Extensions>
+            <!-- Desktop Bridge-->
+            <desktop:Extension
+              Category="windows.startupTask"
+              Executable="NeedABreak\NeedABreak.exe"
+              EntryPoint="Windows.FullTrustApplication">
+              <desktop:StartupTask
+                  TaskId="NeedABreak.StartupTask"
+                  Enabled="true"
+                  DisplayName="NEED A BREAK!" />
+            </desktop:Extension>
+        </Extensions>
+    </Application>
+</Applications>
+```
+
+The csproj file has to target Windows 10:
+
+```xml
+<TargetFramework>net8.0-windows10.0.18362.0</TargetFramework>
+```
+
+And then it is possible to make use of the StartupTask class:
+
+```cs
+StartupTask startupTask = await StartupTask.GetAsync("NeedABreak.StartupTask");
+StartupTaskState newState = await startupTask.RequestEnableAsync();
+```
 
 ## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FbNobo%2Fneedabreak.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FbNobo%2Fneedabreak?ref=badge_large)
