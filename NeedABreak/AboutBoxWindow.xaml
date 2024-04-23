@@ -57,7 +57,7 @@
             </Hyperlink>
         </TextBlock>
         <TextBlock Margin="0 270 0 0"><utils:TextResource Name="contact" /> 
-            <Hyperlink NavigateUri="mailto:benoit.rocco@gmail.com"
+            <Hyperlink NavigateUri="mailto:benoit.rocco@gmail.com?subject=Contact&amp;body=Hi Benoit,"
                        RequestNavigate="Hyperlink_RequestNavigate">benoit.rocco@gmail.com</Hyperlink>
         </TextBlock>
         <TextBlock VerticalAlignment="Bottom"
