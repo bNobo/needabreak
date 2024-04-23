@@ -205,15 +205,6 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.inrs.fr/risques/travail-ecran/ce-qu-il-faut-retenir.html.
-        /// </summary>
-        internal static string inrs_url {
-            get {
-                return ResourceManager.GetString("inrs_url", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Moins d&apos;une minute avant verrouillage.
         /// </summary>
         internal static string Less_than_a_minute_before_locking {
