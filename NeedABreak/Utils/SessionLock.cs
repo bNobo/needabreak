@@ -16,15 +16,8 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.InteropServices;
-using System.Windows;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace NeedABreak.Utils
 {
@@ -41,7 +34,7 @@ namespace NeedABreak.Utils
                 // Only cases when this function will fail are if user is not logged on or if workstation is already locked
                 // In both cases we just don't care => log and continue
                 App.Logger.Error(
-                    "Session Could not be locked!", 
+                    "Session Could not be locked!",
                     new Win32Exception(Marshal.GetLastWin32Error()));
             }
         }

@@ -16,11 +16,6 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
@@ -42,7 +37,7 @@ namespace NeedABreak
             var pen = new Pen(brush, 6);
             var whitePen = new Pen(Brushes.White, 8);
             drawingContext.DrawRectangle(Brushes.Transparent, pen, adornedElementRect);
-            var miniRect = new Rect(adornedElementRect.Right - 50, adornedElementRect.Bottom - 50, 
+            var miniRect = new Rect(adornedElementRect.Right - 50, adornedElementRect.Bottom - 50,
                 50, 50);
             drawingContext.DrawRectangle(brush, pen, miniRect);
             var p1 = new Point(adornedElementRect.Right - 40, adornedElementRect.Bottom - 25);
@@ -53,6 +48,6 @@ namespace NeedABreak
             drawingContext.DrawLine(whitePen, p4, p3);
         }
 
-        
+
     }
 }

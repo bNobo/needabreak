@@ -17,7 +17,6 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 using MahApps.Metro.Controls;
-using Microsoft.Win32;
 using NeedABreak.Extensions;
 using NeedABreak.Utils;
 using System;
@@ -109,9 +108,9 @@ namespace NeedABreak
         }
 
         private async void LaunchOnStartupMenuItem_Checked(object sender, RoutedEventArgs e)
-        {        
+        {
             StartupTask startupTask = await StartupTask.GetAsync("NeedABreak.StartupTask");
-            
+
             switch (startupTask.State)
             {
                 case StartupTaskState.Disabled:
@@ -387,7 +386,7 @@ namespace NeedABreak
 
             if (App.IsSuspended && App.SuspensionCause == SuspensionCause.Automatic)
             {
-                App.Resume(); 
+                App.Resume();
             }
         }
 

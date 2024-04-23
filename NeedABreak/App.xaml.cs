@@ -20,15 +20,10 @@ using log4net;
 using NeedABreak.Properties;
 using NeedABreak.Utils;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
-using System.Windows.Threading;
 
 namespace NeedABreak
 {
@@ -88,7 +83,7 @@ namespace NeedABreak
                     _cumulativeScreenTime += interruptionDuration;
                 }
             }
-            
+
             _dayStart = DateTime.Today;
             _startShowingScreen = DateTime.Now;
 
@@ -283,7 +278,7 @@ namespace NeedABreak
             if (e.Reason == Microsoft.Win32.SessionSwitchReason.SessionUnlock)
             {
                 Logger.Debug("SessionUnlock");
-                
+
                 Current.Dispatcher.BeginInvoke(() =>
                 {
                     var mainWindow = GetMainWindow();

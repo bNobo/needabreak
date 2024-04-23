@@ -17,38 +17,34 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 using PropertyChanged;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NeedABreak
 {
-	[DoNotNotify]
-	public class SettingsWindowViewModel : INotifyPropertyChanged
+    [DoNotNotify]
+    public class SettingsWindowViewModel : INotifyPropertyChanged
     {
-        public int Delay 
-		{ 
-			get { return App.Delay / 60; } 
-			set { 
-				App.Delay = value * 60;
-				Properties.Settings.Default.Delay = App.Delay;
-				Properties.Settings.Default.Save();
-				OnPropertyChanged(); 
-			} 
-		}
+        public int Delay
+        {
+            get { return App.Delay / 60; }
+            set
+            {
+                App.Delay = value * 60;
+                Properties.Settings.Default.Delay = App.Delay;
+                Properties.Settings.Default.Save();
+                OnPropertyChanged();
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public virtual void OnPropertyChanged([CallerMemberName]string propertyName = "")
+        public virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             if (null != PropertyChanged)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }			
+            }
         }
 
         public SettingsWindowViewModel()
