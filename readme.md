@@ -10,41 +10,43 @@ I have made it for my personal usage and personaly use it every day at work and 
 
 You will be notified a minute before lockdown:
 
-<img src="https://github.com/bNobo/needabreak/blob/root/Captures/imminent_lockdown.jpg" alt="imminent lockdown" width="300" />
+<img src="Captures/en/imminent_lockdown.jpg" alt="imminent lockdown" width="300" />
 
 When it is time to have a break a countdown will appear. The screen will be locked when it reaches 0:
 
-<img src="https://github.com/bNobo/needabreak/blob/root/Captures/mainwindow.gif" alt="countdown" width="600" />
+<img src="Captures/en/mainwindow.gif" alt="countdown" width="600" />
 
-You can verify that the application is running thanks to the task bar icon: 
+You can check that the application is running thanks to the task bar icon. Hover the mouse over the icon and you'll see useful information like time remaining before lockdown and today's screen time:
 
-<img src="https://github.com/bNobo/needabreak/blob/root/Captures/taskbar.jpg" alt="task bar icon" width="400" />
+<img src="Captures/en/taskbar.jpg" alt="task bar icon" width="400" />
 
-You can display the application menu by clicking on the coffee cup:
+You can display the application menu by clicking on the coffee cup icon in the taskbar:
 
-<img src="https://github.com/bNobo/needabreak/blob/root/Captures/menu.jpg" alt="menu" width="300" />
+<img src="Captures/en/menu.jpg" alt="menu" width="300" />
 
 The settings window let you choose how long the application will wait before lockdown:
 
-<img src="https://github.com/bNobo/needabreak/blob/root/Captures/settings.jpg" alt="settings" width="500" />
+<img src="Captures/en/settings.jpg" alt="settings" width="500" />
 
 You can find this documentation on my github page: https://bnobo.github.io/needabreak/
 
 ## Installation
 
-If you just want to install and enjoy the latest version of the application, you can download the setup from [here](https://bnobo.github.io/needabreak/NeedABreak/publish/setup.exe).
+You can install the latest version from the [Microsoft Store](https://www.microsoft.com/store/productId/9NCXSKHB9318)
 
-> Note that you will have a big red warning from the UAC during installation because the installer is not digitally signed.
+If you prefer, you can download the version you want to install from the [Releases page](https://github.com/bNobo/needabreak/releases)
+
+> Starting with version 3.x you'll need Windows 10 minimum. If you have an older system, you should download a previous version from the Releases page. The latest version before 3.x was 2.3. Please note that previous versions won't benefit from new functionnalities and security updates. You should upgrade your system to benefit from the latest version.
 
 ## Get started
 
-The project is a WPF application targeting .Net Framework 4.8. All you need is a copy of Visual Studio Community in order to build it.
+The project is a WPF application targeting .NET 8. All you need is a copy of Visual Studio Community in order to build it.
 Once started, the application creates a coffee cup icon in the task bar to manifest its presence and permits user to interact with it. 
 Just click on the coffee cup to open the application menu.
 
 ## Contribute
 
-I'm sure this application could be improved in many ways and I would be happy to receive some help in doing so. If you want to contribute to this project, please go to https://github.com/bNobo/needabreak and read [contributing.md](https://github.com/bNobo/needabreak/blob/root/contributing.md) file.
+I'm sure this application could be improved in many ways and I would be happy to receive some help in doing so. If you want to contribute to this project, please read [contributing.md](contributing.md) file.
 
 Every kind of contribution is welcome, it includes, but is not limited to:
 * Add new functionalities
@@ -53,6 +55,20 @@ Every kind of contribution is welcome, it includes, but is not limited to:
 * Fix bugs
 * Test to find issues
 * Fix typos
+
+## Locate log file and user settings
+
+The log file of the application can be found under `%TEMP%\NeedABreak Logs` folder. 
+
+Sometimes it is usefull to vary user settings values during debug. In order to easily locate the user settings file of the application, its path is logged when the app starts in debug mode. Open the log file and search for `User settings path`. You should see a line similar to:
+
+```
+2024-04-20 08:41:39,206 [1] DEBUG - NeedABreak.App User settings path = C:\Users\your_name\AppData\Local\NeedABreak\NeedABreak_Url_zfnovop1ow4emdxnmewxhry05gwrornw\3.0.3.0\user.config
+```
+
+Open the `user.config` file and change settings values as needed. 
+
+> Be careful while editing this XML file. If you break it, the application won't start anymore. You should make a backup copy before editing it. In case you accidentally broke it, just delete the `user.config` file and restart the application. The file will be restored with default values.
 
 ## Points of interest in code
 
@@ -107,8 +123,6 @@ if (!mutex.WaitOne(0, false))
 
 ### Translations
 
-Use of [Multilingual App Toolkit](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308) extension to handle translations. RESX files are automatically generated from translations made in XLF files.
-
 Use of custom markup extension to handle translations in XAML files like this:
 
 ```XAML
@@ -120,7 +134,47 @@ Use of custom markup extension to handle translations in XAML files like this:
 
 Use of Adorner class to surround selected tile on the settings window.
 
+### Startup Task
 
+Use of `StartupTask` class in order to run the application at Windows Startup.
+
+The manifest has to be manually edited to add the startup task extension:
+
+```xml
+[...]
+xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+[...]
+<Applications>
+    <Application Id="App"
+        [...]
+        <Extensions>
+            <!-- Desktop Bridge-->
+            <desktop:Extension
+              Category="windows.startupTask"
+              Executable="NeedABreak\NeedABreak.exe"
+              EntryPoint="Windows.FullTrustApplication">
+              <desktop:StartupTask
+                  TaskId="NeedABreak.StartupTask"
+                  Enabled="true"
+                  DisplayName="NEED A BREAK!" />
+            </desktop:Extension>
+        </Extensions>
+    </Application>
+</Applications>
+```
+
+The csproj file has to target Windows 10:
+
+```xml
+<TargetFramework>net8.0-windows10.0.18362.0</TargetFramework>
+```
+
+And then it is possible to make use of the StartupTask class:
+
+```cs
+StartupTask startupTask = await StartupTask.GetAsync("NeedABreak.StartupTask");
+StartupTaskState newState = await startupTask.RequestEnableAsync();
+```
 
 ## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FbNobo%2Fneedabreak.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FbNobo%2Fneedabreak?ref=badge_large)

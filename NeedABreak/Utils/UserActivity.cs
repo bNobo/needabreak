@@ -1,88 +1,84 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace NeedABreak.Utils
 {
-	public class UserActivity
-	{
-		private TimeSpan _idleTime;
-				
-		/// <summary>
-		/// UserActivity constructor
-		/// </summary>
-		/// <param name="idleTime">time after which the user will be considered idle.</param>
-		public UserActivity(TimeSpan idleTime)
-		{
-			if (idleTime == TimeSpan.Zero)
-			{
-				idleTime = TimeSpan.FromSeconds(7);
-			}
+    public class UserActivity
+    {
+        private TimeSpan _idleTime;
 
-			_idleTime = idleTime;
-		}
+        /// <summary>
+        /// UserActivity constructor
+        /// </summary>
+        /// <param name="idleTime">time after which the user will be considered idle.</param>
+        public UserActivity(TimeSpan idleTime)
+        {
+            if (idleTime == TimeSpan.Zero)
+            {
+                idleTime = TimeSpan.FromSeconds(7);
+            }
 
-		public UserActivity() : this(TimeSpan.Zero) { }
+            _idleTime = idleTime;
+        }
 
-		[StructLayout(LayoutKind.Sequential)]
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "<Pending>")]
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>")]
-		public struct LASTINPUTINFO
-		{
-			public uint cbSize;
-			public uint dwTime;
-		}
+        public UserActivity() : this(TimeSpan.Zero) { }
 
-		[DllImport("user32.dll")]
-		static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
+        [StructLayout(LayoutKind.Sequential)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "<Pending>")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>")]
+        public struct LASTINPUTINFO
+        {
+            public uint cbSize;
+            public uint dwTime;
+        }
 
-		public static TimeSpan GetInactiveTime()
-		{
-			LASTINPUTINFO info = new LASTINPUTINFO();
-			info.cbSize = (uint)Marshal.SizeOf(info);
+        [DllImport("user32.dll")]
+        static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
 
-			if (GetLastInputInfo(ref info))
-			{
-				return TimeSpan.FromMilliseconds(Environment.TickCount - info.dwTime);
-			}
-			else
-			{
-				return TimeSpan.Zero;
-			}
-		}
+        public static TimeSpan GetInactiveTime()
+        {
+            LASTINPUTINFO info = new LASTINPUTINFO();
+            info.cbSize = (uint)Marshal.SizeOf(info);
 
-		public async Task WaitForUserToBeIdleAsync()
-		{
-			TimeSpan inactiveTime = GetInactiveTime();
+            if (GetLastInputInfo(ref info))
+            {
+                return TimeSpan.FromMilliseconds(Environment.TickCount - info.dwTime);
+            }
+            else
+            {
+                return TimeSpan.Zero;
+            }
+        }
 
-			while (inactiveTime < _idleTime
-				|| AMouseButtonIsPressed())
-			{
-				await Task.Delay(1000);
-				inactiveTime = GetInactiveTime();
-			}
-		}
+        public async Task WaitForUserToBeIdleAsync()
+        {
+            TimeSpan inactiveTime = GetInactiveTime();
 
-		public static bool AMouseButtonIsPressed()
-		{
+            while (inactiveTime < _idleTime
+                || AMouseButtonIsPressed())
+            {
+                await Task.Delay(1000);
+                inactiveTime = GetInactiveTime();
+            }
+        }
+
+        public static bool AMouseButtonIsPressed()
+        {
 #if DEBUG
-			System.Diagnostics.Debug.WriteLine("LeftButton State = {0}", GetAsyncKeyState(VK_LBUTTON));
-			System.Diagnostics.Debug.WriteLine("MiddleButton State = {0}", GetAsyncKeyState(VK_MBUTTON));
-			System.Diagnostics.Debug.WriteLine("RightButton State = {0}", GetAsyncKeyState(VK_RBUTTON)); 
+            System.Diagnostics.Debug.WriteLine("LeftButton State = {0}", GetAsyncKeyState(VK_LBUTTON));
+            System.Diagnostics.Debug.WriteLine("MiddleButton State = {0}", GetAsyncKeyState(VK_MBUTTON));
+            System.Diagnostics.Debug.WriteLine("RightButton State = {0}", GetAsyncKeyState(VK_RBUTTON));
 #endif
 
-			return GetAsyncKeyState(VK_LBUTTON) > 0 || GetAsyncKeyState(VK_MBUTTON) > 0 || GetAsyncKeyState(VK_RBUTTON) > 0;
-		}
+            return GetAsyncKeyState(VK_LBUTTON) > 0 || GetAsyncKeyState(VK_MBUTTON) > 0 || GetAsyncKeyState(VK_RBUTTON) > 0;
+        }
 
-		[DllImport("user32.dll")]		
-		static extern ushort GetAsyncKeyState(ushort virtualKeyCode);
+        [DllImport("user32.dll")]
+        static extern ushort GetAsyncKeyState(ushort virtualKeyCode);
 
-		const int VK_LBUTTON = 0x01;
-		const int VK_MBUTTON = 0x04;
-		const int VK_RBUTTON = 0x02;
-	}
+        const int VK_LBUTTON = 0x01;
+        const int VK_MBUTTON = 0x04;
+        const int VK_RBUTTON = 0x02;
+    }
 }
