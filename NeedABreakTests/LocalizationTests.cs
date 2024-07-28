@@ -18,7 +18,7 @@ namespace NeedABreakTests
         [InlineData("it", "Testo in italiano")]
         [InlineData("en", "Text in english")]
         [InlineData("en-US", "Text in english")]
-        [InlineData("se", "Text in english")]       // Language not supported, fallback to english
+        [InlineData("sv", "Text in english")]       // Language not supported, fallback to english
         public void TextShouldBeTranslated(string culture, string expectedResult)
         {
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(culture);
