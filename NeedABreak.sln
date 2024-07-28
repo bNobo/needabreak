@@ -8,7 +8,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+		contributing.md = contributing.md
 		LICENSE = LICENSE
+		publishing.md = publishing.md
 		readme.md = readme.md
 	EndProjectSection
 EndProject

@@ -4,6 +4,30 @@ If you want to contribute, please participate in discussions on GitHub issues or
 
 ## Translations
 
+### How to add a new language translations ?
+
+NEED A BREAK! is currently translated to french and italian. It fallbacks to english when the user language is not supported.
+
+If you would like to have NEED A BREAK! in your own language, feel free to submit a pull request.
+
+1. Go to [NeedABreak/Properties folder](./NeedABreak/Properties)
+1. Clic on Add file > Create new file
+![](./Captures/create_new_file.png)
+1. Create a fork so you can submit the new file
+![](./Captures/fork_this_repository.png)
+1. Name the file `Resources.<lang_code>.resx` where `lang_code` is the [ISO 639-1 language code](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) de votre langue. For example `Resources.sv.resx`.
+1. Copy the content of the default `Resources.resx` file into your file
+1. Translate each sentences between `<value>` and `</value>` tags.
+![](./Captures/value.jpeg)
+1. Clic on "Commit changes..." when you're done
+![](./Captures/propose_changes.png)
+1. Review you're translations and create a pull request when you're ready to submit them
+![](./Captures/create_pull_request.png)
+1. Once submitted, the pull request will appear with the "Open" status
+![](./Captures/pull_request_opened.png)
+
+### Translations in the code
+
 When working on the UI, keep in mind that the application is translated. The main (neutral) language is french and there are english and italian translations. So it is not possible to use hard-coded text, you have to use the TextResource markup extension like this :
 
 ```xaml
