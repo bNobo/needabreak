@@ -13,6 +13,8 @@ namespace NeedABreakTests
         [InlineData("fr", "Texte en français")]
         [InlineData("fr-FR", "Texte en français")]
         [InlineData("fr-BE", "Texte en français")]
+        [InlineData("fr-MA", "Texte en français")]
+        [InlineData("fr-PF", "Texte en français")]
         [InlineData("it", "Testo in italiano")]
         [InlineData("en", "Text in english")]
         [InlineData("en-US", "Text in english")]

@@ -61,7 +61,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to À propos de NEED A BREAK!.
+        ///   Looks up a localized string similar to About NEED A BREAK!.
         /// </summary>
         internal static string about {
             get {
@@ -70,7 +70,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ajuster le délai.
+        ///   Looks up a localized string similar to Adjust the wait time before lockdown.
         /// </summary>
         internal static string ajuster_le_delai {
             get {
@@ -79,7 +79,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Annuler.
+        ///   Looks up a localized string similar to Cancel.
         /// </summary>
         internal static string annuler {
             get {
@@ -88,7 +88,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activer automatiquement le mode &quot;Ne pas déranger&quot;.
+        ///   Looks up a localized string similar to Automatically determine when &quot;Do not disturb&quot; mode should be activated.
         /// </summary>
         internal static string automatic_suspension {
             get {
@@ -97,7 +97,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to L&apos;application se met automatiquement en mode &quot;Ne pas déranger&quot; lorsqu&apos;elle détecte qu&apos;une application plein écran ou une présentation a démarré et se réactive automatiquement lorsque l&apos;application plein écran ou la présentation est terminé..
+        ///   Looks up a localized string similar to The app automatically enable &quot;Do not disturb&quot; mode when it detects that a full-screen app or presentation has started and automatically reactivates when the full-screen app or presentation is complete..
         /// </summary>
         internal static string automatic_suspension_tooltip {
             get {
@@ -106,7 +106,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Contact :.
+        ///   Looks up a localized string similar to Contact:.
         /// </summary>
         internal static string contact {
             get {
@@ -124,7 +124,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Exécuter au démarrage.
+        ///   Looks up a localized string similar to Run at startup.
         /// </summary>
         internal static string executer_au_demarrage {
             get {
@@ -133,7 +133,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Exécuter au démarrage (contrôlé par l&apos;administrateur).
+        ///   Looks up a localized string similar to Run at startup (controlled by administrator).
         /// </summary>
         internal static string executer_au_demarrage_admin_disabled {
             get {
@@ -142,7 +142,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Exécuter au démarrage (désactivé par l&apos;utilisateur).
+        ///   Looks up a localized string similar to Run at startup (disabled by user).
         /// </summary>
         internal static string executer_au_demarrage_user_disabled {
             get {
@@ -151,7 +151,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lorsqu&apos;on travaille sur écran, il est impératif de respecter un régime de pauses qui doit être fonction de l&apos;intensité du travail. Choisissez le délai approprié en fonction de l&apos;intensité du travail que vous devez accomplir..
+        ///   Looks up a localized string similar to When working on a screen, it is important to take frequent screen breaks based on your work hours. Choose the appropriate work duration.
         /// </summary>
         internal static string explications {
             get {
@@ -160,7 +160,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fermer.
+        ///   Looks up a localized string similar to Close.
         /// </summary>
         internal static string fermer {
             get {
@@ -169,7 +169,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ici.
+        ///   Looks up a localized string similar to here.
         /// </summary>
         internal static string here {
             get {
@@ -178,7 +178,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Il est l&apos;heure de bouger !.
+        ///   Looks up a localized string similar to It&apos;s break time!.
         /// </summary>
         internal static string il_est_l_heure {
             get {
@@ -187,7 +187,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Verrouillage imminent.
+        ///   Looks up a localized string similar to Imminent lockdown.
         /// </summary>
         internal static string Imminent_locking {
             get {
@@ -205,7 +205,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Moins d&apos;une minute avant verrouillage.
+        ///   Looks up a localized string similar to Less than a minute to lockdown.
         /// </summary>
         internal static string Less_than_a_minute_before_locking {
             get {
@@ -214,7 +214,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vous pouvez consulter la licence complète.
+        ///   Looks up a localized string similar to You can view full license.
         /// </summary>
         internal static string license {
             get {
@@ -223,7 +223,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Verrouiller.
+        ///   Looks up a localized string similar to Lock now.
         /// </summary>
         internal static string lock_now {
             get {
@@ -232,7 +232,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to minutes.
+        ///   Looks up a localized string similar to mins.
         /// </summary>
         internal static string minutes {
             get {
@@ -241,7 +241,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0:##} minutes avant verrouillage.
+        ///   Looks up a localized string similar to {0:##} minutes to lockdown.
         /// </summary>
         internal static string minutes_before_locking {
             get {
@@ -250,7 +250,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0:%h} heures.
+        ///   Looks up a localized string similar to {0:%h} hours.
         /// </summary>
         internal static string n_hours {
             get {
@@ -259,7 +259,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0:%h} heures, {0:%m} minutes.
+        ///   Looks up a localized string similar to {0:%h} hours, {0:%m} minutes.
         /// </summary>
         internal static string n_hours_n_minutes {
             get {
@@ -277,7 +277,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Notification avant verrouillage.
+        ///   Looks up a localized string similar to Notification before locking.
         /// </summary>
         internal static string notification_avant_verrouillage {
             get {
@@ -286,7 +286,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1 heure.
+        ///   Looks up a localized string similar to 1 hour.
         /// </summary>
         internal static string one_hour {
             get {
@@ -295,7 +295,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1 heure, {0:%m} minutes.
+        ///   Looks up a localized string similar to 1 hour, {0:%m} minutes.
         /// </summary>
         internal static string one_hour_n_minutes {
             get {
@@ -313,7 +313,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Une minute avant verrouillage.
+        ///   Looks up a localized string similar to One minute to lockdown.
         /// </summary>
         internal static string one_minute_before_locking {
             get {
@@ -322,7 +322,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quitter.
+        ///   Looks up a localized string similar to Exit.
         /// </summary>
         internal static string quitter {
             get {
@@ -331,7 +331,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reporter.
+        ///   Looks up a localized string similar to Postpone.
         /// </summary>
         internal static string reporter {
             get {
@@ -340,7 +340,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reprendre.
+        ///   Looks up a localized string similar to Resume.
         /// </summary>
         internal static string resume {
             get {
@@ -349,7 +349,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Désactiver le mode &quot;Ne pas déranger&quot;.
+        ///   Looks up a localized string similar to Disable &quot;Do not disturb&quot; mode..
         /// </summary>
         internal static string resume_tooltip {
             get {
@@ -358,7 +358,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mode &quot;Ne pas déranger&quot; désactivé.
+        ///   Looks up a localized string similar to &quot;Do not disturb&quot; mode disabled..
         /// </summary>
         internal static string resumed_message {
             get {
@@ -367,7 +367,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Réactivation.
+        ///   Looks up a localized string similar to Reactivated.
         /// </summary>
         internal static string resumed_title {
             get {
@@ -376,7 +376,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ne pas déranger.
+        ///   Looks up a localized string similar to Do not disturb.
         /// </summary>
         internal static string suspend {
             get {
@@ -385,7 +385,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activer le mode &quot;Ne pas déranger&quot;..
+        ///   Looks up a localized string similar to Enable &quot;Do not disturb&quot; mode..
         /// </summary>
         internal static string suspend_tooltip {
             get {
@@ -394,7 +394,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mode &quot;Ne pas déranger&quot; activé.
+        ///   Looks up a localized string similar to &quot;Do not disturb&quot; mode enabled.
         /// </summary>
         internal static string suspended_message {
             get {
@@ -403,7 +403,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NEED A BREAK! (Ne pas déranger).
+        ///   Looks up a localized string similar to NEED A BREAK! (do not disturb).
         /// </summary>
         internal static string suspended_title {
             get {
@@ -412,7 +412,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Temps d&apos;écran aujourd&apos;hui : {0}.
+        ///   Looks up a localized string similar to Today&apos;s screen time: {0}.
         /// </summary>
         internal static string today_screen_time {
             get {
@@ -421,7 +421,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Texte en français.
+        ///   Looks up a localized string similar to Text in english.
         /// </summary>
         internal static string translation_test {
             get {
@@ -430,7 +430,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Travail habituel.
+        ///   Looks up a localized string similar to Usual work.
         /// </summary>
         internal static string travail_habituel {
             get {
@@ -439,7 +439,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Travail intensif.
+        ///   Looks up a localized string similar to Intensive work.
         /// </summary>
         internal static string travail_intensif {
             get {
@@ -448,7 +448,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Travail peu intensif.
+        ///   Looks up a localized string similar to Low-intensive work.
         /// </summary>
         internal static string travail_peu_intensif {
             get {
@@ -457,7 +457,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Travail très intensif.
+        ///   Looks up a localized string similar to Very intensive work.
         /// </summary>
         internal static string travail_tres_intensif {
             get {
@@ -466,7 +466,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (non défini).
+        ///   Looks up a localized string similar to (undefined).
         /// </summary>
         internal static string undefined {
             get {
@@ -475,7 +475,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Le poste va se verrouiller dans moins d&apos;une minute. Pensez à sauvegardez vos modifications !.
+        ///   Looks up a localized string similar to The screen will be locked in less than a minute. Remember to save your changes!.
         /// </summary>
         internal static string verrouillage_imminent_detail {
             get {
@@ -484,7 +484,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VERROUILLAGE IMMINENT.
+        ///   Looks up a localized string similar to IMMINENT LOCKDOWN.
         /// </summary>
         internal static string verrouillage_imminent_title {
             get {
@@ -493,7 +493,7 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ce programme est fourni SANS AUCUNE GARANTIE;.
+        ///   Looks up a localized string similar to This program comes with ABSOLUTELY NO WARRANTY;.
         /// </summary>
         internal static string warranty {
             get {
