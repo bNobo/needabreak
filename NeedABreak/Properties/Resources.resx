@@ -117,148 +117,151 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="about" xml:space="preserve">
-    <value>À propos de NEED A BREAK!</value>
-  </data>
   <data name="ajuster_le_delai" xml:space="preserve">
-    <value>Ajuster le délai</value>
+    <value>Adjust the wait time before lockdown</value>
   </data>
   <data name="annuler" xml:space="preserve">
-    <value>Annuler</value>
+    <value>Cancel</value>
   </data>
-  <data name="automatic_suspension" xml:space="preserve">
-    <value>Activer automatiquement le mode "Ne pas déranger"</value>
+  <data name="executer_au_demarrage" xml:space="preserve">
+    <value>Run at startup</value>
   </data>
-  <data name="automatic_suspension_tooltip" xml:space="preserve">
-    <value>L'application se met automatiquement en mode "Ne pas déranger" lorsqu'elle détecte qu'une application plein écran ou une présentation a démarré et se réactive automatiquement lorsque l'application plein écran ou la présentation est terminé.</value>
+  <data name="explications" xml:space="preserve">
+    <value>When working on a screen, it is important to take frequent screen breaks based on your work hours. Choose the appropriate work duration</value>
+  </data>
+  <data name="fermer" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="il_est_l_heure" xml:space="preserve">
+    <value>It's break time!</value>
+  </data>
+  <data name="Imminent_locking" xml:space="preserve">
+    <value>Imminent lockdown</value>
+  </data>
+  <data name="Less_than_a_minute_before_locking" xml:space="preserve">
+    <value>Less than a minute to lockdown</value>
+  </data>
+  <data name="minutes" xml:space="preserve">
+    <value>mins</value>
+  </data>
+  <data name="minutes_before_locking" xml:space="preserve">
+    <value>{0:##} minutes to lockdown</value>
+  </data>
+  <data name="one_minute_before_locking" xml:space="preserve">
+    <value>One minute to lockdown</value>
+  </data>
+  <data name="quitter" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="travail_habituel" xml:space="preserve">
+    <value>Usual work</value>
+  </data>
+  <data name="travail_intensif" xml:space="preserve">
+    <value>Intensive work</value>
+  </data>
+  <data name="travail_peu_intensif" xml:space="preserve">
+    <value>Low-intensive work</value>
+  </data>
+  <data name="travail_tres_intensif" xml:space="preserve">
+    <value>Very intensive work</value>
+  </data>
+  <data name="notification_avant_verrouillage" xml:space="preserve">
+    <value>Notification before locking</value>
+  </data>
+  <data name="verrouillage_imminent_detail" xml:space="preserve">
+    <value>The screen will be locked in less than a minute. Remember to save your changes!</value>
+  </data>
+  <data name="verrouillage_imminent_title" xml:space="preserve">
+    <value>IMMINENT LOCKDOWN</value>
+  </data>
+  <data name="reporter" xml:space="preserve">
+    <value>Postpone</value>
+  </data>
+  <data name="about" xml:space="preserve">
+    <value>About NEED A BREAK!</value>
+  </data>
+  <data name="license" xml:space="preserve">
+    <value>You can view full license</value>
+  </data>
+  <data name="undefined" xml:space="preserve">
+    <value>(undefined)</value>
+  </data>
+  <data name="warranty" xml:space="preserve">
+    <value>This program comes with ABSOLUTELY NO WARRANTY;</value>
   </data>
   <data name="contact" xml:space="preserve">
-    <value>Contact :</value>
+    <value>Contact:</value>
+  </data>
+  <data name="here" xml:space="preserve">
+    <value>here</value>
+  </data>
+  <data name="lock_now" xml:space="preserve">
+    <value>Lock now</value>
+  </data>
+  <data name="resume" xml:space="preserve">
+    <value>Resume</value>
+  </data>
+  <data name="suspend" xml:space="preserve">
+    <value>Do not disturb</value>
+  </data>
+  <data name="resume_tooltip" xml:space="preserve">
+    <value>Disable "Do not disturb" mode.</value>
+  </data>
+  <data name="suspend_tooltip" xml:space="preserve">
+    <value>Enable "Do not disturb" mode.</value>
+  </data>
+  <data name="resumed_message" xml:space="preserve">
+    <value>"Do not disturb" mode disabled.</value>
+  </data>
+  <data name="resumed_title" xml:space="preserve">
+    <value>Reactivated</value>
+  </data>
+  <data name="suspended_message" xml:space="preserve">
+    <value>"Do not disturb" mode enabled</value>
+  </data>
+  <data name="suspended_title" xml:space="preserve">
+    <value>NEED A BREAK! (do not disturb)</value>
+  </data>
+  <data name="automatic_suspension" xml:space="preserve">
+    <value>Automatically determine when "Do not disturb" mode should be activated</value>
+  </data>
+  <data name="automatic_suspension_tooltip" xml:space="preserve">
+    <value>The app automatically enable "Do not disturb" mode when it detects that a full-screen app or presentation has started and automatically reactivates when the full-screen app or presentation is complete.</value>
+  </data>
+  <data name="n_hours" xml:space="preserve">
+    <value>{0:%h} hours</value>
+  </data>
+  <data name="n_hours_n_minutes" xml:space="preserve">
+    <value>{0:%h} hours, {0:%m} minutes</value>
+  </data>
+  <data name="one_hour" xml:space="preserve">
+    <value>1 hour</value>
+  </data>
+  <data name="one_hour_n_minutes" xml:space="preserve">
+    <value>1 hour, {0:%m} minutes</value>
+  </data>
+  <data name="today_screen_time" xml:space="preserve">
+    <value>Today's screen time: {0}</value>
+  </data>
+  <data name="executer_au_demarrage_admin_disabled" xml:space="preserve">
+    <value>Run at startup (controlled by administrator)</value>
+  </data>
+  <data name="executer_au_demarrage_user_disabled" xml:space="preserve">
+    <value>Run at startup (disabled by user)</value>
+  </data>
+  <data name="translation_test" xml:space="preserve">
+    <value>Text in english</value>
   </data>
   <data name="copyright" xml:space="preserve">
     <value>NEED A BREAK!  Copyright (C) 2020  Benoit Rocco</value>
   </data>
-  <data name="executer_au_demarrage" xml:space="preserve">
-    <value>Exécuter au démarrage</value>
-  </data>
-  <data name="executer_au_demarrage_admin_disabled" xml:space="preserve">
-    <value>Exécuter au démarrage (contrôlé par l'administrateur)</value>
-  </data>
-  <data name="executer_au_demarrage_user_disabled" xml:space="preserve">
-    <value>Exécuter au démarrage (désactivé par l'utilisateur)</value>
-  </data>
-  <data name="explications" xml:space="preserve">
-    <value>Lorsqu'on travaille sur écran, il est impératif de respecter un régime de pauses qui doit être fonction de l'intensité du travail. Choisissez le délai approprié en fonction de l'intensité du travail que vous devez accomplir.</value>
-  </data>
-  <data name="fermer" xml:space="preserve">
-    <value>Fermer</value>
-  </data>
-  <data name="here" xml:space="preserve">
-    <value>ici</value>
-  </data>
-  <data name="il_est_l_heure" xml:space="preserve">
-    <value>Il est l'heure de bouger !</value>
-  </data>
-  <data name="Imminent_locking" xml:space="preserve">
-    <value>Verrouillage imminent</value>
-  </data>
   <data name="inrs" xml:space="preserve">
     <value>INRS</value>
-  </data>
-  <data name="Less_than_a_minute_before_locking" xml:space="preserve">
-    <value>Moins d'une minute avant verrouillage</value>
-  </data>
-  <data name="license" xml:space="preserve">
-    <value>Vous pouvez consulter la licence complète</value>
-  </data>
-  <data name="lock_now" xml:space="preserve">
-    <value>Verrouiller</value>
-  </data>
-  <data name="minutes" xml:space="preserve">
-    <value>minutes</value>
-  </data>
-  <data name="minutes_before_locking" xml:space="preserve">
-    <value>{0:##} minutes avant verrouillage</value>
-  </data>
-  <data name="notification_avant_verrouillage" xml:space="preserve">
-    <value>Notification avant verrouillage</value>
-  </data>
-  <data name="n_hours" xml:space="preserve">
-    <value>{0:%h} heures</value>
-  </data>
-  <data name="n_hours_n_minutes" xml:space="preserve">
-    <value>{0:%h} heures, {0:%m} minutes</value>
   </data>
   <data name="n_minutes" xml:space="preserve">
     <value>{0:%m} minutes</value>
   </data>
-  <data name="one_hour" xml:space="preserve">
-    <value>1 heure</value>
-  </data>
-  <data name="one_hour_n_minutes" xml:space="preserve">
-    <value>1 heure, {0:%m} minutes</value>
-  </data>
   <data name="one_minute" xml:space="preserve">
     <value>1 minute</value>
-  </data>
-  <data name="one_minute_before_locking" xml:space="preserve">
-    <value>Une minute avant verrouillage</value>
-  </data>
-  <data name="quitter" xml:space="preserve">
-    <value>Quitter</value>
-  </data>
-  <data name="reporter" xml:space="preserve">
-    <value>Reporter</value>
-  </data>
-  <data name="resume" xml:space="preserve">
-    <value>Reprendre</value>
-  </data>
-  <data name="resumed_message" xml:space="preserve">
-    <value>Mode "Ne pas déranger" désactivé</value>
-  </data>
-  <data name="resumed_title" xml:space="preserve">
-    <value>Réactivation</value>
-  </data>
-  <data name="resume_tooltip" xml:space="preserve">
-    <value>Désactiver le mode "Ne pas déranger"</value>
-  </data>
-  <data name="suspend" xml:space="preserve">
-    <value>Ne pas déranger</value>
-  </data>
-  <data name="suspended_message" xml:space="preserve">
-    <value>Mode "Ne pas déranger" activé</value>
-  </data>
-  <data name="suspended_title" xml:space="preserve">
-    <value>NEED A BREAK! (Ne pas déranger)</value>
-  </data>
-  <data name="suspend_tooltip" xml:space="preserve">
-    <value>Activer le mode "Ne pas déranger".</value>
-  </data>
-  <data name="today_screen_time" xml:space="preserve">
-    <value>Temps d'écran aujourd'hui : {0}</value>
-  </data>
-  <data name="travail_habituel" xml:space="preserve">
-    <value>Travail habituel</value>
-  </data>
-  <data name="travail_intensif" xml:space="preserve">
-    <value>Travail intensif</value>
-  </data>
-  <data name="travail_peu_intensif" xml:space="preserve">
-    <value>Travail peu intensif</value>
-  </data>
-  <data name="travail_tres_intensif" xml:space="preserve">
-    <value>Travail très intensif</value>
-  </data>
-  <data name="undefined" xml:space="preserve">
-    <value>(non défini)</value>
-  </data>
-  <data name="verrouillage_imminent_detail" xml:space="preserve">
-    <value>Le poste va se verrouiller dans moins d'une minute. Pensez à sauvegardez vos modifications !</value>
-  </data>
-  <data name="verrouillage_imminent_title" xml:space="preserve">
-    <value>VERROUILLAGE IMMINENT</value>
-  </data>
-  <data name="warranty" xml:space="preserve">
-    <value>Ce programme est fourni SANS AUCUNE GARANTIE;</value>
   </data>
 </root>

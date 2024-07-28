@@ -21,10 +21,12 @@ using NeedABreak.Properties;
 using NeedABreak.Utils;
 using System;
 using System.Configuration;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
 
+[assembly:InternalsVisibleTo("NeedABreakTests")]
 namespace NeedABreak
 {
     /// <summary>

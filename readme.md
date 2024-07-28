@@ -49,12 +49,14 @@ Just click on the coffee cup to open the application menu.
 I'm sure this application could be improved in many ways and I would be happy to receive some help in doing so. If you want to contribute to this project, please read [contributing.md](contributing.md) file.
 
 Every kind of contribution is welcome, it includes, but is not limited to:
-* Add new functionalities
-* Improve translations
-* Improve design
-* Fix bugs
-* Test to find issues
-* Fix typos
+
+- Add a new language translations
+- Improve existing translations
+- Improve design
+- Fix typos
+- Fix bugs
+- Test to find issues
+- Add new functionalities
 
 ## Locate log file and user settings
 
