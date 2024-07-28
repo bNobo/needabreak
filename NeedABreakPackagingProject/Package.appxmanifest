@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
@@ -10,7 +10,7 @@
   <Identity
     Name="4467bNobo.NEEDABREAK"
     Publisher="CN=1B1E808E-4CEE-4CCF-A0BA-C633235E9947"
-    Version="3.0.7.0" />
+    Version="3.0.10.0" />
 
   <Properties>
     <DisplayName>NEED A BREAK!</DisplayName>
