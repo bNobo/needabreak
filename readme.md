@@ -49,12 +49,36 @@ Just click on the coffee cup to open the application menu.
 I'm sure this application could be improved in many ways and I would be happy to receive some help in doing so. If you want to contribute to this project, please read [contributing.md](contributing.md) file.
 
 Every kind of contribution is welcome, it includes, but is not limited to:
-* Add new functionalities
-* Improve translations
-* Improve design
-* Fix bugs
-* Test to find issues
-* Fix typos
+
+- Add a new language translations
+- Improve existing translations
+- Improve design
+- Fix typos
+- Fix bugs
+- Test to find issues
+- Add new functionalities
+
+### How to add a new language translations ?
+
+NEED A BREAK! is currently translated to french and italian. It fallbacks to english when the user language is not supported.
+
+If you would like to have NEED A BREAK! in your own language, feel free to submit a pull request.
+
+1. Go to [NeedABreak/Properties folder](./NeedABreak/Properties)
+1. Clic on Add file > Create new file
+![](./Captures/create_new_file.png)
+1. Create a fork so you can submit the new file
+![](./Captures/fork_this_repository.png)
+1. Name the file `Resources.<lang_code>.resx` where `lang_code` is the [ISO 639-1 language code](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) de votre langue. For example `Resources.sv.resx`.
+1. Copy the content of the default `Resources.resx` file into your file
+1. Translate each sentences between `<value>` and `</value>` tags.
+![](./Captures/value.jpeg)
+1. Clic on "Commit changes..." when you're done
+![](./Captures/propose_changes.png)
+1. Review you're translations and create a pull request when you're ready to submit them
+![](./Captures/create_pull_request.png)
+1. Once submitted, the pull request will appear with the "Open" status
+![](./Captures/pull_request_opened.png)
 
 ## Locate log file and user settings
 
