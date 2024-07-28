@@ -255,4 +255,7 @@
   <data name="executer_au_demarrage_user_disabled" xml:space="preserve">
     <value>Esegui all'avvio (disabilitato dall'utente)</value>
   </data>
+  <data name="translation_test" xml:space="preserve">
+    <value>Testo in italiano</value>
+  </data>
 </root>

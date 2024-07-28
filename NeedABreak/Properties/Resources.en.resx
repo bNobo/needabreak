@@ -249,4 +249,7 @@
   <data name="executer_au_demarrage_user_disabled" xml:space="preserve">
     <value>Run at startup (disabled by user)</value>
   </data>
+  <data name="translation_test" xml:space="preserve">
+    <value>Text in english</value>
+  </data>
 </root>

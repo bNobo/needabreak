@@ -237,6 +237,9 @@
   <data name="today_screen_time" xml:space="preserve">
     <value>Temps d'écran aujourd'hui : {0}</value>
   </data>
+  <data name="translation_test" xml:space="preserve">
+    <value>Texte en français</value>
+  </data>
   <data name="travail_habituel" xml:space="preserve">
     <value>Travail habituel</value>
   </data>

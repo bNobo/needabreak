@@ -421,6 +421,15 @@ namespace NeedABreak.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Texte en français.
+        /// </summary>
+        internal static string translation_test {
+            get {
+                return ResourceManager.GetString("translation_test", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Travail habituel.
         /// </summary>
         internal static string travail_habituel {
