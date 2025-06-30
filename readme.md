@@ -3,6 +3,7 @@
 ## Presentation
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FbNobo%2Fneedabreak.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FbNobo%2Fneedabreak?ref=badge_shield)
 [![Dependabot Updates](https://github.com/bNobo/needabreak/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/bNobo/needabreak/actions/workflows/dependabot/dependabot-updates)
+[![.NET Core Desktop - Build and pack](https://github.com/bNobo/needabreak/actions/workflows/build-and-pack.yml/badge.svg)](https://github.com/bNobo/needabreak/actions/workflows/build-and-pack.yml)
 
 NEED A BREAK! is an open source application intended to help you take care of your health while you work on a computer.
 It will encourage you to regularly have a break in order to avoid health issues like musculoskeletal disorders, headaches or eye strain.
