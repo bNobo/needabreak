@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup Condition="'$(OS)' != 'Windows_NT'">
+    <!-- Empêche le build complet sur Linux -->
+    <BuildingInsideVisualStudio>true</BuildingInsideVisualStudio>
+    <DesignTimeBuild>true</DesignTimeBuild>
+  </PropertyGroup>
+</Project>
