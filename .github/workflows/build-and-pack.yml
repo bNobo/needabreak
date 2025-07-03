@@ -39,8 +39,9 @@
 name: .NET Core Desktop - Build and pack
 
 on:
-  push:
-    branches: [ "root" ]
+  pull_request:
+    branches:
+      - 'Release/*'
 
 jobs:
 
