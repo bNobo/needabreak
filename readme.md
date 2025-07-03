@@ -170,7 +170,7 @@ xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
 The csproj file has to target Windows 10:
 
 ```xml
-<TargetFramework>net8.0-windows10.0.18362.0</TargetFramework>
+<TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
 ```
 
 And then it is possible to make use of the StartupTask class:
