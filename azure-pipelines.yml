@@ -11,8 +11,7 @@ steps:
       packageType: sdk
       version: '8.0.117'
 
-  - script: dotnet restore NeedABreak.Updater.sln
-    displayName: 'dotnet restore'
-
-  - script: dotnet build --configuration Release NeedABreak.Updater.sln
-    displayName: 'dotnet build'
+  - task: dependabot@2
+    inputs:
+      gitHubConnection: 'bNobo'
+      gitHubAccessToken: '$(GITHUB_PAT)'
