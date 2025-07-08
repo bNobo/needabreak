@@ -9,7 +9,7 @@ steps:
   - task: UseDotNet@2
     inputs:
       packageType: sdk
-      version: '8.0.x'
+      version: '8.0.117'
 
   - script: dotnet restore
     displayName: 'dotnet restore'
