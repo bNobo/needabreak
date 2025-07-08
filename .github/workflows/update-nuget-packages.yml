@@ -2,7 +2,7 @@ name: Update NuGet packages
 
 on:
   schedule:
-    - cron: '0 3 * * 1'  # Chaque lundi à 03:00 UTC
+    - cron: '0 3 * * 1'   # Chaque lundi à 03:00 UTC
   workflow_dispatch:      # Déclenchement manuel possible
 
 permissions:
@@ -37,7 +37,7 @@ jobs:
           echo "BRANCH_NAME=$branchName" | Out-File -FilePath $env:GITHUB_ENV -Append
 
       - name: Run dotnet-outdated and upgrade packages
-        run: dotnet outdated -u --include-auto-references --fail-on-updates
+        run: dotnet outdated -u --include-auto-references --fail-on-updates NeedABreak.Updater.sln
 
       - name: Commit changes
         run: |
