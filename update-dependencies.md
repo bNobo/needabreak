@@ -3,7 +3,7 @@
 ## Pre-requisites
 
 - dotnet-outdated installed `dotnet tool install --global dotnet-outdated-tool`
-- GitHub CLI installed `gh auth login`
+- GitHub CLI installed `choco install gh` then `gh auth login`
 - Git installed
 
 ## Steps

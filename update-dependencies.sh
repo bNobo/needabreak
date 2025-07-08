@@ -5,7 +5,7 @@ set -e  # Stop on error
 # 💡 Config personnalisable
 REPO_URL="https://github.com/bNobo/needabreak.git"
 BRANCH_NAME="Bump/packages-$(date +%Y%m%d)"
-WORKDIR="."
+WORKDIR="./update-needabreak"
 BASE_BRANCH="root"
 
 # 👉 Déplace-toi dans un dossier de travail
@@ -16,10 +16,10 @@ cd "$WORKDIR"
 if [ ! -d ".git" ]; then
   git clone "$REPO_URL" .
 else
-  git reset --hard
-  git clean -fd
+  git fetch origin
+  git reset --hard origin/"$BASE_BRANCH"
+  git clean -fdx
   git checkout "$BASE_BRANCH"
-  git pull origin "$BASE_BRANCH"
 fi
 
 # 🔀 Crée une nouvelle branche
