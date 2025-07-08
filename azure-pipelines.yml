@@ -11,8 +11,8 @@ steps:
       packageType: sdk
       version: '8.0.117'
 
-  - script: dotnet restore
+  - script: dotnet restore NeedABreak.Updater.sln
     displayName: 'dotnet restore'
 
-  - script: dotnet build --configuration Release
+  - script: dotnet build --configuration Release NeedABreak.Updater.sln
     displayName: 'dotnet build'
