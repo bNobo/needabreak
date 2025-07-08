@@ -125,7 +125,6 @@
     </PackageReference>
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
-    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters" Version="1.4.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.1" />
   </ItemGroup>
   <ItemGroup>
