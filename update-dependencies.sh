@@ -22,6 +22,12 @@ else
   git checkout "$BASE_BRANCH"
 fi
 
+# 🔁 Supprime la branche locale si elle existe déjà
+if git rev-parse --verify "$BRANCH_NAME" >/dev/null 2>&1; then
+  echo "⚠️  La branche $BRANCH_NAME existe déjà localement, suppression..."
+  git branch -D "$BRANCH_NAME"
+fi
+
 # 🔀 Crée une nouvelle branche
 git checkout -b "$BRANCH_NAME"
 
