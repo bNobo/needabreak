@@ -37,7 +37,7 @@ jobs:
           echo "BRANCH_NAME=$branchName" | Out-File -FilePath $env:GITHUB_ENV -Append
 
       - name: Run dotnet-outdated and upgrade packages
-        run: dotnet outdated -u --include-auto-references --fail-on-updates NeedABreak.Updater.sln
+        run: dotnet outdated -u --include-auto-references NeedABreak.Updater.sln
 
       - name: Commit changes
         run: |
