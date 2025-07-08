@@ -26,7 +26,7 @@ fi
 git checkout -b "$BRANCH_NAME"
 
 # ✅ Exécute dotnet outdated
-dotnet outdated -u --include-auto-references
+dotnet outdated -u --include-auto-references NeedABreak.Updater.sln
 
 # 📦 Vérifie s’il y a eu des changements
 if git diff --quiet; then
