@@ -10,7 +10,7 @@
   <Identity
     Name="4467bNobo.NEEDABREAK"
     Publisher="CN=1B1E808E-4CEE-4CCF-A0BA-C633235E9947"
-    Version="3.0.11.0" />
+    Version="3.0.12.0" />
 
   <Properties>
     <DisplayName>NEED A BREAK!</DisplayName>
