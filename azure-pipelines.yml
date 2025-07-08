@@ -1,0 +1,18 @@
+trigger: none  # pas de déclenchement automatique
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+  - checkout: self  # le dépôt GitHub est déjà lié
+
+  - task: UseDotNet@2
+    inputs:
+      packageType: sdk
+      version: '8.0.x'
+
+  - script: dotnet restore
+    displayName: 'dotnet restore'
+
+  - script: dotnet build --configuration Release
+    displayName: 'dotnet build'
