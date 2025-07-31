@@ -90,7 +90,7 @@ Use of P/Invoke to check current user notification state in order to automatical
 
 ```csharp
 [DllImport("shell32.dll")]
-static extern int SHQueryUserNotificationStte(outUserNotificationStateuserNotificationState);
+static extern int SHQueryUserNotificationState(out UserNotificationState userNotificationState);
 ```
 
 Use of P/Invoke to ensure user is idle before poping-up the countdown window:
