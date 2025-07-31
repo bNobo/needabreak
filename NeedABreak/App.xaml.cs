@@ -217,7 +217,7 @@ namespace NeedABreak
             }
         }
 
-        private async Task TimesUp()
+        internal static async Task TimesUp()
         {
             // stop timer to avoid reintrance in case user stay active for more than 60 seconds
             StopTimer();

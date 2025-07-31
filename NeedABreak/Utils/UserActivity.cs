@@ -71,11 +71,13 @@ namespace NeedABreak.Utils
             System.Diagnostics.Debug.WriteLine("RightButton State = {0}", GetAsyncKeyState(VK_RBUTTON));
 #endif
 
-            return GetAsyncKeyState(VK_LBUTTON) > 0 || GetAsyncKeyState(VK_MBUTTON) > 0 || GetAsyncKeyState(VK_RBUTTON) > 0;
+            return (GetAsyncKeyState(VK_LBUTTON) & 0x8000) != 0
+                || (GetAsyncKeyState(VK_MBUTTON) & 0x8000) != 0
+                || (GetAsyncKeyState(VK_RBUTTON) & 0x8000) != 0;
         }
 
         [DllImport("user32.dll")]
-        static extern ushort GetAsyncKeyState(ushort virtualKeyCode);
+        static extern short GetAsyncKeyState(int virtualKeyCode);
 
         const int VK_LBUTTON = 0x01;
         const int VK_MBUTTON = 0x04;
