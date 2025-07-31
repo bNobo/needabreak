@@ -38,7 +38,7 @@ You can install the latest version from the [Microsoft Store](https://www.micros
 
 If you prefer, you can download the version you want to install from the [Releases page](https://github.com/bNobo/needabreak/releases)
 
-> Starting with version 3.x you'll need Windows 10 minimum. If you have an older system, you should download a previous version from the Releases page. The latest version before 3.x was 2.3. Please note that previous versions won't benefit from new functionnalities and security updates. You should upgrade your system to benefit from the latest version.
+> Starting with version 3.x you'll need Windows 10 minimum. If you have an older system, you should download a previous version from the Releases page. The latest version before 3.x was 2.3. Please note that previous versions won't benefit from new functionalities and security updates. You should upgrade your system to benefit from the latest version.
 
 ## Get started
 
