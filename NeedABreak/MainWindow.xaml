@@ -132,6 +132,9 @@
                     <MenuItem Click="StartLockWorkStation_Click"
                               Header="Start lock workstation"
                               Visibility="{Binding IsDebug, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
+                    <MenuItem Click="TimesUp_Click"
+                              Header="Times up"
+                              Visibility="{Binding IsDebug, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>

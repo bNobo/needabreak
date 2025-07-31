@@ -400,5 +400,10 @@ namespace NeedABreak
             StartupTask startupTask = await StartupTask.GetAsync("NeedABreak.StartupTask");
             CheckStartupState(startupTask.State);
         }
+
+        private async void TimesUp_Click(object sender, RoutedEventArgs e)
+        {
+            await App.TimesUp();
+        }
     }
 }
