@@ -125,7 +125,7 @@
     </PackageReference>
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.6" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="11.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
